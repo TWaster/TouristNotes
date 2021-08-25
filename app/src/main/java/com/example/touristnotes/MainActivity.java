@@ -82,4 +82,10 @@ public class MainActivity extends AppCompatActivity {
         }
         return aList;
     }
+
+    public void onClick(View view) {
+        Intent i;
+        i = new Intent(this, UserSettingsActivity.class);
+        startActivity(i);
+    }
 }
