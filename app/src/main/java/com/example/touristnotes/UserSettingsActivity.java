@@ -34,6 +34,11 @@ public class UserSettingsActivity extends AppCompatActivity {
                     h = new Intent(this, SelectSubRegionsActivity.class);
                     startActivity(h);
                     break;
+                case R.id.button_back:
+                    Intent z;
+                    z = new Intent(this, MainActivity.class);
+                    startActivity(z);
+                    break;
 
 
             }
