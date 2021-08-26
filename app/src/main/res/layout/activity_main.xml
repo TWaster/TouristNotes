@@ -7,7 +7,6 @@
 
     tools:context=".MainActivity">
 
-
     <LinearLayout
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
@@ -30,14 +29,8 @@
 
             android:clipChildren="false"
             android:orientation="vertical"
-            android:padding="10dp">
-            <!-- Место под динамический список объектов коллекции -->
+            android:padding="10dp" />
 
-
-            <!-- ВЫГРУЗКА С МАШИНЫ ZET -->
-            
-            <!-- ################################################# -->
-        </ListView>
         <ProgressBar
             android:visibility="gone"
             android:id="@+id/progressBar"

@@ -35,8 +35,8 @@ public class SelectSubRegionsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        listView = (ListView) findViewById(R.id.listView);
+        setContentView(R.layout.select_sub_regions); //Выбор Layout отображения
+        listView = (ListView) findViewById(R.id.listView_subRegions); //Выбор нужного ID ListView
         loadJSONFromURL(JSON_URL);
 
     }
