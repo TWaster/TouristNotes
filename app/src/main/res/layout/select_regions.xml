@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SelectRegionActivity">
-
+    tools:context=".SelectRegionsActivity">
     <LinearLayout
-        android:id="@+id/LiearLayout1"
+        android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal"
@@ -37,7 +36,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LiearLayout1">
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,9 +47,16 @@
             android:clipChildren="false"
             android:orientation="vertical"
             android:padding="10dp">
-            <!-- Место под динамический список объектов коллекции -->
 
-
+            <ListView
+                android:id="@+id/listView_Regions"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="false"
+                android:clipChildren="false"
+                android:orientation="vertical"
+                android:padding="10dp"
+                tools:ignore="NestedScrolling" />
 
             <ProgressBar
                 android:visibility="gone"
@@ -61,8 +67,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-
 
             <!-- -->
 

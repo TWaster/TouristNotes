@@ -26,7 +26,7 @@ public class UserSettingsActivity extends AppCompatActivity {
                     break;
                 case R.id.region:
                     Intent j;
-                    j = new Intent(this, SelectRegionActivity.class);
+                    j = new Intent(this, SelectRegionsActivity.class);
                     startActivity(j);
                     break;
                 case R.id.sub_region:

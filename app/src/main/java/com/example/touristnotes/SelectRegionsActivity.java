@@ -2,12 +2,9 @@ package com.example.touristnotes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -19,7 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.touristnotes.JSONReaderURL.subRegionsRead;
+import com.example.touristnotes.JSONReaderURL.RegionsRead;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,7 +24,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class SelectSubRegionsActivity extends AppCompatActivity {
+public class SelectRegionsActivity extends AppCompatActivity {
 
     private static final String JSON_URL = "https://touristnotes.000webhostapp.com/";
 
@@ -36,8 +33,8 @@ public class SelectSubRegionsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.select_sub_regions); //Выбор Layout отображения
-        listView = (ListView) findViewById(R.id.listView_subRegions); //Выбор нужного ID ListView
+        setContentView(R.layout.select_regions); //Выбор Layout отображения
+        listView = (ListView) findViewById(R.id.listView_Regions); //Выбор нужного ID ListView
         loadJSONFromURL(JSON_URL);
     }
 
@@ -54,7 +51,7 @@ public class SelectSubRegionsActivity extends AppCompatActivity {
                             JSONArray jsonArray = object.getJSONArray("sub_regions"); //Название подгружаемого объекта JSON
                             ArrayList<JSONObject> listItems = getArrayListFromJSONArray(jsonArray);
 
-                            ListAdapter adapter = new subRegionsRead(getApplicationContext(), R.layout.list_item, R.id.sr_name, listItems);
+                            ListAdapter adapter = new RegionsRead(getApplicationContext(), R.layout.list_item, R.id.sr_name, listItems);
                             listView.setAdapter(adapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
