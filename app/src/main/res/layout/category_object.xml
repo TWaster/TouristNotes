@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SelectRegionsActivity">
+    tools:context=".CategoryObjectActivity">
+
     <LinearLayout
-        android:id="@+id/LinearLayout1"
+        android:id="@+id/LiearLayout1"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal"
@@ -17,47 +18,58 @@
             android:id="@+id/button_back"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:onClick="onClick"
             android:foreground="@drawable/back"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@color/cardview_shadow_start_color"
+            android:text="Категории"
+            android:textSize="30dp"
             android:gravity="center"
-            android:text="Выберите регион"
-            android:textSize="30dp" />
+            android:background="@color/cardview_shadow_start_color"/>
 
-    </LinearLayout>
+    </LinearLayout> <!-- Шапка -->
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LinearLayout1">
+        app:layout_constraintTop_toBottomOf="@+id/LiearLayout1">
 
-        <ListView
-            android:id="@+id/listView_Regions"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/cardview_light_background"
             android:clickable="false"
+
             android:clipChildren="false"
             android:orientation="vertical"
-            android:padding="10dp"
-            tools:ignore="NestedScrolling" />
-    </LinearLayout>
+            android:padding="10dp">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:columnCount="2">
+
+
+            </GridLayout>
+
+            <ProgressBar
+                android:visibility="gone"
+                android:id="@+id/progressBar_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

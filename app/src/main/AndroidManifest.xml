@@ -16,6 +16,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".CategoryObjectActivity"
+            android:exported="true" />
+        <activity
             android:name=".SelectSubRegionsActivity"
             android:exported="true" />
         <activity

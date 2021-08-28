@@ -30,46 +30,34 @@
 
     </LinearLayout> <!-- Шапка -->
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headCountries">
 
-        <LinearLayout
+        <ListView
+            android:id="@+id/listView_country"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/cardview_light_background"
+            android:layout_height="match_parent"
             android:clickable="false"
-
             android:clipChildren="false"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="10dp"
+            tools:ignore="NestedScrolling" />
+    </LinearLayout>
 
-            <ListView
-                android:id="@+id/listView_Countries"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clickable="false"
-                android:clipChildren="false"
-                android:orientation="vertical"
-                android:padding="10dp"
-                tools:ignore="NestedScrolling" />
-
-            <ProgressBar
-                android:visibility="gone"
-                android:id="@+id/progressBar_settings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-        </LinearLayout>
-    </ScrollView>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
