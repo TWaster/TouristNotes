@@ -37,7 +37,7 @@ public class SelectCountryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_country); //Выбор Layout отображения
-        listView = (ListView) findViewById(R.id.listView_Countries); //Выбор нужного ID ListView
+        listView = (ListView) findViewById(R.id.listView_country); //Выбор нужного ID ListView
         loadJSONFromURL(JSON_URL);
     }
 
