@@ -4,66 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CategoryObjectActivity">
-
+    tools:context=".ObjectSelectActivity">
     <LinearLayout
-        android:id="@+id/LiearLayout1"
+        android:id="@+id/headSubReg"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
             android:id="@+id/button_back"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:foreground="@drawable/back"/>
+            android:contentDescription="TODO"
+            android:foreground="@drawable/back"
+            android:onClick="onClick" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Категории"
-            android:textSize="30dp"
+            android:background="@android:color/holo_blue_dark"
             android:gravity="center"
-            android:background="@android:color/holo_blue_dark"/>
+            android:text="Выберите район"
+            android:textSize="30dp" />
 
-    </LinearLayout> <!-- Шапка -->
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LiearLayout1">
+        app:layout_constraintTop_toBottomOf="@+id/headSubReg">
 
-
-
-        <GridView
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/gridview"
+        <ListView
+            android:id="@+id/listView_subRegions"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:columnWidth="90dp"
-            android:gravity="center"
-            android:horizontalSpacing="30dp"
-            android:numColumns="2"
-            android:verticalSpacing="30dp"
-            android:layout_margin="20dp"/>
-
-        <ProgressBar
-            android:visibility="gone"
-            android:id="@+id/progressBar_settings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-
+            android:clickable="false"
+            android:clipChildren="false"
+            android:orientation="vertical"
+            android:padding="10dp"
+            tools:ignore="NestedScrolling" />
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
