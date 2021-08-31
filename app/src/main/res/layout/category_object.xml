@@ -30,7 +30,9 @@
 
     </LinearLayout> <!-- Шапка -->
 
+
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,7 +52,7 @@
             android:horizontalSpacing="30dp"
             android:numColumns="2"
             android:verticalSpacing="30dp"
-            android:layout_margin="20dp"/>
+            android:layout_margin="30dp"/>
 
         <ProgressBar
             android:visibility="gone"

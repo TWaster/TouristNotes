@@ -52,7 +52,7 @@ public class ImageTextAdapter extends BaseAdapter {
     }
 
 
-    public	Integer[] mThumbIds = { R.drawable.lake, R.drawable.monuments,
-            R.drawable.mountains, R.drawable.forest };
+    public	Integer[] mThumbIds = { R.drawable.pond, R.drawable.mountain,
+            R.drawable.obelisk,  R.drawable.tree };
 
 }
