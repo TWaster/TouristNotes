@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class SelectRegionsActivity extends AppCompatActivity {
 
-    private static final String JSON_URL = "http://travelesnotes.ru/api/readSubRegions.php";
+    private static final String JSON_URL = "http://travelesnotes.ru/api/readRegions.php";
 
     ListView listView;
 
@@ -48,7 +48,7 @@ public class SelectRegionsActivity extends AppCompatActivity {
                         progressBar.setVisibility(ListView.INVISIBLE);
                         try {
                             JSONObject object = new JSONObject(response);
-                            JSONArray jsonArray = object.getJSONArray("sub_regions"); //Название подгружаемого объекта JSON
+                            JSONArray jsonArray = object.getJSONArray("regions"); //Название подгружаемого объекта JSON
                             ArrayList<JSONObject> listItems = getArrayListFromJSONArray(jsonArray);
 
                             ListAdapter adapter = new RegionsRead(getApplicationContext(), R.layout.list_item, R.id.sr_name, listItems);
