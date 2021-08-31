@@ -27,60 +27,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String JSON_URL = "https://touristnotes.000webhostapp.com/";
-
-    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        listView = (ListView) findViewById(R.id.listView);
-        loadJSONFromURL(JSON_URL);
-
-    }
-    private void loadJSONFromURL(String url){
-        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        progressBar.setVisibility(ListView.VISIBLE);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-        new Response.Listener<String>(){
-            @Override
-            public void onResponse(String response){
-                progressBar.setVisibility(ListView.INVISIBLE);
-                try{
-                    JSONObject object = new JSONObject(response);
-                    JSONArray jsonArray = object.getJSONArray("sub_regions");
-                    ArrayList<JSONObject> listItems = getArrayListFromJSONArray(jsonArray);
-
-                    ListAdapter adapter = new subRegionsRead (getApplicationContext(),R.layout.list_item,R.id.sr_name,listItems);
-                    listView.setAdapter(adapter);
-                } catch (JSONException e){
-                    e.printStackTrace();
-                }
-            }
-
-        }, new Response.ErrorListener(){
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage(),Toast.LENGTH_SHORT).show();
-            }
-        });
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-    }
-
-    private  ArrayList<JSONObject> getArrayListFromJSONArray(JSONArray jsonArray){
-        ArrayList<JSONObject> aList = new ArrayList<JSONObject>();
-        try {
-            if(jsonArray != null){
-                for (int i = 0; i<jsonArray.length(); i++){
-                    aList.add(jsonArray.getJSONObject(i));
-                }
-            }
-        } catch (JSONException js){
-            js.printStackTrace();
-        }
-        return aList;
     }
 
     public void onClick(View view) {
