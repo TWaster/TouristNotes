@@ -29,7 +29,7 @@ import java.util.ArrayList;
 
 public class SelectSubRegionsActivity extends AppCompatActivity {
 
-    private static final String JSON_URL = "https://touristnotes.000webhostapp.com/";
+    private static final String JSON_URL = "http://travelesnotes.ru/api/readSubRegions.php";
 
     ListView listView;
 
