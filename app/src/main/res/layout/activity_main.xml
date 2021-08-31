@@ -50,6 +50,7 @@
             android:layout_height="60dp"
             android:layout_marginHorizontal="10dp"
             android:foreground="@drawable/category"
+            android:onClick="onClick"
             android:layout_marginVertical="5dp"/>
 
         <ImageButton

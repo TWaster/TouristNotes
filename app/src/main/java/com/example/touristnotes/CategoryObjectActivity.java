@@ -28,11 +28,17 @@ public class CategoryObjectActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.category_object);
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageTextAdapter(this));
 
         // gridview.setOnItemClickListener(gridviewOnItemClickListener);
+    }
+
+    public void onClick(View view) {
+        Intent i;
+        i = new Intent(this, MainActivity.class);
+        startActivity(i);
     }
 }

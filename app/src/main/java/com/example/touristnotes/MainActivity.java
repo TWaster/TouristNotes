@@ -14,9 +14,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+
     public void onClick(View view) {
-        Intent i;
-        i = new Intent(this, UserSettingsActivity.class);
-        startActivity(i);
+
+        switch (view.getId())
+        {
+            case R.id.button_settings:
+                Intent i;
+                i = new Intent(this, UserSettingsActivity.class);
+                startActivity(i);
+                break;
+            case R.id.category:
+                Intent j;
+                j = new Intent(this, CategoryObjectActivity.class);
+                startActivity(j);
+                break;
+
+        }
     }
 }
