@@ -33,7 +33,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,11 +42,8 @@
             android:id="@+id/listView_Regions"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clickable="false"
-            android:clipChildren="false"
-            android:orientation="vertical"
-            android:padding="10dp"
-            tools:ignore="NestedScrolling" />
+            android:layout_marginHorizontal="10dp" />
+
     </LinearLayout>
 
     <ProgressBar

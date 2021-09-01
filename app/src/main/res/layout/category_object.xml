@@ -33,7 +33,6 @@
 
 
     <LinearLayout
-
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -46,12 +45,7 @@
             android:id="@+id/listView_categories"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:columnWidth="90dp"
-            android:gravity="center"
-            android:horizontalSpacing="30dp"
-            android:numColumns="2"
-            android:verticalSpacing="30dp"
-            android:layout_margin="30dp"/>
+            android:layout_marginHorizontal="10dp" />
 
     </LinearLayout>
 

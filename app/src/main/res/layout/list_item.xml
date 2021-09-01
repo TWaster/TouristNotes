@@ -1,25 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    tools:ignore="UseCompoundDrawables">
 
     <TextView
         android:id="@+id/sr_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:visibility="gone"
-        android:text = "ID"
-        android:textSize="20sp"
-        />
+        android:textSize="20sp" />
 
+    <ImageView
+        android:id="@+id/li_img"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="3dp"
+        android:background="@android:drawable/ic_menu_gallery"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/sr_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Name"
+        android:layout_margin="10dp"
         android:textSize="20sp" />
 
 </LinearLayout>
