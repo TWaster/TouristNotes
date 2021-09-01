@@ -54,7 +54,7 @@ public class SelectSubRegionsActivity extends AppCompatActivity {
                             JSONArray jsonArray = object.getJSONArray("sub_regions"); //Название подгружаемого объекта JSON
                             ArrayList<JSONObject> listItems = getArrayListFromJSONArray(jsonArray);
 
-                            ListAdapter adapter = new subRegionsRead(getApplicationContext(), R.layout.list_item, R.id.sr_name, listItems);
+                            ListAdapter adapter = new subRegionsRead(getApplicationContext(), R.layout.list_item, R.id.li_name, listItems);
                             listView.setAdapter(adapter);
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -51,7 +51,7 @@ public class CategoryObjectActivity extends AppCompatActivity {
                             JSONArray jsonArray = object.getJSONArray("object_type"); //Название подгружаемого объекта JSON
                             ArrayList<JSONObject> listItems = getArrayListFromJSONArray(jsonArray);
 
-                            ListAdapter adapter = new RegionsRead(getApplicationContext(), R.layout.list_item, R.id.sr_name, listItems);
+                            ListAdapter adapter = new RegionsRead(getApplicationContext(), R.layout.list_item, R.id.li_name, listItems);
                             listView.setAdapter(adapter);
                         } catch (JSONException e) {
                             e.printStackTrace();

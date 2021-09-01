@@ -54,7 +54,7 @@ public class SelectCountryActivity extends AppCompatActivity {
                             JSONArray jsonArray = object.getJSONArray("countries"); //Название подгружаемого объекта JSON
                             ArrayList<JSONObject> listItems = getArrayListFromJSONArray(jsonArray);
 
-                            ListAdapter adapter = new CountriesRead(getApplicationContext(), R.layout.list_item, R.id.sr_name, listItems);
+                            ListAdapter adapter = new CountriesRead(getApplicationContext(), R.layout.list_item, R.id.li_name, listItems);
                             listView.setAdapter(adapter);
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -9,7 +9,7 @@
     tools:ignore="UseCompoundDrawables">
 
     <TextView
-        android:id="@+id/sr_id"
+        android:id="@+id/li_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -25,7 +25,7 @@
         android:contentDescription="TODO" />
 
     <TextView
-        android:id="@+id/sr_name"
+        android:id="@+id/li_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"

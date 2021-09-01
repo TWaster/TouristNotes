@@ -30,8 +30,8 @@ public class RegionsRead extends ArrayAdapter<JSONObject> {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View listViewItem = inflater.inflate(listLayout, null, false);
-        TextView sr_id = listViewItem.findViewById(R.id.sr_id);
-        TextView sr_name = listViewItem.findViewById(R.id.sr_name);
+        TextView sr_id = listViewItem.findViewById(R.id.li_id);
+        TextView sr_name = listViewItem.findViewById(R.id.li_name);
         try {
             sr_id.setText(usersList.get(position).getString("id"));
             sr_name.setText(usersList.get(position).getString("name"));

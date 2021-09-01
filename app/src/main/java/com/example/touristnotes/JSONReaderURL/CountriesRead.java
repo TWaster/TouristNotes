@@ -30,11 +30,13 @@ public class CountriesRead extends ArrayAdapter<JSONObject> {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View listViewItem = inflater.inflate(listLayout, null, false);
-        TextView sr_id = listViewItem.findViewById(R.id.sr_id);
-        TextView sr_name = listViewItem.findViewById(R.id.sr_name);
+        TextView c_id = listViewItem.findViewById(R.id.li_id);
+        TextView c_name = listViewItem.findViewById(R.id.li_name);
+        //TextView c_image = listViewItem.findViewById(R.id.li_img1);
         try {
-            sr_id.setText(usersList.get(position).getString("id"));
-            sr_name.setText(usersList.get(position).getString("name"));
+            c_id.setText(usersList.get(position).getString("id"));
+            c_name.setText(usersList.get(position).getString("name"));
+            //c_image.setText(usersList.get(position).getString("image"));
         } catch (JSONException je) {
             je.printStackTrace();
         }
