@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.category:
                 Intent j;
-                j = new Intent(this, CategoryObjectActivity.class);
+                j = new Intent(this, SelectCategoryActivity.class);
                 startActivity(j);
                 break;
 

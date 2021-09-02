@@ -16,7 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.touristnotes.JSONReaderURL.RegionsRead;
+import com.example.touristnotes.JSONReaderURL.CategoriesRead;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,7 +24,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class CategoryObjectActivity extends AppCompatActivity {
+public class SelectCategoryActivity extends AppCompatActivity {
 
     private static final String JSON_URL = "http://travelesnotes.ru/api/readCategories.php";
 
@@ -33,7 +33,7 @@ public class CategoryObjectActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.category_object);
+        setContentView(R.layout.select_category);
         listView = (ListView) findViewById(R.id.listView_categories); //Выбор нужного ID ListView
         loadJSONFromURL(JSON_URL);
     }
@@ -51,7 +51,7 @@ public class CategoryObjectActivity extends AppCompatActivity {
                             JSONArray jsonArray = object.getJSONArray("object_type"); //Название подгружаемого объекта JSON
                             ArrayList<JSONObject> listItems = getArrayListFromJSONArray(jsonArray);
 
-                            ListAdapter adapter = new RegionsRead(getApplicationContext(), R.layout.list_item, R.id.li_name, listItems);
+                            ListAdapter adapter = new CategoriesRead(getApplicationContext(), R.layout.list_item, R.id.li_name, listItems);
                             listView.setAdapter(adapter);
                         } catch (JSONException e) {
                             e.printStackTrace();

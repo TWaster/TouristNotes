@@ -4,56 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CategoryObjectActivity">
-
+    tools:context=".SelectObjectActivity">
     <LinearLayout
-        android:id="@+id/LiearLayout1"
+        android:id="@+id/headSubReg"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:onClick="onClick"
             android:id="@+id/button_back"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:foreground="@drawable/back"/>
+            android:contentDescription="TODO"
+            android:foreground="@drawable/back"
+            android:onClick="onClick" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Категории"
-            android:textSize="30dp"
+            android:background="@android:color/holo_blue_dark"
             android:gravity="center"
-            android:background="@android:color/holo_blue_dark"/>
-
-    </LinearLayout> <!-- Шапка -->
-
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LiearLayout1">
-
-        <ListView
-            android:id="@+id/listView_categories"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="10dp" />
+            android:text="Выберите район"
+            android:textSize="30dp" />
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headSubReg">
+
+        <ListView
+            android:id="@+id/listView_subRegions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="false"
+            android:clipChildren="false"
+            android:orientation="vertical"
+            android:padding="10dp"
+            tools:ignore="NestedScrolling" />
+    </LinearLayout>
+
     <ProgressBar
-        android:visibility="gone"
-        android:id="@+id/progressBar_categories"
+        android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
