@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Zet/AndroidStudioProjects/TouristNotes/app/src/main/res/drawable/ic_launcher_background.xml" value="0.21041666666666667" />
         <entry key="..\:/Users/Zet/AndroidStudioProjects/TouristNotes/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Zet/AndroidStudioProjects/TouristNotes/app/src/main/res/layout/category_object.xml" value="0.1" />
         <entry key="..\:/Users/Zet/AndroidStudioProjects/TouristNotes/app/src/main/res/layout/category_objects.xml" value="0.21041666666666667" />
@@ -15,6 +16,7 @@
         <entry key="..\:/Users/Zet/AndroidStudioProjects/TouristNotes/app/src/main/res/layout/select_region.xml" value="0.12760416666666666" />
         <entry key="..\:/Users/Zet/AndroidStudioProjects/TouristNotes/app/src/main/res/layout/select_regions.xml" value="0.19427083333333334" />
         <entry key="..\:/Users/Zet/AndroidStudioProjects/TouristNotes/app/src/main/res/layout/select_sub_regions.xml" value="0.12760416666666666" />
+        <entry key="..\:/Users/Zet/AndroidStudioProjects/TouristNotes/app/src/main/res/layout/user_profile.xml" value="0.264" />
         <entry key="..\:/Users/Zet/AndroidStudioProjects/TouristNotes/app/src/main/res/layout/user_settings.xml" value="0.2" />
       </map>
     </option>

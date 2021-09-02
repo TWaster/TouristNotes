@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -50,6 +49,7 @@
 
 
     </LinearLayout>
+
 <!--
     <GridLayout
         android:id="@+id/main_buttons"
@@ -272,9 +272,6 @@
 
 
         </androidx.cardview.widget.CardView>
-
-
-
 
     </GridLayout>
 

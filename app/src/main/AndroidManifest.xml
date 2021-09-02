@@ -16,6 +16,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".UserProfile"
+            android:exported="true" />
+        <activity
             android:name=".SelectObjectActivity"
             android:exported="true" />
         <activity
