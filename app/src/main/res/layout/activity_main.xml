@@ -107,7 +107,7 @@
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="400dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -116,7 +116,9 @@
         app:layout_constraintVertical_bias="0.0"
         android:columnCount="2"
         android:rowCount="2"
-        android:layout_margin="30dp">
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
@@ -126,7 +128,7 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="10dp"
+            android:layout_margin="20dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp">
 
@@ -140,8 +142,8 @@
                 <ImageButton
                     android:id="@+id/category"
                     android:onClick="onClick"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:foreground="@drawable/category"
                     android:background="@color/design_default_color_surface"/>
 
@@ -165,7 +167,7 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="10dp"
+            android:layout_margin="20dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp">
 
@@ -179,8 +181,8 @@
                 <ImageButton
                     android:id="@+id/profile"
                     android:onClick="onClick"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:foreground="@drawable/profile"
                     android:background="@color/design_default_color_surface"/>
 
@@ -204,7 +206,7 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="10dp"
+            android:layout_margin="20dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp">
 
@@ -217,8 +219,8 @@
 
                 <ImageButton
                     android:id="@+id/achievments"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:foreground="@drawable/promote"
                     android:background="@color/design_default_color_surface"/>
 
@@ -226,6 +228,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Достижения"
+                    android:textSize="16dp"
                     style="@style/TextAppearance.AppCompat.Title"/>
 
 
@@ -242,7 +245,7 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="10dp"
+            android:layout_margin="20dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp">
 
@@ -256,8 +259,8 @@
                 <ImageButton
                     android:id="@+id/button_settings"
                     android:onClick="onClick"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:foreground="@drawable/settings"
                     android:background="@color/design_default_color_surface"/>
 
@@ -265,7 +268,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Настройки"
-                    style="@style/TextAppearance.AppCompat.Title"/>
+                    style="@style/TextAppearance.AppCompat.Title"
+                    />
 
 
             </LinearLayout>
