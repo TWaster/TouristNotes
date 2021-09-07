@@ -16,7 +16,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name=".LoginWindow"
+            android:name=".MainActivity"
             android:exported="true" />
         <activity
             android:name=".ObjectActivity"
@@ -42,13 +42,17 @@
         <activity
             android:name=".UserSettingsActivity"
             android:exported="true" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginWindow">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

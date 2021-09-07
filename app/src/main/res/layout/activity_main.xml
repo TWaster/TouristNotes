@@ -141,11 +141,11 @@
 
                 <ImageButton
                     android:id="@+id/category"
-                    android:onClick="onClick"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
+                    android:background="@color/design_default_color_surface"
                     android:foreground="@drawable/category"
-                    android:background="@color/design_default_color_surface"/>
+                    android:onClick="onClick" />
 
                 <TextView
                     android:layout_width="wrap_content"

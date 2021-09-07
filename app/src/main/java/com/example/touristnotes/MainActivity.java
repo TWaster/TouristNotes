@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -14,9 +13,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-
     public void onClick(View view) {
-
         switch (view.getId())
         {
             case R.id.button_settings:
@@ -29,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
                 j = new Intent(this, SelectCategoryActivity.class);
                 startActivity(j);
                 break;
-
         }
     }
 }
