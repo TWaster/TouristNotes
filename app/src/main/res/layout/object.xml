@@ -80,6 +80,9 @@
             android:background="@color/colorAccent" />
 
 
+
+
+
     </RelativeLayout>
 
     <LinearLayout
@@ -123,7 +126,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-        
+
+
+
     </LinearLayout>
 
 
