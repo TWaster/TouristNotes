@@ -26,6 +26,16 @@ public class MainActivity extends AppCompatActivity {
                 j = new Intent(this, SelectCategoryActivity.class);
                 startActivity(j);
                 break;
+            case R.id.profile:
+                Intent prof;
+                prof = new Intent(this, UserProfile.class);
+                startActivity(prof);
+                break;
+            case R.id.achievments:
+                Intent achiev;
+                achiev = new Intent(this, Achievements.class);
+                startActivity(achiev);
+                break;
         }
     }
 }
