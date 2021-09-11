@@ -22,12 +22,14 @@
             android:foreground="@drawable/back"/>
 
         <TextView
+            android:id="@+id/name_object"
             android:layout_width="290dp"
             android:layout_height="60dp"
             android:text="Наименование"
             android:textSize="30dp"
             android:gravity="center"
-            android:background="@android:color/holo_blue_dark"/>
+            android:background="@android:color/holo_blue_dark"
+            style="@style/TextAppearance.AppCompat.Title"/>
 
         <CheckBox
             android:id="@+id/flag_button"
@@ -79,14 +81,39 @@
             android:layout_marginBottom="147dp"
             android:background="@color/colorAccent" />
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignStart="@+id/image_object"
+            android:layout_alignLeft="@+id/image_object"
+            android:layout_alignTop="@+id/image_object"
+            android:layout_alignEnd="@+id/image_object"
+            android:layout_alignRight="@+id/image_object"
+            android:layout_alignBottom="@+id/image_object"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="141dp"
+            android:layout_marginEnd="311dp"
+            android:layout_marginRight="311dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="8dp">
 
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:foreground="@drawable/goe"
+                android:background="@color/design_default_color_background"/>
+
+
+        </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -112,7 +139,6 @@
             android:layout_marginRight="20dp"
             android:text="подробнее" />
 
-
     </LinearLayout>
 
 
@@ -123,7 +149,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-        
+
+
+
     </LinearLayout>
 
 

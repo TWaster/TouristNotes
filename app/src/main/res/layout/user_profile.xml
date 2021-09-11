@@ -57,40 +57,37 @@
             android:layout_height="20dp"
             android:text="NAME" />
 
+        <TextView
+            android:id="@+id/level_profile"
+            android:layout_width="70dp"
+            android:layout_height="20dp"
+            android:text="level"
+            android:gravity="center"
+            android:textSize="15dp"/>
+
         <!--поправить -->
 
     </LinearLayout>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
-        <LinearLayout
+        <ListView
+            android:id="@+id/listView_profile"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@color/cardview_light_background"
+            android:layout_height="match_parent"
             android:clickable="false"
-
             android:clipChildren="false"
             android:orientation="vertical"
-            android:padding="10dp">
-            <!-- Место под динамический список объектов коллекции -->
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="место для статистики и прочего дерьма"
-                style="@style/TextAppearance.AppCompat.Title"/>
-
-
-            <!-- -->
-        </LinearLayout>
-    </ScrollView>
-
-
-
+            android:padding="10dp"
+            tools:ignore="NestedScrolling" />
+    </LinearLayout>
 
 
 
