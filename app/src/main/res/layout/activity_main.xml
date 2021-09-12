@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/backgraund_forest">
 
     <LinearLayout
         android:id="@+id/LiearLayout1"
@@ -19,10 +20,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/holo_blue_dark"
+            android:background="#901e90ff"
             android:gravity="center"
             android:text="МЕСТО ДЛЯ ВЫГРУЗКИ ПУТИ И УРОВНЯ"
-            android:textSize="20dp" />
+            android:textSize="18dp"
+            style="@style/TextAppearance.AppCompat.Title"/>
 
 
 
@@ -32,21 +34,24 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LiearLayout1"
-        android:background="@color/cardview_dark_background">
+        app:layout_constraintTop_toBottomOf="@+id/LiearLayout1">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="место под SlidingImage"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@color/material_on_surface_disabled"
-            android:textSize="40dp"/>
 
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/image_slider"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:placeholder="@drawable/im1"
+            app:error_image="@drawable/im1"
+            app:auto_cycle="true"
+            app:period="5000"
+            app:delay="30"
+            app:corner_radius="5"
+            android:layout_margin="3dp"/>
 
     </LinearLayout>
 
@@ -117,8 +122,8 @@
         android:columnCount="2"
         android:rowCount="2"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
@@ -128,9 +133,10 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="20dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+            android:layout_margin="2dp"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="1dp"
+            app:cardBackgroundColor="#90ffffff">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -143,7 +149,7 @@
                     android:id="@+id/category"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:background="@color/design_default_color_surface"
+                    android:background="@android:color/transparent"
                     android:foreground="@drawable/category"
                     android:onClick="onClick" />
 
@@ -163,34 +169,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="0"
-            android:layout_column="1"
             android:layout_rowWeight="1"
+            android:layout_column="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="20dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+            android:layout_margin="2dp"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="1dp"
+            app:cardBackgroundColor="#90ffffff">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_gravity="center_vertical|center_horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/profile"
-                    android:onClick="onClick"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
+                    android:background="@android:color/transparent"
                     android:foreground="@drawable/profile"
-                    android:background="@color/design_default_color_surface"/>
+                    android:onClick="onClick" />
 
                 <TextView
+                    style="@style/TextAppearance.AppCompat.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="профиль"
-                    style="@style/TextAppearance.AppCompat.Title"/>
+                    android:text="профиль" />
 
 
             </LinearLayout>
@@ -206,9 +213,10 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="20dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+            android:layout_margin="2dp"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="1dp"
+            app:cardBackgroundColor="#90ffffff">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -223,7 +231,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:foreground="@drawable/promote"
-                    android:background="@color/design_default_color_surface"/>
+                    android:background="@android:color/transparent"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -246,9 +254,10 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="20dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+            android:layout_margin="2dp"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="1dp"
+            app:cardBackgroundColor="#90ffffff">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -263,7 +272,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:foreground="@drawable/settings"
-                    android:background="@color/design_default_color_surface"/>
+                    android:background="@android:color/transparent"/>
 
                 <TextView
                     android:layout_width="wrap_content"
