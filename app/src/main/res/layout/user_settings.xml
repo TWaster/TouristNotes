@@ -12,15 +12,17 @@
         android:layout_height="60dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#901e90ff">
 
         <ImageButton
             android:id="@+id/button_back"
             android:layout_width="58dp"
             android:layout_height="match_parent"
-            android:background="@android:color/holo_blue_dark"
-            android:foreground="@drawable/back"
-            android:onClick="onClick" />
+            android:background="@android:color/transparent"
+            android:foreground="@drawable/back_arrow"
+            android:onClick="onClick"
+            android:layout_margin="9dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -28,7 +30,7 @@
             android:text="Настройки"
             android:textSize="30dp"
             android:gravity="center"
-            android:background="@android:color/holo_blue_dark"/>
+            style="@style/TextAppearance.AppCompat.Title"/>
 
     </LinearLayout>
 
@@ -67,13 +69,17 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_margin="10dp"
                         android:id="@+id/person_photo"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
                         android:src="@drawable/cantry"/>
 
                     <TextView
@@ -118,8 +124,8 @@
 
                     <ImageView
                         android:id="@+id/person_region"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="10dp"
@@ -172,8 +178,8 @@
 
                     <ImageView
                         android:id="@+id/person_sub_region"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="10dp"
