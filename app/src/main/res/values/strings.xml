@@ -3,4 +3,8 @@
     <string name="hello_world">Hello world!!!</string>
     <string name="Category">Категории</string>
     <string name="Profile">Профиль</string>
+    <string name="EnterLogin">Введите логин</string>
+    <string name="EnterPassword">Введите пароль</string>
+    <string name="Login">Войти</string>
+    <string name="TouristNotes">Записки Туриста</string>
 </resources>

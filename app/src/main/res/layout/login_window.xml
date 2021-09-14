@@ -6,7 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".LoginWindow"
     android:background="@drawable/background_login">
-
     <TextView
         android:id="@+id/label"
         android:layout_width="wrap_content"
@@ -21,9 +20,8 @@
         android:layout_marginTop="90dp"
         android:fontFamily="sans-serif-black"
         android:gravity="center_horizontal"
-        android:text="Записки Туриста"
+        android:text="@string/TouristNotes"
         android:textSize="34pt" />
-
     <EditText
         android:id="@+id/u_login"
         android:layout_width="300dp"
@@ -41,13 +39,12 @@
         android:autofillHints="no"
         android:background="@drawable/et_round"
         android:gravity="center"
-        android:hint="Введите логин" />
-
+        android:hint="@string/EnterLogin" />
     <EditText
         android:id="@+id/u_password"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:hint="Введите пароль"
+        android:hint="@string/EnterPassword"
         android:layout_below="@+id/u_login"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -60,9 +57,7 @@
         android:layout_marginRight="55dp"
         android:background="@drawable/et_round"
         android:gravity="center"
-        android:autofillHints="no"
-        android:password="true" />
-
+        android:autofillHints="no" />
     <androidx.cardview.widget.CardView
         android:layout_width="300dp"
         android:layout_height="60dp"
@@ -78,7 +73,6 @@
         android:layout_marginBottom="10dp"
         android:layout_below="@+id/u_password"
         app:cardCornerRadius="15dp">
-
         <Button
             android:id="@+id/button_entrance"
             style="@style/TextAppearance.AppCompat.Title"
@@ -87,11 +81,7 @@
             android:layout_below="@+id/u_password"
             android:background="#FFFFFF"
             android:onClick="onClick"
-            android:text="Войти"
+            android:text="@string/Login"
             android:layout_gravity="center"/>
-
-
     </androidx.cardview.widget.CardView>
-
-
 </RelativeLayout>
