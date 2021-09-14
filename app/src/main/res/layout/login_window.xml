@@ -57,7 +57,8 @@
         android:layout_marginRight="55dp"
         android:background="@drawable/et_round"
         android:gravity="center"
-        android:autofillHints="no" />
+        android:autofillHints="no"
+        android:password="true" />
     <androidx.cardview.widget.CardView
         android:layout_width="300dp"
         android:layout_height="60dp"
