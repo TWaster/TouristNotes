@@ -27,25 +27,31 @@ import retrofit2.Response;
      public void onClick(View view) {
          EditText u_login = (EditText) findViewById(R.id.u_login); //Получем логин
          EditText u_pass = (EditText) findViewById(R.id.u_password); //Получаем пароль
-
+         //Переход
+         final Intent goto_home = new Intent();
+         goto_home.setClass(this, MainActivity.class);
          // Отправка лог/пасс в БД с проверкой
          NetworkService.getInstance()
                  .getJSONApi()
-                 //Разобраться как передать ОБЪЕКТ и принять его в API
                  .getStringScalar(new LoginData(u_login.getText().toString(), u_pass.getText().toString()))
-                 //.getPostWithID(1)
-                 //.LogUser("admin")
                  .enqueue(new Callback<LoginResult>() {
                      @Override
                      public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
                          LoginResult loginResult = response.body();
-                         Toast.makeText(LoginWindow.this, loginResult.getId() + "Успешно!", Toast.LENGTH_SHORT).show();
+                         if (loginResult.getUnique_key() != null) {
+                             startActivity(goto_home);
+                             finish();
+                             Toast.makeText(LoginWindow.this, "Успешно!", Toast.LENGTH_SHORT).show();
+                         } else {
+                             Toast.makeText(LoginWindow.this, "Ошибка!", Toast.LENGTH_SHORT).show();
+                         }
                      }
-
                      @Override
                      public void onFailure(Call<LoginResult> call, Throwable t) {
                          Toast.makeText(LoginWindow.this, "Ошибка!", Toast.LENGTH_SHORT).show();
                      }
                  });
+
+
      }
 }

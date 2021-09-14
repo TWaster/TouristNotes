@@ -11,12 +11,6 @@ import com.example.touristnotes.pojo.LoginResult;
 import com.example.touristnotes.pojo.UserLogin;
 
 public interface InterUserLogin {
-    @GET("/posts/{id}")
-    public Call<UserLogin> getPostWithID(@Path("id") int id);
-
-    @GET("/api/login.php/{login}")
-    public Call<UserLogin> LogUser(@Path("login") String log);
-
     @POST("/api/login.php")
     Call<LoginResult> getStringScalar(@Body LoginData body);
 

@@ -13,24 +13,20 @@ public class NetworkService {
     private NetworkService() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-
         OkHttpClient.Builder client = new OkHttpClient.Builder()
                 .addInterceptor(interceptor);
-
         mRetrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client.build())
                 .build();
     }
-
     public static NetworkService getInstance() {
         if (mInstance == null) {
             mInstance = new NetworkService();
         }
         return mInstance;
     }
-
     public InterUserLogin getJSONApi() {
         return mRetrofit.create(InterUserLogin.class);
     }
