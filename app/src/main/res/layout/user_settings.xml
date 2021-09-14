@@ -25,21 +25,14 @@
             android:layout_margin="9dp"/>
 
         <TextView
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Настройки"
             android:textSize="30dp"
             android:gravity="center"
-            style="@style/TextAppearance.AppCompat.Title"/>
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_marginRight="40dp"/>
 
-        <ImageButton
-            android:id="@+id/log_out"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:onClick="onClick"
-            android:background="@android:color/transparent"
-            android:foreground="@drawable/logout"
-            android:layout_margin="8dp" />
 
     </LinearLayout>
 
@@ -226,53 +219,18 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
-
-            <!--
-                        <TextView
-                            android:id="@+id/country"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:text="Страна: ***"
-                            android:textSize="30dp"
-                            android:gravity="center"
-                            android:onClick="onClick"
-                            android:background="@color/cardview_shadow_start_color"/>
-
-                        <TextView
-                            android:id="@+id/region"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:text="Регион: ***"
-                            android:textSize="30dp"
-                            android:gravity="center"
-                            android:onClick="onClick"
-                            android:background="@color/cardview_dark_background"/>
-
-                        <TextView
-                            android:id="@+id/sub_region"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:text="Район: ***"
-                            android:textSize="30dp"
-                            android:gravity="center"
-                            android:onClick="onClick"
-                            android:background="@color/design_default_color_secondary"/>
+            <TextView
+                android:id="@+id/log_out"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Выйти"
+                android:layout_gravity="right"
+                android:textColor="@color/colorPrimaryDark"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:onClick="onClick"
+                android:layout_marginLeft="10dp"/>
 
 
-
-
-                        <ProgressBar
-                            android:visibility="gone"
-                            android:id="@+id/progressBar_settings"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-
-            -->
 
         </LinearLayout>
     </ScrollView>
