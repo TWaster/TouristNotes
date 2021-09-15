@@ -22,6 +22,7 @@
         android:gravity="center_horizontal"
         android:text="@string/TouristNotes"
         android:textSize="34pt" />
+
     <EditText
         android:id="@+id/u_login"
         android:layout_width="300dp"
@@ -40,11 +41,11 @@
         android:background="@drawable/et_round"
         android:gravity="center"
         android:hint="@string/EnterLogin" />
+
     <EditText
         android:id="@+id/u_password"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:hint="@string/EnterPassword"
         android:layout_below="@+id/u_login"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -52,37 +53,72 @@
         android:layout_alignParentRight="true"
         android:layout_marginStart="55dp"
         android:layout_marginLeft="55dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="26dp"
         android:layout_marginEnd="55dp"
         android:layout_marginRight="55dp"
+        android:autofillHints="no"
         android:background="@drawable/et_round"
         android:gravity="center"
-        android:autofillHints="no"
+        android:hint="@string/EnterPassword"
         android:password="true" />
-    <androidx.cardview.widget.CardView
+
+    <Button
+        android:id="@+id/button_entrance"
+        style="@style/TextAppearance.AppCompat.Title"
         android:layout_width="300dp"
         android:layout_height="60dp"
+        android:layout_below="@+id/u_password"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_gravity="center"
         android:layout_marginStart="55dp"
         android:layout_marginLeft="55dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="54dp"
-        android:layout_marginRight="54dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="55dp"
         android:layout_marginBottom="10dp"
-        android:layout_below="@+id/u_password"
-        app:cardCornerRadius="15dp">
-        <Button
-            android:id="@+id/button_entrance"
-            style="@style/TextAppearance.AppCompat.Title"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/u_password"
-            android:background="#FFFFFF"
-            android:onClick="onClick"
-            android:text="@string/Login"
-            android:layout_gravity="center"/>
-    </androidx.cardview.widget.CardView>
+        android:background="@drawable/et_round"
+        android:onClick="onClick"
+        android:text="@string/Login" />
+
+    <Button
+        android:id="@+id/registration_button"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/button_entrance"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="55dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/et_round"
+        android:onClick="onClick"
+        android:text="РЕГИСТРАЦИЯ" />
+
+    <TextView
+        android:id="@+id/forget_password"
+        android:onClick="onClick"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/registration_button"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="352dp"
+        android:layout_marginLeft="352dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="54dp"
+        android:text="Забыли пароль?"
+        android:textColor="@color/design_default_color_surface"
+        android:textSize="20dp" />
+
+
 </RelativeLayout>
