@@ -24,12 +24,15 @@ import retrofit2.Response;
      public static final String APP_PREFERENCES_PASSWORD = "Password";
      SharedPreferences UserSP;
      Intent goto_home = new Intent();
-     boolean doubleBackToExitPressedOnce;
+     boolean doubleBackToExitPressedOnce = false;
 
      @Override
      public void onBackPressed() {
          if (doubleBackToExitPressedOnce) {
-             super.onBackPressed();
+             Intent startMain = new Intent(Intent.ACTION_MAIN);
+             startMain.addCategory(Intent.CATEGORY_HOME);
+             startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+             startActivity(startMain);
              return;
          }
          this.doubleBackToExitPressedOnce = true;
