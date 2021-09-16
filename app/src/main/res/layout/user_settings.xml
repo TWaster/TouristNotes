@@ -36,8 +36,6 @@
 
     </LinearLayout>
 
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -45,7 +43,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LiearLayout1">
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,8 +52,6 @@
             android:clipChildren="false"
             android:orientation="vertical"
             android:padding="10dp">
-
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -110,7 +105,6 @@
                         android:textSize="15dp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -164,7 +158,6 @@
                         android:textSize="15dp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -218,20 +211,17 @@
                         android:textSize="15dp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
-
             <TextView
                 android:id="@+id/log_out"
+                style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:text="Выйти"
                 android:layout_gravity="right"
-                android:textColor="@color/colorPrimaryDark"
-                style="@style/TextAppearance.AppCompat.Title"
-                android:onClick="onClick"
-                android:layout_marginLeft="10dp"/>
-
-
-
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:onClick="LogoutClick"
+                android:text="@string/Logout"
+                android:textColor="@color/colorPrimaryDark" />
         </LinearLayout>
     </ScrollView>
 

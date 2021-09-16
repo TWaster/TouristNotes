@@ -7,4 +7,5 @@
     <string name="EnterPassword">Введите пароль</string>
     <string name="Login">Войти</string>
     <string name="TouristNotes">Записки Туриста</string>
+    <string name="Logout">Выйти</string>
 </resources>
