@@ -38,7 +38,7 @@ import retrofit2.Response;
          }
      }
 
-     public void onClick(View view) {
+     public void LoginClick(View view) {
          final EditText u_login = (EditText) findViewById(R.id.u_login); //Получем логин
          final EditText u_pass = (EditText) findViewById(R.id.u_password); //Получаем пароль
          //Переход
