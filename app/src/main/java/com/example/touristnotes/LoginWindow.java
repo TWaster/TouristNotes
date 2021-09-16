@@ -1,7 +1,6 @@
 package com.example.touristnotes;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -26,6 +25,7 @@ import retrofit2.Response;
      Intent goto_home = new Intent();
      boolean doubleBackToExitPressedOnce = false;
 
+     //Действие "Назад"
      @Override
      public void onBackPressed() {
          if (doubleBackToExitPressedOnce) {
@@ -58,6 +58,7 @@ import retrofit2.Response;
          }
      }
 
+     //Кнопка "Войти"
      public void LoginClick(View view) {
          final EditText u_login = (EditText) findViewById(R.id.u_login); //Получем логин
          final EditText u_pass = (EditText) findViewById(R.id.u_password); //Получаем пароль
@@ -88,7 +89,15 @@ import retrofit2.Response;
                          Toast.makeText(LoginWindow.this, "Ошибка!", Toast.LENGTH_SHORT).show();
                      }
                  });
+     }
 
+     //Кнопка "Регистрация"
+     public void RegistrationClick(View view) {
+
+     }
+
+     //Кнопка "Забыл пароль"
+     public void ForgotPasswordClick(View view) {
 
      }
 }

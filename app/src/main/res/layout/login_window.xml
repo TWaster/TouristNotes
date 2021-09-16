@@ -98,6 +98,7 @@
         android:layout_marginRight="55dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/et_round"
+        android:onClick="RegistrationClick"
         android:text="РЕГИСТРАЦИЯ" />
 
     <TextView
@@ -114,6 +115,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="55dp"
         android:layout_marginRight="54dp"
+        android:onClick="ForgotPasswordClick"
         android:text="Забыли пароль?"
         android:textColor="@color/design_default_color_surface"
         android:textSize="20dp" />
