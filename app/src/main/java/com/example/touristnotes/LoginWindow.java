@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -23,7 +24,23 @@ import retrofit2.Response;
      public static final String APP_PREFERENCES_PASSWORD = "Password";
      SharedPreferences UserSP;
      Intent goto_home = new Intent();
+     boolean doubleBackToExitPressedOnce;
 
+     @Override
+     public void onBackPressed() {
+         if (doubleBackToExitPressedOnce) {
+             super.onBackPressed();
+             return;
+         }
+         this.doubleBackToExitPressedOnce = true;
+         Toast.makeText(this, "Нажмите ещё раз чтобы выйти", Toast.LENGTH_SHORT).show();
+         new Handler().postDelayed(new Runnable() {
+             @Override
+             public void run() {
+                 doubleBackToExitPressedOnce = false;
+             }
+         }, 2000);
+     }
      @Override
      protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
@@ -42,7 +59,6 @@ import retrofit2.Response;
          final EditText u_login = (EditText) findViewById(R.id.u_login); //Получем логин
          final EditText u_pass = (EditText) findViewById(R.id.u_password); //Получаем пароль
          //Переход
-
          goto_home.setClass(this, MainActivity.class);
          // Отправка лог/пасс в БД с проверкой
          NetworkService.getInstance()
