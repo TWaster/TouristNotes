@@ -24,7 +24,6 @@ import retrofit2.Response;
      SharedPreferences UserSP;
      Intent goto_home = new Intent();
      boolean doubleBackToExitPressedOnce = false;
-
      //Действие "Назад"
      @Override
      public void onBackPressed() {
@@ -57,7 +56,6 @@ import retrofit2.Response;
              finish();
          }
      }
-
      //Кнопка "Войти"
      public void LoginClick(View view) {
          final EditText u_login = (EditText) findViewById(R.id.u_login); //Получем логин
@@ -90,12 +88,10 @@ import retrofit2.Response;
                      }
                  });
      }
-
      //Кнопка "Регистрация"
      public void RegistrationClick(View view) {
 
      }
-
      //Кнопка "Забыл пароль"
      public void ForgotPasswordClick(View view) {
 

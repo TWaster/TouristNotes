@@ -1,7 +1,6 @@
 package com.example.touristnotes;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -24,13 +22,10 @@ import com.example.touristnotes.JSONReaderURL.CountriesRead;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 public class SelectCountryActivity extends AppCompatActivity {
-
     private static final String JSON_URL = "http://travelesnotes.ru/api/readCountries.php";
-
     ListView listView;
 
     @Override
