@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.touristnotes.R;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,6 +37,7 @@ public class subRegionsRead extends ArrayAdapter<JSONObject> {
         try {
             sr_id.setText(usersList.get(position).getString("id"));
             sr_name.setText(usersList.get(position).getString("name"));
+            Picasso.get().load(usersList.get(position).getString("image")).into((ImageView) listViewItem.findViewById(R.id.li_img));
         } catch (JSONException je) {
             je.printStackTrace();
         }
