@@ -90,10 +90,10 @@ import retrofit2.Response;
      }
      //Кнопка "Регистрация"
      public void RegistrationClick(View view) {
-
+         //Надо дописывать функционал с проверкой существования пользователя в приложении
      }
      //Кнопка "Забыл пароль"
      public void ForgotPasswordClick(View view) {
-
+         //Реализация сброса пароля пользователя по определённым условиям
      }
 }

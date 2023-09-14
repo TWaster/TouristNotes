@@ -157,7 +157,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Категории"
+                    android:text="@string/Category"
                     style="@style/TextAppearance.AppCompat.Title"/>
 
 
@@ -200,7 +200,7 @@
                     style="@style/TextAppearance.AppCompat.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="профиль" />
+                    android:text="@string/Profile" />
 
 
             </LinearLayout>
@@ -241,7 +241,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Достижения"
+                    android:text="@string/Achievements"
                     android:textSize="16dp"
                     style="@style/TextAppearance.AppCompat.Title"/>
 
@@ -283,7 +283,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Настройки"
+                    android:text="@string/Setings"
                     style="@style/TextAppearance.AppCompat.Title"
                     />
 

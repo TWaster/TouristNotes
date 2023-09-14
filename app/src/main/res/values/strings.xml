@@ -3,6 +3,8 @@
     <string name="hello_world">Hello world!!!</string>
     <string name="Category">Категории</string>
     <string name="Profile">Профиль</string>
+    <string name="Achievements">Достижения</string>
+    <string name="Setings">Настройки</string>
     <string name="EnterLogin">Введите логин</string>
     <string name="EnterPassword">Введите пароль</string>
     <string name="Login">Войти</string>
