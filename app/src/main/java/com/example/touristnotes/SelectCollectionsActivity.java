@@ -24,22 +24,22 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class SelectCategoryActivity extends AppCompatActivity {
+public class SelectCollectionsActivity extends AppCompatActivity {
 
-    private static final String JSON_URL = "http://travelesnotes.ru/api/readCategories.php";
+    private static final String JSON_URL = "http://travelesnotes.ru/api/readCollections.php";
 
     ListView listView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.select_category);
-        listView = (ListView) findViewById(R.id.listView_categories); //Выбор нужного ID ListView
+        setContentView(R.layout.select_collections);
+        listView = (ListView) findViewById(R.id.listView_collections); //Выбор нужного ID ListView
         loadJSONFromURL(JSON_URL);
     }
 
     private void loadJSONFromURL(String url) {
-        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar_categories);
+        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar_collections);
         progressBar.setVisibility(ListView.VISIBLE);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {

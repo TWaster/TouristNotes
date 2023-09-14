@@ -31,7 +31,7 @@
             android:name=".SelectObjectActivity"
             android:exported="true" />
         <activity
-            android:name=".SelectCategoryActivity"
+            android:name=".SelectCollectionsActivity"
             android:exported="true" />
         <activity
             android:name=".SelectSubRegionsActivity"

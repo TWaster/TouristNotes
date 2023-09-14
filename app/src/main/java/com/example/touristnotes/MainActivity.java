@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
                 i = new Intent(this, UserSettingsActivity.class);
                 startActivity(i);
                 break;
-            case R.id.category:
+            case R.id.collections:
                 Intent j;
-                j = new Intent(this, SelectCategoryActivity.class);
+                j = new Intent(this, SelectCollectionsActivity.class);
                 startActivity(j);
                 break;
             case R.id.profile:

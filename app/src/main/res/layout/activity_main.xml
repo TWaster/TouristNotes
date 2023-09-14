@@ -138,7 +138,7 @@
             app:cardElevation="1dp"
             app:cardBackgroundColor="#90ffffff"
             android:clickable="true"
-            android:id="@+id/category"
+            android:id="@+id/collections"
             android:onClick="onClick" >
 
             <LinearLayout
@@ -152,12 +152,12 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:background="@android:color/transparent"
-                    android:foreground="@drawable/category" />
+                    android:foreground="@drawable/collections" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Category"
+                    android:text="@string/Collection"
                     style="@style/TextAppearance.AppCompat.Title"/>
 
 
