@@ -14,12 +14,12 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class CategoriesRead extends ArrayAdapter<JSONObject> {
+public class CollectionsRead extends ArrayAdapter<JSONObject> {
     int listLayout;
     ArrayList<JSONObject> usersList;
     Context context;
 
-    public CategoriesRead(Context context, int listLayout, int field, ArrayList<JSONObject> usersList) {
+    public CollectionsRead(Context context, int listLayout, int field, ArrayList<JSONObject> usersList) {
         super(context, listLayout, field, usersList);
         this.context = context;
         this.listLayout = listLayout;

@@ -16,7 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.touristnotes.JSONReaderURL.CategoriesRead;
+import com.example.touristnotes.JSONReaderURL.CollectionsRead;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -51,7 +51,7 @@ public class SelectCollectionsActivity extends AppCompatActivity {
                             JSONArray jsonArray = object.getJSONArray("object_type"); //Название подгружаемого объекта JSON
                             ArrayList<JSONObject> listItems = getArrayListFromJSONArray(jsonArray);
 
-                            ListAdapter adapter = new CategoriesRead(getApplicationContext(), R.layout.list_item, R.id.li_name, listItems);
+                            ListAdapter adapter = new CollectionsRead(getApplicationContext(), R.layout.list_item, R.id.li_name, listItems);
                             listView.setAdapter(adapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
