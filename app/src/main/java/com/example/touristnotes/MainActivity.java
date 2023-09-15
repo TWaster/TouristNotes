@@ -47,6 +47,11 @@ public class MainActivity extends AppCompatActivity {
                 prof = new Intent(this, UserProfile.class);
                 startActivity(prof);
                 break;
+            case R.id.profile_image:
+                Intent prof_img;
+                prof_img = new Intent(this, UserProfile.class);
+                startActivity(prof_img);
+                break;
             case R.id.achievments:
                 Intent achiev;
                 achiev = new Intent(this, Achievements.class);

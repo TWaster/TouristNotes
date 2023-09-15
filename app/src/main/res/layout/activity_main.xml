@@ -39,9 +39,7 @@
             android:layout_toLeftOf="@+id/profile_image"
             android:gravity="center"
             android:text="1 lvl"
-            android:textSize="18sp">
-
-        </TextView>
+            android:textSize="18sp" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
@@ -53,7 +51,8 @@
             android:gravity="end"
             android:src="@drawable/im1"
             app:civ_border_color="#FFFFFF"
-            app:civ_border_width="1dp" />
+            app:civ_border_width="1dp"
+            android:onClick="onClick" />
 
     </RelativeLayout> <!-- Шапка -->
 
