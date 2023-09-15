@@ -14,7 +14,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,18 +22,11 @@ public class MainActivity extends AppCompatActivity {
         ImageSlider imageSlider = findViewById(R.id.image_slider);
         List<SlideModel> slideModels = new ArrayList<>();
 
-
         slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/1.png","Image 1"));
         slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/2.png","Image 2"));
         slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/3.png","Image 3"));
 
-
-
-
-
         imageSlider.setImageList(slideModels, true);
-
-
     }
 
     public void onClick(View view) {
