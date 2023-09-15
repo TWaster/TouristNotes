@@ -11,7 +11,7 @@
         android:id="@+id/RelativeLayout1"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#901e90ff"
+        android:background="@color/colorHead"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
