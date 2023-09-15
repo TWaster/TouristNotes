@@ -19,6 +19,7 @@
 
         <TextView
             style="@style/TextAppearance.AppCompat.Title"
+            android:id="@+id/CheckedRegion"
             android:layout_height="match_parent"
             android:layout_width="wrap_content"
             android:layout_alignParentStart="true"
@@ -26,8 +27,8 @@
             android:layout_toStartOf="@+id/profile_level"
             android:layout_toLeftOf="@+id/profile_level"
             android:gravity="center"
-            android:text="МЕСТО ДЛЯ ВЫГРУЗКИ РАЙОНА"
-            android:textSize="18dp" />
+            android:text="Выбранный район"
+            android:textSize="18sp" />
 
         <TextView
             style="@style/TextAppearance.AppCompat.Title"
@@ -38,7 +39,7 @@
             android:layout_toLeftOf="@+id/profile_image"
             android:gravity="center"
             android:text="1 lvl"
-            android:textSize="18dp">
+            android:textSize="18sp">
 
         </TextView>
 
