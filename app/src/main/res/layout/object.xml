@@ -7,7 +7,7 @@
     tools:context=".ObjectActivity">
 
     <LinearLayout
-        android:id="@+id/LiearLayout1"
+        android:id="@+id/RelativeLayout1"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal"
@@ -48,7 +48,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LiearLayout1">
+        app:layout_constraintTop_toBottomOf="@+id/RelativeLayout1">
 
         <ImageView
             android:id="@+id/image_object"
