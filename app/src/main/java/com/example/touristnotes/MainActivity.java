@@ -13,7 +13,10 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
-
+    //Предустановка Слайдера на Главной странице
+    //*****************************************************************************************
+    //В последствии настроить отображение слайдера на некоторые выборки из популярного контента
+    //*****************************************************************************************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         imageSlider.setImageList(slideModels, true);
     }
 
+    //События на клики Главная страница
     public void onClick(View view) {
         switch (view.getId())
         {

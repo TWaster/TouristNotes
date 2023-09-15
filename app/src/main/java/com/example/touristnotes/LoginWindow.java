@@ -9,9 +9,11 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+//Самописные классы для процесса логирования
 import com.example.touristnotes.JSONReaderURL.NetworkService;
 import com.example.touristnotes.pojo.LoginData;
 import com.example.touristnotes.pojo.LoginResult;
+//Библиотеки для работы с API
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
