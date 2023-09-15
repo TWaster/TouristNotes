@@ -23,14 +23,14 @@ public class UserSettingsActivity extends AppCompatActivity {
     }
 
     public void LogoutClick(View view) {
-        //Очистка
+        //Очистка SharedPreferences
         UserSP = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         @SuppressLint("CommitPrefEdits")
         SharedPreferences.Editor editor = UserSP.edit();
         editor.putString(APP_PREFERENCES_NAME, null);
         editor.putString(APP_PREFERENCES_PASSWORD, null);
         editor.apply();
-        //Переход
+        //Переход на окно Логин/Регистрация
         goto_login.setClass(this, LoginWindow.class);
         startActivity(goto_login);
         finish();
