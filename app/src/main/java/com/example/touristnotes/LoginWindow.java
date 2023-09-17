@@ -13,6 +13,9 @@ import android.widget.Toast;
 import com.example.touristnotes.JSONReaderURL.NetworkService;
 import com.example.touristnotes.pojo.LoginData;
 import com.example.touristnotes.pojo.LoginResult;
+import com.example.touristnotes.pojo.RegistrationData;
+import com.example.touristnotes.pojo.RegistrationResult;
+
 //Библиотеки для работы с API
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -100,9 +103,23 @@ import retrofit2.Response;
          final EditText u_login = (EditText) findViewById(R.id.u_login); //Получем логин
          final EditText u_pass = (EditText) findViewById(R.id.u_password); //Получаем пароль
          //Отправка лог/пасс для регистрации нового пользователя
+         Toast.makeText(LoginWindow.this, "Отправка данных для регистрации пользователя!", Toast.LENGTH_SHORT).show();
+
          NetworkService.getInstance()
                  .getJSONApiRegistration()
-                 .getStringScalarRegistration();
+                 .getStringScalarRegistration(new RegistrationData(u_login.getText().toString(), u_pass.getText().toString()))
+                 .enqueue(new Callback<RegistrationData>() {
+                     @Override
+                     public void onResponse(Call<RegistrationData> call, Response<RegistrationData> response) {
+                         Toast.makeText(LoginWindow.this, "Успешно!", Toast.LENGTH_SHORT).show();
+
+                     }
+
+                     @Override
+                     public void onFailure(Call<RegistrationData> call, Throwable t) {
+                         Toast.makeText(LoginWindow.this, "Ошибка!", Toast.LENGTH_SHORT).show();
+                     }
+                 });
      }
      //Кнопка "Забыл пароль"
      public void ForgotPasswordClick(View view) {

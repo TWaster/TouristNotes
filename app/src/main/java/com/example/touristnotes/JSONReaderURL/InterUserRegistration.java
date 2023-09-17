@@ -6,12 +6,11 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-import com.example.touristnotes.pojo.LoginData;
-import com.example.touristnotes.pojo.LoginResult;
-import com.example.touristnotes.pojo.UserLogin;
+import com.example.touristnotes.pojo.RegistrationData;
+import com.example.touristnotes.pojo.RegistrationResult;
 
 //Интерфейс JSON для Регистрации
 public interface InterUserRegistration {
     @POST("/api/registration.php")
-    Call<LoginData> getStringScalarRegistration(@Body LoginData body);
+    Call<RegistrationData> getStringScalarRegistration(@Body RegistrationData body);
 }
