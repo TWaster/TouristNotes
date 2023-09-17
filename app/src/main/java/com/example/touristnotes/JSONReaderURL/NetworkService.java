@@ -27,7 +27,13 @@ public class NetworkService {
         }
         return mInstance;
     }
-    public InterUserLogin getJSONApi() {
+
+    //Обявление Интерфейсов Логин/Регистрация
+    public InterUserLogin getJSONApiLogin() {
         return mRetrofit.create(InterUserLogin.class);
+    }
+
+    public InterUserRegistration getJSONApiRegistration() {
+        return mRetrofit.create(InterUserRegistration.class);
     }
 }

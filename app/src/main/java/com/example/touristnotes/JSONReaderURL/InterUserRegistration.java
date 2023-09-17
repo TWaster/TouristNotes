@@ -10,9 +10,8 @@ import com.example.touristnotes.pojo.LoginData;
 import com.example.touristnotes.pojo.LoginResult;
 import com.example.touristnotes.pojo.UserLogin;
 
-//Интерфейс JSON для Логина
-public interface InterUserLogin {
-    @POST("/api/login.php")
-    Call<LoginResult> getStringScalarLogin(@Body LoginData body);
+//Интерфейс JSON для Регистрации
+public interface InterUserRegistration {
+    @POST("/api/registration.php")
+    Call<LoginData> getStringScalarRegistration(@Body LoginData body);
 }
-

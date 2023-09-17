@@ -68,8 +68,8 @@ import retrofit2.Response;
          goto_home.setClass(this, MainActivity.class);
          // Отправка лог/пасс в БД с проверкой
          NetworkService.getInstance()
-                 .getJSONApi()
-                 .getStringScalar(new LoginData(u_login.getText().toString(), u_pass.getText().toString()))
+                 .getJSONApiLogin()
+                 .getStringScalarLogin(new LoginData(u_login.getText().toString(), u_pass.getText().toString()))
                  .enqueue(new Callback<LoginResult>() {
                      @Override
                      public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
@@ -97,6 +97,10 @@ import retrofit2.Response;
          //******************************************************************************
          //Надо дописывать функционал с проверкой существования пользователя в приложении
          //******************************************************************************
+         final EditText u_login = (EditText) findViewById(R.id.u_login); //Получем логин
+         final EditText u_pass = (EditText) findViewById(R.id.u_password); //Получаем пароль
+         //Отправка лог/пасс для регистрации нового пользователя
+
      }
      //Кнопка "Забыл пароль"
      public void ForgotPasswordClick(View view) {
