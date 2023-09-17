@@ -100,7 +100,9 @@ import retrofit2.Response;
          final EditText u_login = (EditText) findViewById(R.id.u_login); //Получем логин
          final EditText u_pass = (EditText) findViewById(R.id.u_password); //Получаем пароль
          //Отправка лог/пасс для регистрации нового пользователя
-
+         NetworkService.getInstance()
+                 .getJSONApiRegistration()
+                 .getStringScalarRegistration();
      }
      //Кнопка "Забыл пароль"
      public void ForgotPasswordClick(View view) {
