@@ -32,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
         imageSlider.setImageList(slideModels, true);
     }
 
+    //Функционал подгрузки Регион, Уровень, Аватарка
+    private static final String JSON_URL = "http://travelesnotes.ru/api/login.php";
+
+
     //События на клики Главная страница
     public void onClick(View view) {
         switch (view.getId())
