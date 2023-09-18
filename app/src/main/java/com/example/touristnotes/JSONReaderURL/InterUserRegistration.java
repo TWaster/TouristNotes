@@ -11,6 +11,6 @@ import com.example.touristnotes.pojo.RegistrationResult;
 
 //Интерфейс JSON для Регистрации
 public interface InterUserRegistration {
-    @POST("/api/registration.php")
+    @POST("/api/users/registration.php")
     Call<RegistrationData> getStringScalarRegistration(@Body RegistrationData body);
 }

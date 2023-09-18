@@ -12,7 +12,7 @@ import com.example.touristnotes.pojo.UserLogin;
 
 //Интерфейс JSON для Логина
 public interface InterUserLogin {
-    @POST("/api/login.php")
+    @POST("/api/users/login.php")
     Call<LoginResult> getStringScalarLogin(@Body LoginData body);
 }
 
