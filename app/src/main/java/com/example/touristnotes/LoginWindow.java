@@ -111,10 +111,18 @@ import retrofit2.Response;
                  .enqueue(new Callback<RegistrationResult>() {
                      @Override
                      public void onResponse(Call<RegistrationResult> call, Response<RegistrationResult> response) {
-                         //RegistrationResult registrationResult = response.body();
-
-                         Toast.makeText(LoginWindow.this, "Успешно!", Toast.LENGTH_SHORT).show();
-
+                         RegistrationResult registrationResult = response.body();
+                         if (registrationResult.getUnique_key() != null) {
+                             SharedPreferences.Editor editor = UserSP.edit();
+                             editor.putString(APP_PREFERENCES_NAME, u_login.getText().toString());
+                             editor.putString(APP_PREFERENCES_PASSWORD, u_pass.getText().toString());
+                             editor.apply();
+                             startActivity(goto_home);
+                             finish();
+                             Toast.makeText(LoginWindow.this, "Успешно!", Toast.LENGTH_SHORT).show();
+                         } else {
+                             Toast.makeText(LoginWindow.this, "Ошибка!", Toast.LENGTH_SHORT).show();
+                         }
                      }
 
                      @Override
