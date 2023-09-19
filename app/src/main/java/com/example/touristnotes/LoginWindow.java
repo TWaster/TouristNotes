@@ -108,15 +108,17 @@ import retrofit2.Response;
          NetworkService.getInstance()
                  .getJSONApiRegistration()
                  .getStringScalarRegistration(new RegistrationData(u_login.getText().toString(), u_pass.getText().toString()))
-                 .enqueue(new Callback<RegistrationData>() {
+                 .enqueue(new Callback<RegistrationResult>() {
                      @Override
-                     public void onResponse(Call<RegistrationData> call, Response<RegistrationData> response) {
+                     public void onResponse(Call<RegistrationResult> call, Response<RegistrationResult> response) {
+                         //RegistrationResult registrationResult = response.body();
+
                          Toast.makeText(LoginWindow.this, "Успешно!", Toast.LENGTH_SHORT).show();
 
                      }
 
                      @Override
-                     public void onFailure(Call<RegistrationData> call, Throwable t) {
+                     public void onFailure(Call<RegistrationResult> call, Throwable t) {
                          Toast.makeText(LoginWindow.this, "Ошибка!", Toast.LENGTH_SHORT).show();
                      }
                  });
