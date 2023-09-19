@@ -112,6 +112,8 @@ import retrofit2.Response;
                      @Override
                      public void onResponse(Call<RegistrationResult> call, Response<RegistrationResult> response) {
                          RegistrationResult registrationResult = response.body();
+                         //Регистрация работает, надо дописать логику после успешнйо регистрации пользователя
+                         //Определиться с логикой и передаваемыми параметрами
                          if (registrationResult.getUnique_key() != null) {
                              SharedPreferences.Editor editor = UserSP.edit();
                              editor.putString(APP_PREFERENCES_NAME, u_login.getText().toString());
