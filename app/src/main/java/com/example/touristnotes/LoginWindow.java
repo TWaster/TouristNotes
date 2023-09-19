@@ -119,7 +119,7 @@ import retrofit2.Response;
                              editor.apply();
                              startActivity(goto_home);
                              finish();
-                             Toast.makeText(LoginWindow.this, "Успешно!", Toast.LENGTH_SHORT).show();
+                             Toast.makeText(LoginWindow.this, "Успешная регистрация и вход!", Toast.LENGTH_SHORT).show();
                          } else {
                              Toast.makeText(LoginWindow.this, "Ошибка!", Toast.LENGTH_SHORT).show();
                          }
@@ -127,7 +127,7 @@ import retrofit2.Response;
 
                      @Override
                      public void onFailure(Call<RegistrationResult> call, Throwable t) {
-                         Toast.makeText(LoginWindow.this, "Ошибка!", Toast.LENGTH_SHORT).show();
+                         Toast.makeText(LoginWindow.this, "onFailure!", Toast.LENGTH_SHORT).show();
                      }
                  });
      }
