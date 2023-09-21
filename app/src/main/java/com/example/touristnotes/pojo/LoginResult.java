@@ -10,6 +10,7 @@ public class LoginResult {
     private int s_region;
     private int s_sub_region;
     private String unique_key;
+    private String message;
 
     public LoginResult(long id, String avatar, String nickname, String rank, int level, int s_contry, int s_region, int s_sub_region, String unique_key) {
         this.id = id;
@@ -21,6 +22,7 @@ public class LoginResult {
         this.s_region = s_region;
         this.s_sub_region = s_sub_region;
         this.unique_key = unique_key;
+        this.message = message;
     }
 
     //GET-методы для вывода в форму
@@ -60,6 +62,10 @@ public class LoginResult {
         return unique_key;
     }
 
+    public String getMessage() {
+        return message;
+    }
+
     //SET-методы для внесение изменений
     public void setId(long id) {
         this.id = id;
@@ -95,6 +101,10 @@ public class LoginResult {
 
     public void setUnique_key(String unique_key) {
         this.unique_key = unique_key;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     @Override
