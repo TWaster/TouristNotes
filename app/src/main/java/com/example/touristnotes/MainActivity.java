@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
+import android.graphics.Typeface;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
@@ -34,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
     //Функционал подгрузки Регион, Уровень, Аватарка
     private static final String JSON_URL = "http://travelesnotes.ru/api/login.php";
+
+    //TextView checkedRegion = findViewById(R.id.CheckedRegion);
+    //checkedRegion.setText("Республика");
 
 
     //События на клики Главная страница
