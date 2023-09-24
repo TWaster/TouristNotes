@@ -5,14 +5,14 @@ import java.io.Serializable;
 public class User implements Serializable {
     private String name;
     private String avatar;
-    private String country;
-    private String region;
-    private String sub_region;
+    private Integer country;
+    private Integer region;
+    private Integer sub_region;
     private Integer runk;
     private Integer level;
     private String unique_key;
 
-    public User(String name, String avatar, String country, String region, String sub_region, Integer runk, Integer level, String unique_key) {
+    public User(String name, String avatar, Integer country, Integer region, Integer sub_region, Integer runk, Integer level, String unique_key) {
         this.name = name;
         this.avatar = avatar;
         this.country = country;
@@ -31,15 +31,15 @@ public class User implements Serializable {
         this.avatar = avatar;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(Integer country) {
         this.country = country;
     }
 
-    public void setRegion(String region) {
+    public void setRegion(Integer region) {
         this.region = region;
     }
 
-    public void setSub_region(String sub_region) {
+    public void setSub_region(Integer sub_region) {
         this.sub_region = sub_region;
     }
 
@@ -63,15 +63,15 @@ public class User implements Serializable {
         return avatar;
     }
 
-    public String getCountry() {
+    public Integer getCountry() {
         return country;
     }
 
-    public String getRegion() {
+    public Integer getRegion() {
         return region;
     }
 
-    public String getSub_region() {
+    public Integer getSub_region() {
         return sub_region;
     }
 

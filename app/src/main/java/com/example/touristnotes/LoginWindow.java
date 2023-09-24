@@ -29,6 +29,8 @@ import retrofit2.Response;
      SharedPreferences UserSP;
      Intent goto_home = new Intent();
      boolean doubleBackToExitPressedOnce = false;
+
+
      //Действие "Назад"
      @Override
      public void onBackPressed() {
@@ -84,6 +86,16 @@ import retrofit2.Response;
                              editor.apply();
                              startActivity(goto_home);
                              finish();
+                             User userInfo = new User(
+                                     loginResult.getNickname(),
+                                     loginResult.getAvatar(),
+                                     loginResult.getS_contry(),
+                                     loginResult.getS_region(),
+                                     loginResult.getS_sub_region(),
+                                     loginResult.getRank(),
+                                     loginResult.getLevel(),
+                                     loginResult.getUnique_key()
+                             );
                              Toast.makeText(LoginWindow.this, loginResult.getMessage(), Toast.LENGTH_SHORT).show();
                          } else {
                              Toast.makeText(LoginWindow.this, loginResult.getMessage(), Toast.LENGTH_SHORT).show();

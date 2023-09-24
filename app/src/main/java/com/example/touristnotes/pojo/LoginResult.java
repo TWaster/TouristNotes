@@ -4,7 +4,7 @@ public class LoginResult {
     private long id;
     private String nickname;
     private String avatar;
-    private String rank;
+    private Integer rank;
     private int level;
     private int s_contry;
     private int s_region;
@@ -12,7 +12,7 @@ public class LoginResult {
     private String unique_key;
     private String message;
 
-    public LoginResult(long id, String avatar, String nickname, String rank, int level, int s_contry, int s_region, int s_sub_region, String unique_key) {
+    public LoginResult(long id, String avatar, String nickname, Integer rank, int level, int s_contry, int s_region, int s_sub_region, String unique_key) {
         this.id = id;
         this.avatar = avatar;
         this.nickname = nickname;
@@ -38,7 +38,7 @@ public class LoginResult {
         return nickname;
     }
 
-    public String getRank() {
+    public Integer getRank() {
         return rank;
     }
 
@@ -79,7 +79,7 @@ public class LoginResult {
         this.nickname = nickname;
     }
 
-    public void setRank(String rank) {
+    public void setRank(Integer rank) {
         this.rank = rank;
     }
 
