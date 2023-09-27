@@ -26,6 +26,8 @@ import retrofit2.Response;
      public static final String APP_PREFERENCES = "UserLoginSP";
      public static final String APP_PREFERENCES_NAME = "Login";
      public static final String APP_PREFERENCES_PASSWORD = "Password";
+     public static final String AP_Level = "level";
+     public static final String AP_avatar = "avatar";
      SharedPreferences UserSP;
      Intent goto_home = new Intent();
      boolean doubleBackToExitPressedOnce = false;
@@ -72,6 +74,7 @@ import retrofit2.Response;
          //Переход
          goto_home.setClass(this, MainActivity.class);
          // Отправка лог/пасс в БД с проверкой
+         final Intent intent = new Intent(this, MainActivity.class);
          NetworkService.getInstance()
                  .getJSONApiLogin()
                  .getStringScalarLogin(new LoginData(u_login.getText().toString(), u_pass.getText().toString()))
@@ -81,21 +84,15 @@ import retrofit2.Response;
                          LoginResult loginResult = response.body();
                          if (loginResult.getUnique_key() != null) {
                              SharedPreferences.Editor editor = UserSP.edit();
+
                              editor.putString(APP_PREFERENCES_NAME, u_login.getText().toString());
                              editor.putString(APP_PREFERENCES_PASSWORD, u_pass.getText().toString());
+                             editor.putInt(AP_Level, loginResult.getLevel());
+                             editor.putString(AP_avatar, loginResult.getAvatar());
+
                              editor.apply();
                              startActivity(goto_home);
                              finish();
-                             User userInfo = new User(
-                                     loginResult.getNickname(),
-                                     loginResult.getAvatar(),
-                                     loginResult.getS_contry(),
-                                     loginResult.getS_region(),
-                                     loginResult.getS_sub_region(),
-                                     loginResult.getRank(),
-                                     loginResult.getLevel(),
-                                     loginResult.getUnique_key()
-                             );
                              Toast.makeText(LoginWindow.this, loginResult.getMessage(), Toast.LENGTH_SHORT).show();
                          } else {
                              Toast.makeText(LoginWindow.this, loginResult.getMessage(), Toast.LENGTH_SHORT).show();
@@ -116,7 +113,7 @@ import retrofit2.Response;
          final EditText u_pass = (EditText) findViewById(R.id.u_password); //Получаем пароль
          //Отправка лог/пасс для регистрации нового пользователя
          Toast.makeText(LoginWindow.this, "Отправка данных для регистрации пользователя!", Toast.LENGTH_SHORT).show();
-
+         final Intent intent = new Intent(this, MainActivity.class);
          NetworkService.getInstance()
                  .getJSONApiRegistration()
                  .getStringScalarRegistration(new RegistrationData(u_login.getText().toString(), u_pass.getText().toString()))
@@ -130,6 +127,7 @@ import retrofit2.Response;
                              SharedPreferences.Editor editor = UserSP.edit();
                              editor.putString(APP_PREFERENCES_NAME, u_login.getText().toString());
                              editor.putString(APP_PREFERENCES_PASSWORD, u_pass.getText().toString());
+
                              editor.apply();
                              startActivity(goto_home);
                              finish();

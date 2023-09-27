@@ -1,20 +1,26 @@
 package com.example.touristnotes;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.graphics.Typeface;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
+
     //Предустановка Слайдера на Главной странице
     //*****************************************************************************************
     //В последствии настроить отображение слайдера на некоторые выборки из популярного контента
@@ -30,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
         slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/1.png","Image 1"));
         slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/2.png","Image 2"));
         slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/3.png","Image 3"));
-
         imageSlider.setImageList(slideModels, true);
+
     }
 
     //Функционал подгрузки Регион, Уровень, Аватарка

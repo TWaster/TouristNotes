@@ -4,7 +4,7 @@ public class RegistrationResult {
     private long id;
     private String nickname;
     private String avatar;
-    private String rank;
+    private Integer rank;
     private int level;
     private int s_contry;
     private int s_region;
@@ -12,7 +12,7 @@ public class RegistrationResult {
     private String unique_key;
     private String message;
 
-    public RegistrationResult(long id, String avatar, String nickname, String rank, int level, int s_contry, int s_region, int s_sub_region, String unique_key, String message) {
+    public RegistrationResult(long id, String avatar, String nickname, Integer rank, int level, int s_contry, int s_region, int s_sub_region, String unique_key, String message) {
         this.id = id;
         this.avatar = avatar;
         this.nickname = nickname;
@@ -38,7 +38,7 @@ public class RegistrationResult {
         return nickname;
     }
 
-    public String getRank() {
+    public Integer getRank() {
         return rank;
     }
 
@@ -79,7 +79,7 @@ public class RegistrationResult {
         this.nickname = nickname;
     }
 
-    public void setRank(String rank) {
+    public void setRank(Integer rank) {
         this.rank = rank;
     }
 
@@ -130,7 +130,7 @@ public class RegistrationResult {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + nickname.hashCode();
         result = 31 * result + avatar.hashCode();
-        result = 31 * result + rank.hashCode();
+        result = 31 * result + rank;
         result = 31 * result + level;
         result = 31 * result + s_contry;
         result = 31 * result + s_region;

@@ -38,7 +38,7 @@
             android:layout_toStartOf="@+id/profile_image"
             android:layout_toLeftOf="@+id/profile_image"
             android:gravity="center"
-            android:text="1 lvl"
+
             android:textSize="18sp" />
 
         <de.hdodenhof.circleimageview.CircleImageView
