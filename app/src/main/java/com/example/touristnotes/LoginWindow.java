@@ -1,6 +1,9 @@
 package com.example.touristnotes;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -26,12 +29,10 @@ import retrofit2.Response;
      public static final String APP_PREFERENCES = "UserLoginSP";
      public static final String APP_PREFERENCES_NAME = "Login";
      public static final String APP_PREFERENCES_PASSWORD = "Password";
-     public static final String AP_Level = "level";
-     public static final String AP_avatar = "avatar";
      SharedPreferences UserSP;
-     Intent goto_home = new Intent();
      boolean doubleBackToExitPressedOnce = false;
 
+     //Эксперименты с Intent
 
      //Действие "Назад"
      @Override
@@ -53,17 +54,22 @@ import retrofit2.Response;
          }, 2000);
      }
 
+
      //Проверка при запуске приложения на предыдущий вход пользователя
      @Override
      protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
+         final Intent intent = new Intent(this, MainActivity.class);
          setContentView(R.layout.login_window);
          UserSP = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
          if (UserSP.contains(APP_PREFERENCES_NAME) & UserSP.contains(APP_PREFERENCES_PASSWORD)) {
-             String SPLogin = UserSP.getString(APP_PREFERENCES_NAME, "");
-             String SPPass = UserSP.getString(APP_PREFERENCES_PASSWORD, "");
-             goto_home.setClass(this, MainActivity.class);
-             startActivity(goto_home);
+             UserSP.getString(APP_PREFERENCES_NAME, "");
+             UserSP.getString(APP_PREFERENCES_PASSWORD, "");
+             //goto_home.setClass(this, MainActivity.class);
+             //goto_home.putExtra("level", "99+ lvl");
+             //startActivity(goto_home);
+             intent.putExtra("level", "99+ lvl");
+             startActivity(intent);
              finish();
          }
      }
@@ -72,9 +78,10 @@ import retrofit2.Response;
          final EditText u_login = (EditText) findViewById(R.id.u_login); //Получем логин
          final EditText u_pass = (EditText) findViewById(R.id.u_password); //Получаем пароль
          //Переход
-         goto_home.setClass(this, MainActivity.class);
+         //goto_home.setClass(this, MainActivity.class);
          // Отправка лог/пасс в БД с проверкой
          final Intent intent = new Intent(this, MainActivity.class);
+
          NetworkService.getInstance()
                  .getJSONApiLogin()
                  .getStringScalarLogin(new LoginData(u_login.getText().toString(), u_pass.getText().toString()))
@@ -84,20 +91,20 @@ import retrofit2.Response;
                          LoginResult loginResult = response.body();
                          if (loginResult.getUnique_key() != null) {
                              SharedPreferences.Editor editor = UserSP.edit();
-
                              editor.putString(APP_PREFERENCES_NAME, u_login.getText().toString());
                              editor.putString(APP_PREFERENCES_PASSWORD, u_pass.getText().toString());
-                             editor.putInt(AP_Level, loginResult.getLevel());
-                             editor.putString(AP_avatar, loginResult.getAvatar());
-
                              editor.apply();
-                             startActivity(goto_home);
+                             //Описание передачи данных между Activity
+                             intent.putExtra("level", "99+ lvl");
+
+                             startActivity(intent);
                              finish();
                              Toast.makeText(LoginWindow.this, loginResult.getMessage(), Toast.LENGTH_SHORT).show();
                          } else {
                              Toast.makeText(LoginWindow.this, loginResult.getMessage(), Toast.LENGTH_SHORT).show();
                          }
                      }
+
                      @Override
                      public void onFailure(Call<LoginResult> call, Throwable t) {
                          Toast.makeText(LoginWindow.this, "Ошибка!", Toast.LENGTH_SHORT).show();
@@ -113,7 +120,6 @@ import retrofit2.Response;
          final EditText u_pass = (EditText) findViewById(R.id.u_password); //Получаем пароль
          //Отправка лог/пасс для регистрации нового пользователя
          Toast.makeText(LoginWindow.this, "Отправка данных для регистрации пользователя!", Toast.LENGTH_SHORT).show();
-         final Intent intent = new Intent(this, MainActivity.class);
          NetworkService.getInstance()
                  .getJSONApiRegistration()
                  .getStringScalarRegistration(new RegistrationData(u_login.getText().toString(), u_pass.getText().toString()))
@@ -129,7 +135,7 @@ import retrofit2.Response;
                              editor.putString(APP_PREFERENCES_PASSWORD, u_pass.getText().toString());
 
                              editor.apply();
-                             startActivity(goto_home);
+                             //startActivity(goto_home);
                              finish();
                              Toast.makeText(LoginWindow.this, registrationResult.getMessage(), Toast.LENGTH_SHORT).show();
                          } else {
@@ -149,4 +155,5 @@ import retrofit2.Response;
          //Реализация сброса пароля пользователя по определённым условиям
          //******************************************************************************
      }
-}
+
+ }

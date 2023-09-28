@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.graphics.Typeface;
+import android.widget.Toast;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
@@ -20,6 +21,7 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
+
 
     //Предустановка Слайдера на Главной странице
     //*****************************************************************************************
@@ -38,10 +40,15 @@ public class MainActivity extends AppCompatActivity {
         slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/3.png","Image 3"));
         imageSlider.setImageList(slideModels, true);
 
+        Bundle arguments = getIntent().getExtras();
+        String name = arguments.get("level").toString();
+        Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
+        //Значение переменной получили в новой форме, доработать вывод значения в текстовое поле "Уровень"
+
     }
 
     //Функционал подгрузки Регион, Уровень, Аватарка
-    private static final String JSON_URL = "http://travelesnotes.ru/api/login.php";
+    //private static final String JSON_URL = "http://travelesnotes.ru/api/login.php";
 
     //TextView checkedRegion = findViewById(R.id.CheckedRegion);
     //checkedRegion.setText("Республика");
