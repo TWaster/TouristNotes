@@ -22,7 +22,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    private TextView user_level;
     //Предустановка Слайдера на Главной странице
     //*****************************************************************************************
     //В последствии настроить отображение слайдера на некоторые выборки из популярного контента
@@ -40,19 +40,14 @@ public class MainActivity extends AppCompatActivity {
         slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/3.png","Image 3"));
         imageSlider.setImageList(slideModels, true);
 
-        Bundle arguments = getIntent().getExtras();
-        String name = arguments.get("level").toString();
-        Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
+        //Bundle arguments = getIntent().getExtras();
+        //String name = arguments.get("level").toString();
+        Toast.makeText(MainActivity.this, getIntent().getStringExtra("level"), Toast.LENGTH_SHORT).show();
         //Значение переменной получили в новой форме, доработать вывод значения в текстовое поле "Уровень"
+        user_level = (TextView) findViewById(R.id.profile_level);
+        user_level.setText(getIntent().getStringExtra("level"));
 
     }
-
-    //Функционал подгрузки Регион, Уровень, Аватарка
-    //private static final String JSON_URL = "http://travelesnotes.ru/api/login.php";
-
-    //TextView checkedRegion = findViewById(R.id.CheckedRegion);
-    //checkedRegion.setText("Республика");
-
 
     //События на клики Главная страница
     public void onClick(View view) {

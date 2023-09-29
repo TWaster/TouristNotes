@@ -2,8 +2,6 @@ package com.example.touristnotes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -31,8 +29,10 @@ import retrofit2.Response;
      public static final String APP_PREFERENCES_PASSWORD = "Password";
      SharedPreferences UserSP;
      boolean doubleBackToExitPressedOnce = false;
-
      //Эксперименты с Intent
+     //public Intent intent;
+
+
 
      //Действие "Назад"
      @Override
@@ -60,6 +60,7 @@ import retrofit2.Response;
      protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
          final Intent intent = new Intent(this, MainActivity.class);
+         //intent.setClass(this, MainActivity.class);
          setContentView(R.layout.login_window);
          UserSP = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
          if (UserSP.contains(APP_PREFERENCES_NAME) & UserSP.contains(APP_PREFERENCES_PASSWORD)) {
@@ -68,20 +69,22 @@ import retrofit2.Response;
              //goto_home.setClass(this, MainActivity.class);
              //goto_home.putExtra("level", "99+ lvl");
              //startActivity(goto_home);
+
              intent.putExtra("level", "99+ lvl");
              startActivity(intent);
              finish();
          }
      }
      //Кнопка "Войти"
+
      public void LoginClick(View view) {
          final EditText u_login = (EditText) findViewById(R.id.u_login); //Получем логин
          final EditText u_pass = (EditText) findViewById(R.id.u_password); //Получаем пароль
          //Переход
          //goto_home.setClass(this, MainActivity.class);
          // Отправка лог/пасс в БД с проверкой
+         //final Intent intent = new Intent(this, MainActivity.class);
          final Intent intent = new Intent(this, MainActivity.class);
-
          NetworkService.getInstance()
                  .getJSONApiLogin()
                  .getStringScalarLogin(new LoginData(u_login.getText().toString(), u_pass.getText().toString()))
@@ -94,8 +97,10 @@ import retrofit2.Response;
                              editor.putString(APP_PREFERENCES_NAME, u_login.getText().toString());
                              editor.putString(APP_PREFERENCES_PASSWORD, u_pass.getText().toString());
                              editor.apply();
+
                              //Описание передачи данных между Activity
-                             intent.putExtra("level", "99+ lvl");
+
+                             intent.putExtra("level", u_login.getText().toString());
 
                              startActivity(intent);
                              finish();
@@ -118,6 +123,7 @@ import retrofit2.Response;
          //******************************************************************************
          final EditText u_login = (EditText) findViewById(R.id.u_login); //Получем логин
          final EditText u_pass = (EditText) findViewById(R.id.u_password); //Получаем пароль
+         final Intent intent = new Intent(this, MainActivity.class);
          //Отправка лог/пасс для регистрации нового пользователя
          Toast.makeText(LoginWindow.this, "Отправка данных для регистрации пользователя!", Toast.LENGTH_SHORT).show();
          NetworkService.getInstance()
@@ -135,8 +141,8 @@ import retrofit2.Response;
                              editor.putString(APP_PREFERENCES_PASSWORD, u_pass.getText().toString());
 
                              editor.apply();
-                             //startActivity(goto_home);
-                             finish();
+                             intent.putExtra("level", "99+ lvl");
+                             startActivity(intent);
                              Toast.makeText(LoginWindow.this, registrationResult.getMessage(), Toast.LENGTH_SHORT).show();
                          } else {
                              Toast.makeText(LoginWindow.this, registrationResult.getMessage(), Toast.LENGTH_SHORT).show();

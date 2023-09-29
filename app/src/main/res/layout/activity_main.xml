@@ -33,12 +33,12 @@
         <TextView
             style="@style/TextAppearance.AppCompat.Title"
             android:id="@+id/profile_level"
-            android:layout_width="60dp"
             android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_toStartOf="@+id/profile_image"
             android:layout_toLeftOf="@+id/profile_image"
             android:gravity="center"
-
+            android:text="lvl"
             android:textSize="18sp" />
 
         <de.hdodenhof.circleimageview.CircleImageView
