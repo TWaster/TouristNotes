@@ -23,6 +23,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private TextView user_level;
+    private TextView user_set_region;
     //Предустановка Слайдера на Главной странице
     //*****************************************************************************************
     //В последствии настроить отображение слайдера на некоторые выборки из популярного контента
@@ -42,10 +43,12 @@ public class MainActivity extends AppCompatActivity {
 
         //Bundle arguments = getIntent().getExtras();
         //String name = arguments.get("level").toString();
-        Toast.makeText(MainActivity.this, getIntent().getStringExtra("level"), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(MainActivity.this, getIntent().getStringExtra("level"), Toast.LENGTH_SHORT).show();
         //Значение переменной получили в новой форме, доработать вывод значения в текстовое поле "Уровень"
         user_level = (TextView) findViewById(R.id.profile_level);
-        user_level.setText(getIntent().getStringExtra("level"));
+        user_level.setText(getIntent().getStringExtra("u_level") + " lvl");
+        user_set_region = (TextView) findViewById(R.id.CheckedRegion);
+        user_set_region.setText(getIntent().getStringExtra("u_region") + " lvl");
 
     }
 

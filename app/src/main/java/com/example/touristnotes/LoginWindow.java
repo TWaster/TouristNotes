@@ -29,10 +29,6 @@ import retrofit2.Response;
      public static final String APP_PREFERENCES_PASSWORD = "Password";
      SharedPreferences UserSP;
      boolean doubleBackToExitPressedOnce = false;
-     //Эксперименты с Intent
-     //public Intent intent;
-
-
 
      //Действие "Назад"
      @Override
@@ -60,17 +56,13 @@ import retrofit2.Response;
      protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
          final Intent intent = new Intent(this, MainActivity.class);
-         //intent.setClass(this, MainActivity.class);
          setContentView(R.layout.login_window);
          UserSP = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
          if (UserSP.contains(APP_PREFERENCES_NAME) & UserSP.contains(APP_PREFERENCES_PASSWORD)) {
              UserSP.getString(APP_PREFERENCES_NAME, "");
              UserSP.getString(APP_PREFERENCES_PASSWORD, "");
-             //goto_home.setClass(this, MainActivity.class);
-             //goto_home.putExtra("level", "99+ lvl");
-             //startActivity(goto_home);
 
-             intent.putExtra("level", "99+ lvl");
+             //intent.putExtra("level", "99+ lvl");
              startActivity(intent);
              finish();
          }
@@ -80,10 +72,7 @@ import retrofit2.Response;
      public void LoginClick(View view) {
          final EditText u_login = (EditText) findViewById(R.id.u_login); //Получем логин
          final EditText u_pass = (EditText) findViewById(R.id.u_password); //Получаем пароль
-         //Переход
-         //goto_home.setClass(this, MainActivity.class);
          // Отправка лог/пасс в БД с проверкой
-         //final Intent intent = new Intent(this, MainActivity.class);
          final Intent intent = new Intent(this, MainActivity.class);
          NetworkService.getInstance()
                  .getJSONApiLogin()
@@ -99,8 +88,19 @@ import retrofit2.Response;
                              editor.apply();
 
                              //Описание передачи данных между Activity
+                             intent.putExtra("u_name", loginResult.getNickname());
+                             intent.putExtra("u_avatar", loginResult.getAvatar());
+                             intent.putExtra("u_s_country", loginResult.getS_country());
+                             intent.putExtra("u_region", loginResult.getS_region());
+                             intent.putExtra("u_s_region", loginResult.getS_sub_region());
+                             intent.putExtra("u_rank", loginResult.getRank());
+                             intent.putExtra("u_level", loginResult.getLevel());
+                             intent.putExtra("u_unique_key", loginResult.getUnique_key());
+                             intent.putExtra("u_message", loginResult.getMessage());
 
-                             intent.putExtra("level", u_login.getText().toString());
+                             //Разобраться  с получнием пустых значений!
+
+
 
                              startActivity(intent);
                              finish();
@@ -141,7 +141,7 @@ import retrofit2.Response;
                              editor.putString(APP_PREFERENCES_PASSWORD, u_pass.getText().toString());
 
                              editor.apply();
-                             intent.putExtra("level", "99+ lvl");
+                             //intent.putExtra("level", "99+ lvl");
                              startActivity(intent);
                              Toast.makeText(LoginWindow.this, registrationResult.getMessage(), Toast.LENGTH_SHORT).show();
                          } else {
