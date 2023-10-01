@@ -100,6 +100,7 @@ import retrofit2.Response;
 
                              //Разобраться  с получнием пустых значений!
 
+                             //Выгружен перед переносом на новую WIn10
 
 
                              startActivity(intent);
