@@ -48,11 +48,12 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_gravity="end"
+            android:contentDescription="@string/Profile"
             android:gravity="end"
+            android:onClick="onClick"
             android:src="@drawable/im1"
             app:civ_border_color="#FFFFFF"
-            app:civ_border_width="1dp"
-            android:onClick="onClick" />
+            app:civ_border_width="1dp" />
 
     </RelativeLayout> <!-- Шапка -->
 
@@ -65,17 +66,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RelativeLayout1">
 
-
         <com.denzcoskun.imageslider.ImageSlider
             android:id="@+id/image_slider"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:placeholder="@drawable/im1"
-            app:error_image="@drawable/im1"
-            app:auto_cycle="true"
-            app:period="5000"
-            app:delay="30"
-            app:corner_radius="5"
+            app:iss_period="5000"
+            app:iss_delay="30"
+            app:iss_auto_cycle="true"
+            app:iss_error_image="@drawable/im1"
             android:layout_margin="3dp"/>
 
     </LinearLayout>
@@ -164,7 +162,8 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:background="@android:color/transparent"
-                    android:foreground="@drawable/profile"/>
+                    android:foreground="@drawable/profile"
+                    android:contentDescription="TODO" />
 
                 <TextView
                     style="@style/TextAppearance.AppCompat.Title"
@@ -202,11 +201,12 @@
                 android:gravity="center">
 
                 <ImageView
-                    android:onClick="onClick"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/Achievements"
                     android:foreground="@drawable/promote"
-                    android:background="@android:color/transparent"/>
+                    android:onClick="onClick" />
 
                 <TextView
                     android:layout_width="wrap_content"

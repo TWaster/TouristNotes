@@ -44,7 +44,8 @@
         <activity
             android:name=".UserSettingsActivity"
             android:exported="true" />
-        <activity android:name=".LoginWindow">
+        <activity android:name=".LoginWindow"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

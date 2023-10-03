@@ -13,8 +13,10 @@ import android.graphics.Typeface;
 import android.widget.Toast;
 
 
-//import com.denzcoskun.imageslider.ImageSlider;
-//import com.denzcoskun.imageslider.models.SlideModel;
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.models.SlideModel;
+
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -34,13 +36,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //ImageSlider imageSlider = findViewById(R.id.image_slider);
-        //List<SlideModel> slideModels = new ArrayList<>();
+        ImageSlider imageSlider = findViewById(R.id.image_slider);
+        List<SlideModel> slideModels = new ArrayList<>();
 
-        //slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/1.png","Image 1"));
-        //slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/2.png","Image 2"));
-        //slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/3.png","Image 3"));
-        //imageSlider.setImageList(slideModels, true);
+        //slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/1.png", ScaleTypes.valueOf("Image 1")));
+        //slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/2.png", ScaleTypes.valueOf("Image 2")));
+        //slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/3.png", ScaleTypes.valueOf("Image 3")));
+        //imageSlider.setImageList(slideModels);
 
         //Bundle arguments = getIntent().getExtras();
         //String name = arguments.get("level").toString();
