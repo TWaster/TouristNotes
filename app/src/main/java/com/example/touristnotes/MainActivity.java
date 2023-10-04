@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     //В последствии настроить отображение слайдера на некоторые выборки из популярного контента
     //*****************************************************************************************
     ImageSlider imageSlider;
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         //Toast.makeText(MainActivity.this, getIntent().getStringExtra("level"), Toast.LENGTH_SHORT).show();
         //Значение переменной получили в новой форме, доработать вывод значения в текстовое поле "Уровень"
         TextView user_level = (TextView) findViewById(R.id.profile_level);
-        user_level.setText(getIntent().getStringExtra("u_level") + " lvl");
+        user_level.setText(getIntent().getStringExtra("u_level") + " Ур.");
         TextView user_set_region = (TextView) findViewById(R.id.CheckedRegion);
         user_set_region.setText(getIntent().getStringExtra("u_region") + " lvl");
 

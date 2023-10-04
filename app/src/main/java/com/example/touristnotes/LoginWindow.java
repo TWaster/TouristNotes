@@ -1,5 +1,6 @@
 package com.example.touristnotes;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -61,7 +62,7 @@ import retrofit2.Response;
          if (UserSP.contains(APP_PREFERENCES_NAME) & UserSP.contains(APP_PREFERENCES_PASSWORD)) {
              UserSP.getString(APP_PREFERENCES_NAME, "");
              UserSP.getString(APP_PREFERENCES_PASSWORD, "");
-             //intent.putExtra("level", "99+ lvl");
+
              startActivity(intent);
              finish();
          }
@@ -78,7 +79,7 @@ import retrofit2.Response;
                  .getStringScalarLogin(new LoginData(u_login.getText().toString(), u_pass.getText().toString()))
                  .enqueue(new Callback<LoginResult>() {
                      @Override
-                     public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+                     public void onResponse(@NonNull Call<LoginResult> call, @NonNull Response<LoginResult> response) {
                          LoginResult loginResult = response.body();
                          if (loginResult.getUnique_key() != null) {
                              SharedPreferences.Editor editor = UserSP.edit();
@@ -111,7 +112,7 @@ import retrofit2.Response;
                      }
 
                      @Override
-                     public void onFailure(Call<LoginResult> call, Throwable t) {
+                     public void onFailure(@NonNull Call<LoginResult> call, @NonNull Throwable t) {
                          Toast.makeText(LoginWindow.this, "Ошибка!", Toast.LENGTH_SHORT).show();
                      }
                  });
@@ -131,7 +132,7 @@ import retrofit2.Response;
                  .getStringScalarRegistration(new RegistrationData(u_login.getText().toString(), u_pass.getText().toString()))
                  .enqueue(new Callback<RegistrationResult>() {
                      @Override
-                     public void onResponse(Call<RegistrationResult> call, Response<RegistrationResult> response) {
+                     public void onResponse(@NonNull Call<RegistrationResult> call, @NonNull Response<RegistrationResult> response) {
                          RegistrationResult registrationResult = response.body();
                          //Регистрация работает, надо дописать логику после успешнйо регистрации пользователя
                          //Определиться с логикой и передаваемыми параметрами
@@ -150,7 +151,7 @@ import retrofit2.Response;
                      }
 
                      @Override
-                     public void onFailure(Call<RegistrationResult> call, Throwable t) {
+                     public void onFailure(@NonNull Call<RegistrationResult> call, @NonNull Throwable t) {
                          Toast.makeText(LoginWindow.this, "Ошибка!", Toast.LENGTH_SHORT).show();
                      }
                  });
