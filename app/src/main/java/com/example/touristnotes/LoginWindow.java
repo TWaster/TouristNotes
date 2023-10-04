@@ -61,7 +61,6 @@ import retrofit2.Response;
          if (UserSP.contains(APP_PREFERENCES_NAME) & UserSP.contains(APP_PREFERENCES_PASSWORD)) {
              UserSP.getString(APP_PREFERENCES_NAME, "");
              UserSP.getString(APP_PREFERENCES_PASSWORD, "");
-
              //intent.putExtra("level", "99+ lvl");
              startActivity(intent);
              finish();

@@ -2,6 +2,7 @@ package com.example.touristnotes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -25,37 +26,36 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView user_level;
-    private TextView user_set_region;
     //Предустановка Слайдера на Главной странице
     //*****************************************************************************************
     //В последствии настроить отображение слайдера на некоторые выборки из популярного контента
     //*****************************************************************************************
+    ImageSlider imageSlider;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        imageSlider = (ImageSlider) findViewById(R.id.image_slider);
+        ArrayList<SlideModel> slideModels = new ArrayList<>();
 
-        ImageSlider imageSlider = findViewById(R.id.image_slider);
-        List<SlideModel> slideModels = new ArrayList<>();
-
-        //slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/1.png", ScaleTypes.valueOf("Image 1")));
-        //slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/2.png", ScaleTypes.valueOf("Image 2")));
-        //slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/3.png", ScaleTypes.valueOf("Image 3")));
-        //imageSlider.setImageList(slideModels);
+        slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/1.png", ScaleTypes.FIT));
+        slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/2.png", ScaleTypes.FIT));
+        slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/3.png", ScaleTypes.FIT));
+        imageSlider.setImageList(slideModels);
 
         //Bundle arguments = getIntent().getExtras();
         //String name = arguments.get("level").toString();
         //Toast.makeText(MainActivity.this, getIntent().getStringExtra("level"), Toast.LENGTH_SHORT).show();
         //Значение переменной получили в новой форме, доработать вывод значения в текстовое поле "Уровень"
-        user_level = (TextView) findViewById(R.id.profile_level);
+        TextView user_level = (TextView) findViewById(R.id.profile_level);
         user_level.setText(getIntent().getStringExtra("u_level") + " lvl");
-        user_set_region = (TextView) findViewById(R.id.CheckedRegion);
+        TextView user_set_region = (TextView) findViewById(R.id.CheckedRegion);
         user_set_region.setText(getIntent().getStringExtra("u_region") + " lvl");
 
     }
 
     //События на клики Главная страница
+    @SuppressLint("NonConstantResourceId")
     public void onClick(View view) {
         switch (view.getId())
         {
@@ -80,9 +80,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(prof_img);
                 break;
             case R.id.achievments:
-                Intent achiev;
-                achiev = new Intent(this, Achievements.class);
-                startActivity(achiev);
+                Intent achieve;
+                achieve = new Intent(this, Achievements.class);
+                startActivity(achieve);
                 break;
         }
     }
