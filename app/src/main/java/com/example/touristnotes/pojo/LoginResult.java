@@ -6,13 +6,13 @@ public class LoginResult {
     private String avatar;
     private Integer rank;
     private String level;
-    private int s_country;
+    private String s_country;
     private String s_region;
-    private int s_sub_region;
+    private String s_sub_region;
     private String unique_key;
     private String message;
 
-    public LoginResult(long id, String avatar, String nickname, Integer rank, String level, int s_country, String s_region, int s_sub_region, String unique_key) {
+    public LoginResult(long id, String avatar, String nickname, Integer rank, String level, String s_country, String s_region, String s_sub_region, String unique_key) {
         this.id = id;
         this.avatar = avatar;
         this.nickname = nickname;
@@ -46,7 +46,7 @@ public class LoginResult {
         return level;
     }
 
-    public int getS_country() {
+    public String getS_country() {
         return s_country;
     }
 
@@ -54,7 +54,7 @@ public class LoginResult {
         return s_region;
     }
 
-    public int getS_sub_region() {
+    public String getS_sub_region() {
         return s_sub_region;
     }
 
@@ -87,7 +87,7 @@ public class LoginResult {
         this.level = level;
     }
 
-    public void setS_country(int s_country) {
+    public void setS_country(String s_country) {
         this.s_country = s_country;
     }
 
@@ -95,7 +95,7 @@ public class LoginResult {
         this.s_region = s_region;
     }
 
-    public void setS_sub_region(int s_sub_region) {
+    public void setS_sub_region(String s_sub_region) {
         this.s_sub_region = s_sub_region;
     }
 
@@ -116,9 +116,9 @@ public class LoginResult {
 
         if (id != that.id) return false;
         if (!level.equals(that.level)) return false;
-        if (s_country != that.s_country) return false;
+        if (!s_country.equals(that.s_country)) return false;
         if (!s_region.equals(that.s_region)) return false;
-        if (s_sub_region != that.s_sub_region) return false;
+        if (!s_sub_region.equals(that.s_sub_region)) return false;
         if (!nickname.equals(that.nickname)) return false;
         if (!avatar.equals(that.avatar)) return false;
         if (!rank.equals(that.rank)) return false;
@@ -132,9 +132,9 @@ public class LoginResult {
         result = 31 * result + avatar.hashCode();
         result = 31 * result + rank.hashCode();
         result = 31 * result + level.hashCode();
-        result = 31 * result + s_country;
+        result = 31 * result + s_country.hashCode();
         result = 31 * result + s_region.hashCode();
-        result = 31 * result + s_sub_region;
+        result = 31 * result + s_sub_region.hashCode();
         result = 31 * result + unique_key.hashCode();
         return result;
     }

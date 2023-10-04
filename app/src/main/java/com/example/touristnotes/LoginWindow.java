@@ -60,11 +60,42 @@ import retrofit2.Response;
          setContentView(R.layout.login_window);
          UserSP = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
          if (UserSP.contains(APP_PREFERENCES_NAME) & UserSP.contains(APP_PREFERENCES_PASSWORD)) {
-             UserSP.getString(APP_PREFERENCES_NAME, "");
-             UserSP.getString(APP_PREFERENCES_PASSWORD, "");
+             String u_login = UserSP.getString(APP_PREFERENCES_NAME, "");
+             String u_password = UserSP.getString(APP_PREFERENCES_PASSWORD, "");
+             NetworkService.getInstance()
+                     .getJSONApiLogin()
+                     .getStringScalarLogin(new LoginData(u_login, u_password))
+                     .enqueue(new Callback<LoginResult>() {
+                         @Override
+                         public void onResponse(@NonNull Call<LoginResult> call, @NonNull Response<LoginResult> response) {
+                             LoginResult loginResult = response.body();
+                             if (loginResult.getUnique_key() != null) {
+                                 //Описание передачи данных между Activity
+                                 intent.putExtra("u_name", loginResult.getNickname());
+                                 intent.putExtra("u_avatar", loginResult.getAvatar());
+                                 intent.putExtra("u_s_country", loginResult.getS_country()); //с другой таблицы
+                                 intent.putExtra("u_region", loginResult.getS_region()); //с другой таблицы
+                                 intent.putExtra("u_s_region", loginResult.getS_sub_region()); //с другой таблицы
+                                 intent.putExtra("u_rank", loginResult.getRank());
+                                 intent.putExtra("u_level", loginResult.getLevel());
+                                 intent.putExtra("u_unique_key", loginResult.getUnique_key());
+                                 intent.putExtra("u_message", loginResult.getMessage());
+                                 //Разобраться  с получнием пустых значений!
+                                 Toast.makeText(LoginWindow.this, loginResult.getS_region(), Toast.LENGTH_SHORT).show();
 
-             startActivity(intent);
-             finish();
+                                 startActivity(intent);
+                                 finish();
+                                 Toast.makeText(LoginWindow.this, loginResult.getMessage(), Toast.LENGTH_SHORT).show();
+                             } else {
+                                 Toast.makeText(LoginWindow.this, loginResult.getMessage(), Toast.LENGTH_SHORT).show();
+                             }
+                         }
+
+                         @Override
+                         public void onFailure(@NonNull Call<LoginResult> call, @NonNull Throwable t) {
+                             Toast.makeText(LoginWindow.this, "Ошибка!", Toast.LENGTH_SHORT).show();
+                         }
+                     });
          }
      }
      //Кнопка "Войти"

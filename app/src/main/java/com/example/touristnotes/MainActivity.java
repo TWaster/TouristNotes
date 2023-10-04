@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         TextView user_level = (TextView) findViewById(R.id.profile_level);
         user_level.setText(getIntent().getStringExtra("u_level") + " Ур.");
         TextView user_set_region = (TextView) findViewById(R.id.CheckedRegion);
-        user_set_region.setText(getIntent().getStringExtra("u_region") + " lvl");
+        user_set_region.setText(getIntent().getStringExtra("u_region"));
 
     }
 
