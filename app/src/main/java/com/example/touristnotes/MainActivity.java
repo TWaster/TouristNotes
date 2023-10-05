@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     //*****************************************************************************************
     //В последствии настроить отображение слайдера на некоторые выборки из популярного контента
     //*****************************************************************************************
+    private ImageView userImageView;
     ImageSlider imageSlider;
     @SuppressLint("SetTextI18n")
     @Override
@@ -44,15 +45,14 @@ public class MainActivity extends AppCompatActivity {
         slideModels.add(new SlideModel("http://travelesnotes.ru/images/preview/3.png", ScaleTypes.FIT));
         imageSlider.setImageList(slideModels);
 
-        //Bundle arguments = getIntent().getExtras();
-        //String name = arguments.get("level").toString();
-        //Toast.makeText(MainActivity.this, getIntent().getStringExtra("level"), Toast.LENGTH_SHORT).show();
-        //Значение переменной получили в новой форме, доработать вывод значения в текстовое поле "Уровень"
         TextView user_level = (TextView) findViewById(R.id.profile_level);
         user_level.setText(getIntent().getStringExtra("u_level") + " Ур.");
         TextView user_set_region = (TextView) findViewById(R.id.CheckedRegion);
         user_set_region.setText(getIntent().getStringExtra("u_region"));
 
+        userImageView = findViewById(R.id.profile_image);
+        Toast.makeText(MainActivity.this, getIntent().getStringExtra("u_avatar"), Toast.LENGTH_SHORT).show();
+        Picasso.get().load(getIntent().getStringExtra("u_avatar")).into(userImageView);
     }
 
     //События на клики Главная страница

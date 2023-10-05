@@ -37,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_toStartOf="@+id/profile_image"
             android:layout_toLeftOf="@+id/profile_image"
+            android:layout_marginRight="5dp"
             android:gravity="center"
             android:text="lvl"
             android:textSize="18sp" />
