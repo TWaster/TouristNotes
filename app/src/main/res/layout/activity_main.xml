@@ -48,6 +48,7 @@
             android:layout_height="fill_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
             android:layout_gravity="end"
             android:contentDescription="@string/Profile"
             android:gravity="end"
