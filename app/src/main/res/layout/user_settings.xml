@@ -15,14 +15,14 @@
         app:layout_constraintTop_toTopOf="parent"
         android:background="#901e90ff">
 
-        <ImageButton
+        <!--<ImageButton
             android:id="@+id/button_back"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
             android:foreground="@drawable/back_arrow"
             android:onClick="onClick"
-            android:layout_margin="9dp"/>
+            android:layout_margin="9dp"/>-->
 
         <TextView
             android:layout_width="match_parent"
