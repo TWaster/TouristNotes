@@ -50,19 +50,21 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId())
         {
             case R.id.button_settings:
-                Intent i;
-                i = new Intent(this, UserSettingsActivity.class);
-                startActivity(i);
+                Intent settings;
+                settings = new Intent(this, UserSettingsActivity.class);
+                startActivity(settings);
                 break;
             case R.id.collections:
-                Intent j;
-                j = new Intent(this, SelectCollectionsActivity.class);
-                startActivity(j);
+                Intent collections;
+                collections = new Intent(this, SelectCollectionsActivity.class);
+                startActivity(collections);
                 break;
             case R.id.profile:
-                Intent prof;
-                prof = new Intent(this, UserProfile.class);
-                startActivity(prof);
+                //Intent profile;
+                //profile = new Intent(this, UserProfile.class);
+                final Intent intent_prof = new Intent(this, UserProfile.class);
+                
+                startActivity(intent_prof);
                 break;
             case R.id.profile_image:
                 Intent prof_img;
@@ -70,9 +72,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(prof_img);
                 break;
             case R.id.achievments:
-                Intent achieve;
-                achieve = new Intent(this, Achievements.class);
-                startActivity(achieve);
+                Intent achievments;
+                achievments = new Intent(this, Achievements.class);
+                startActivity(achievments);
                 break;
         }
     }

@@ -19,13 +19,14 @@
             android:id="@+id/button_back"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:foreground="@drawable/back"/>
+            android:foreground="@drawable/back"
+            android:contentDescription="backClick" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Профиль"
-            android:textSize="30dp"
+            android:text="@string/profile"
+            android:textSize="30sp"
             android:gravity="center"
             android:background="@android:color/holo_blue_dark"/>
     </LinearLayout> <!-- Шапка -->
@@ -34,7 +35,7 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
-        android:layout_height="210dp"
+        android:layout_height="wrap_content"
         android:background="#7FFBE9"
         android:gravity="center"
         android:orientation="vertical"
@@ -42,9 +43,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RelativeLayout1">
 
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
+            android:layout_marginVertical="5sp"
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:src="@drawable/im1"
@@ -53,17 +54,19 @@
 
         <TextView
             style="@style/TextAppearance.AppCompat.Title"
+            android:id="@+id/name_profile"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:text="NAME" />
 
         <TextView
             android:id="@+id/level_profile"
-            android:layout_width="70dp"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5sp"
             android:text="level"
             android:gravity="center"
-            android:textSize="15dp"/>
+            android:textSize="15sp"/>
 
         <!--поправить -->
 
@@ -88,7 +91,5 @@
             android:padding="10dp"
             tools:ignore="NestedScrolling" />
     </LinearLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,4 +12,5 @@
     <string name="TouristNotes">Записки Туриста</string>
     <string name="Logout">Выйти</string>
     <string name="lvl"> ур.</string>
+    <string name="profile">Профиль</string>
 </resources>

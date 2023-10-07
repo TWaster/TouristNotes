@@ -51,7 +51,6 @@ import retrofit2.Response;
          }, 2000);
      }
 
-
      //Проверка при запуске приложения на предыдущий вход пользователя
      @Override
      protected void onCreate(Bundle savedInstanceState) {
