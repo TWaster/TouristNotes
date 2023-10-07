@@ -8,26 +8,27 @@
 
     <LinearLayout
         android:id="@+id/RelativeLayout1"
+        android:background="@color/colorHead"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
+        <!--<ImageButton
             android:onClick="onClick"
             android:id="@+id/button_back"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:foreground="@drawable/back"/>
+            android:foreground="@drawable/back"/>-->
 
         <TextView
+            style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="@string/Collection"
-            android:textSize="30dp"
-            android:gravity="center"
-            android:background="@android:color/holo_blue_dark"/>
+            android:textSize="30sp"
+            android:gravity="center"/>
 
     </LinearLayout> <!-- Шапка -->
 

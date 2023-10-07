@@ -11,26 +11,26 @@
         android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@android:color/holo_blue_dark"
+        android:background="@color/colorHead"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
+        <!--<ImageButton
             android:id="@+id/button_back"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:onClick="onClick"
-            android:foreground="@drawable/back"/>
+            android:foreground="@drawable/back"/>-->
 
         <TextView
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="290dp"
             android:layout_height="60dp"
             android:gravity="center"
-            android:text="Достижения"
-            android:textSize="30dp" />
+            android:text="@string/achievements"
+            android:textSize="30sp"/>
 
         <TextView
             android:id="@+id/rating"
@@ -40,7 +40,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="x/y"
-            android:textSize="30dp" />
+            android:textSize="30sp" />
 
 
     </LinearLayout>
