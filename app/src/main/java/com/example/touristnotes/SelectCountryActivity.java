@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -37,13 +38,13 @@ public class SelectCountryActivity extends AppCompatActivity {
     }
 
     private void loadJSONFromURL(String url) {
-        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        progressBar.setVisibility(ListView.VISIBLE);
+        //final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        //progressBar.setVisibility(ListView.VISIBLE);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        progressBar.setVisibility(ListView.INVISIBLE);
+                        //progressBar.setVisibility(ListView.INVISIBLE);
                         try {
                             JSONObject object = new JSONObject(response);
                             JSONArray jsonArray = object.getJSONArray("countries"); //Название подгружаемого объекта JSON
@@ -51,11 +52,17 @@ public class SelectCountryActivity extends AppCompatActivity {
 
                             ListAdapter adapter = new CountriesRead(getApplicationContext(), R.layout.list_item, R.id.li_name, listItems);
                             listView.setAdapter(adapter);
+                            //Обработчик событий Click по элементам списка
+                            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                    //Log.d(LOG_TAG, "itemClick: position = " + position + ", id = " + id);
+                                    Toast.makeText(getApplicationContext(), "itemClick: position = " + position + ", id = " + id, Toast.LENGTH_SHORT).show();
+                                }
+                            });
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
-
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
