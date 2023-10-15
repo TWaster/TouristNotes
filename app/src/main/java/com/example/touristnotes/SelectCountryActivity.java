@@ -3,6 +3,8 @@ package com.example.touristnotes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,11 +33,18 @@ import retrofit2.Callback;
 public class SelectCountryActivity extends AppCompatActivity {
     private static final String JSON_URL = "http://travelesnotes.ru/api/readCountries.php";
     ListView listView;
+    // Информация о SharedPreferences
+    public static final String APP_PREFERENCES = "UserLoginSP";
+    public static final String APP_PREFERENCES_NAME = "Login";
+    SharedPreferences UserSP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_country); //Выбор Layout отображения
+        UserSP = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+
+
         listView = (ListView) findViewById(R.id.listView_country); //Выбор нужного ID ListView
         loadJSONFromURL();
     }
@@ -59,9 +68,10 @@ public class SelectCountryActivity extends AppCompatActivity {
                                     //Toast.makeText(getApplicationContext(), "itemClick: position = " + id, Toast.LENGTH_SHORT).show();
                                     //String str_position = position.toString();
                                     //Отправка UPDATE Country в БД
+                                    String u_login = UserSP.getString(APP_PREFERENCES_NAME, "");
                                     NetworkService.getInstance()
                                             .getJSONApiSelectCountry()
-                                            .getStringScalarItem(new ItemSelect(position,"e3afed0047b08059d0fada10f400c1e5"))
+                                            .getStringScalarItem(new ItemSelect(position,u_login))
                                             .enqueue(new Callback<ItemSelect>() {
                                                 @Override
                                                 public void onResponse(@NonNull Call<ItemSelect> call, @NonNull retrofit2.Response<ItemSelect> response) {
