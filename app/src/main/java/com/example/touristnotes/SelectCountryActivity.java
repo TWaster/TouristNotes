@@ -1,16 +1,14 @@
 package com.example.touristnotes;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.app.Activity;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,6 +17,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.touristnotes.JSONReaderURL.CountriesRead;
+import com.example.touristnotes.JSONReaderURL.NetworkService;
+import com.example.touristnotes.pojo.ItemSelect;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,17 +35,14 @@ public class SelectCountryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_country); //Выбор Layout отображения
         listView = (ListView) findViewById(R.id.listView_country); //Выбор нужного ID ListView
-        loadJSONFromURL(JSON_URL);
+        loadJSONFromURL();
     }
 
-    private void loadJSONFromURL(String url) {
-        //final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        //progressBar.setVisibility(ListView.VISIBLE);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+    private void loadJSONFromURL() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, SelectCountryActivity.JSON_URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        //progressBar.setVisibility(ListView.INVISIBLE);
                         try {
                             JSONObject object = new JSONObject(response);
                             JSONArray jsonArray = object.getJSONArray("countries"); //Название подгружаемого объекта JSON
@@ -55,8 +53,14 @@ public class SelectCountryActivity extends AppCompatActivity {
                             //Обработчик событий Click по элементам списка
                             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                    //Log.d(LOG_TAG, "itemClick: position = " + position + ", id = " + id);
-                                    Toast.makeText(getApplicationContext(), "itemClick: position = " + position + ", id = " + id, Toast.LENGTH_SHORT).show();
+                                    //Добавить обработчик для выгрузки выбранного варианта в БД
+                                    //Toast.makeText(getApplicationContext(), "itemClick: position = " + id, Toast.LENGTH_SHORT).show();
+
+                                    //Отправка UPDATE Country в БД
+                                    NetworkService.getInstance()
+                                            .getJSONApiSelectCoutry()
+                                            .getStringScalarItem(new ItemSelect(position,"e3afed0047b08059d0fada10f400c1e5"));
+                                    //finish();
                                 }
                             });
                         } catch (JSONException e) {
@@ -85,11 +89,5 @@ public class SelectCountryActivity extends AppCompatActivity {
             js.printStackTrace();
         }
         return aList;
-    }
-
-    public void onClick(View view) {
-        Intent i;
-        i = new Intent(this, UserSettingsActivity.class);
-        startActivity(i);
     }
 }

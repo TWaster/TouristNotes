@@ -1,5 +1,6 @@
 package com.example.touristnotes.JSONReaderURL;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+
 import com.example.touristnotes.R;
 import com.squareup.picasso.Picasso;
 import org.json.JSONException;
@@ -23,10 +27,11 @@ public class CountriesRead extends ArrayAdapter<JSONObject> {
         this.listLayout = listLayout;
         this.usersList = usersList;
     }
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View listViewItem = inflater.inflate(listLayout, null, false);
+        @SuppressLint("ViewHolder") View listViewItem = inflater.inflate(listLayout, null, false);
         TextView c_id = listViewItem.findViewById(R.id.li_id);
         TextView c_name = listViewItem.findViewById(R.id.li_name);
         try {

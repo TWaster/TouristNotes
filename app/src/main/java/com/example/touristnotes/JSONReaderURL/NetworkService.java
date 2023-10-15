@@ -32,8 +32,8 @@ public class NetworkService {
     public InterUserLogin getJSONApiLogin() {
         return mRetrofit.create(InterUserLogin.class);
     }
-
-    public InterUserRegistration getJSONApiRegistration() {
-        return mRetrofit.create(InterUserRegistration.class);
+    public InterUserRegistration getJSONApiRegistration() {return mRetrofit.create(InterUserRegistration.class);}
+    public InterCountry getJSONApiSelectCoutry() {
+        return mRetrofit.create(InterCountry.class);
     }
 }
