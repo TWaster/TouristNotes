@@ -2,13 +2,11 @@ package com.example.touristnotes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -58,7 +56,7 @@ public class SelectCountryActivity extends AppCompatActivity {
 
                                     //Отправка UPDATE Country в БД
                                     NetworkService.getInstance()
-                                            .getJSONApiSelectCoutry()
+                                            .getJSONApiSelectCountry()
                                             .getStringScalarItem(new ItemSelect(position,"e3afed0047b08059d0fada10f400c1e5"));
                                     //finish();
                                 }

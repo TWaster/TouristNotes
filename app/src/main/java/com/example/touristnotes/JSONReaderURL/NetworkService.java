@@ -33,7 +33,7 @@ public class NetworkService {
         return mRetrofit.create(InterUserLogin.class);
     }
     public InterUserRegistration getJSONApiRegistration() {return mRetrofit.create(InterUserRegistration.class);}
-    public InterCountry getJSONApiSelectCoutry() {
+    public InterCountry getJSONApiSelectCountry() {
         return mRetrofit.create(InterCountry.class);
     }
 }
