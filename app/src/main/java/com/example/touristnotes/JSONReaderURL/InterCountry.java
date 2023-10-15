@@ -7,8 +7,9 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 import com.example.touristnotes.pojo.ItemSelect;
+import com.example.touristnotes.pojo.LoginResult;
 
 public interface InterCountry {
-    @POST("api/db_update/up_country.php")
+    @POST("api/users/up_country.php")
     Call<ItemSelect> getStringScalarItem(@Body ItemSelect body);
 }

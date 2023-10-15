@@ -1,5 +1,6 @@
 package com.example.touristnotes;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -17,12 +18,15 @@ import com.android.volley.toolbox.Volley;
 import com.example.touristnotes.JSONReaderURL.CountriesRead;
 import com.example.touristnotes.JSONReaderURL.NetworkService;
 import com.example.touristnotes.pojo.ItemSelect;
-
+import com.example.touristnotes.pojo.LoginResult;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class SelectCountryActivity extends AppCompatActivity {
     private static final String JSON_URL = "http://travelesnotes.ru/api/readCountries.php";
@@ -53,11 +57,23 @@ public class SelectCountryActivity extends AppCompatActivity {
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                     //Добавить обработчик для выгрузки выбранного варианта в БД
                                     //Toast.makeText(getApplicationContext(), "itemClick: position = " + id, Toast.LENGTH_SHORT).show();
-
+                                    //String str_position = position.toString();
                                     //Отправка UPDATE Country в БД
                                     NetworkService.getInstance()
                                             .getJSONApiSelectCountry()
-                                            .getStringScalarItem(new ItemSelect(position,"e3afed0047b08059d0fada10f400c1e5"));
+                                            .getStringScalarItem(new ItemSelect(position,"e3afed0047b08059d0fada10f400c1e5"))
+                                            .enqueue(new Callback<ItemSelect>() {
+                                                @Override
+                                                public void onResponse(@NonNull Call<ItemSelect> call, @NonNull retrofit2.Response<ItemSelect> response) {
+
+                                                }
+
+                                                @Override
+                                                public void onFailure(@NonNull Call<ItemSelect> call, @NonNull Throwable t) {
+
+                                                }
+                                            });
+
                                     //finish();
                                 }
                             });

@@ -1,7 +1,7 @@
 package com.example.touristnotes.pojo;
 
 public class ItemSelect {
-    private Integer SelectItemCountry;
+    private int SelectItemCountry;
     private String Unique_key;
 
     public ItemSelect(int SelectItemCountry, String Unique_key) {
@@ -9,10 +9,10 @@ public class ItemSelect {
         this.Unique_key = Unique_key;
     }
 
-    public Integer getCountry() {
+    public int getCountry() {
         return SelectItemCountry;
     }
-    public void getCountry(Integer SelectItemCountry) {this.SelectItemCountry = SelectItemCountry;}
+    public void getCountry(int SelectItemCountry) {this.SelectItemCountry = SelectItemCountry;}
     public String getUnique_key() {
         return Unique_key;
     }
