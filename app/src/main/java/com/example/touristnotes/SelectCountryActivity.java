@@ -20,7 +20,6 @@ import com.android.volley.toolbox.Volley;
 import com.example.touristnotes.JSONReaderURL.CountriesRead;
 import com.example.touristnotes.JSONReaderURL.NetworkService;
 import com.example.touristnotes.pojo.ItemSelect;
-import com.example.touristnotes.pojo.LoginResult;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -64,10 +63,7 @@ public class SelectCountryActivity extends AppCompatActivity {
                             //Обработчик событий Click по элементам списка
                             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                    //Добавить обработчик для выгрузки выбранного варианта в БД
-                                    //Toast.makeText(getApplicationContext(), "itemClick: position = " + id, Toast.LENGTH_SHORT).show();
-                                    //String str_position = position.toString();
-                                    //Отправка UPDATE Country в БД
+                                    //Отправка UPDATE Country в БД под текущим именем пользователя
                                     String u_login = UserSP.getString(APP_PREFERENCES_NAME, "");
                                     NetworkService.getInstance()
                                             .getJSONApiSelectCountry()
@@ -83,8 +79,7 @@ public class SelectCountryActivity extends AppCompatActivity {
 
                                                 }
                                             });
-
-                                    //finish();
+                                    finish();
                                 }
                             });
                         } catch (JSONException e) {
