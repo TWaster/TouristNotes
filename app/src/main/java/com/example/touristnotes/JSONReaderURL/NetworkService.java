@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NetworkService {
     private static NetworkService mInstance;
     private static final String BASE_URL = "http://travelesnotes.ru";
-    private Retrofit mRetrofit;
+    private final Retrofit mRetrofit;
 
     private NetworkService() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();

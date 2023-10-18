@@ -42,8 +42,6 @@ public class SelectCountryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_country); //Выбор Layout отображения
         UserSP = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-
-
         listView = (ListView) findViewById(R.id.listView_country); //Выбор нужного ID ListView
         loadJSONFromURL();
     }
