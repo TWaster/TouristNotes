@@ -1,5 +1,6 @@
 package com.example.touristnotes;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -14,13 +15,13 @@ import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.touristnotes.JSONReaderURL.NetworkService;
 import com.example.touristnotes.JSONReaderURL.RegionsRead;
 import com.example.touristnotes.pojo.ItemSelect;
+import com.example.touristnotes.pojo.RegionsResult;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +33,7 @@ import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SelectRegionsActivity extends AppCompatActivity {
     private static final String JSON_URL = "http://travelesnotes.ru/api/readRegions.php";
@@ -46,9 +48,27 @@ public class SelectRegionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_regions); //Выбор Layout отображения
         UserSP = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        String u_login = UserSP.getString(APP_PREFERENCES_NAME, "");
         listView = (ListView) findViewById(R.id.listView_Regions); //Выбор нужного ID ListView
         //loadJSONFromURL();
+        NetworkService.getInstance()
+                .getJSONApiRegions()
+                .getStringScalarRegions(new RegionsResult(u_login))
+                .enqueue(new Callback<RegionsResult>() {
+                    @Override
+                    public void onResponse(@NonNull Call<RegionsResult> call, @NonNull Response<RegionsResult> response) {
+                        //Описание в случае успешного запроса
+                        Toast.makeText(SelectRegionsActivity.this, "Запрос выполнен успешно!", Toast.LENGTH_SHORT).show();
 
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<RegionsResult> call, @NonNull Throwable t) {
+                        //Описание в случае ошибки запроса
+                        Toast.makeText(SelectRegionsActivity.this, "Ошибка запроса", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
     }
 
     private void loadJSONFromURL() {

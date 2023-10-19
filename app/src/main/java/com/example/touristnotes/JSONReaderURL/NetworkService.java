@@ -36,4 +36,5 @@ public class NetworkService {
     public InterCountry getJSONApiSelectCountry() {
         return mRetrofit.create(InterCountry.class);
     }
+    public InterRegions getJSONApiRegions() {return mRetrofit.create(InterRegions.class); }
 }
