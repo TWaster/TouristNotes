@@ -1,6 +1,6 @@
 package com.example.touristnotes.JSONReaderURL;
 
-import com.example.touristnotes.pojo.RegionsResult;
+import com.example.touristnotes.pojo.regions.RegionsResult;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
