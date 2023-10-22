@@ -65,7 +65,7 @@ public class SelectCountryActivity extends AppCompatActivity {
                                     String u_login = UserSP.getString(APP_PREFERENCES_NAME, "");
                                     NetworkService.getInstance()
                                             .getJSONApiSelectCountry()
-                                            .getStringScalarItem(new ItemSelect(position,u_login))
+                                            .getStringScalarItem(new ItemSelect("0",position,u_login))
                                             .enqueue(new Callback<ItemSelect>() {
                                                 @Override
                                                 public void onResponse(@NonNull Call<ItemSelect> call, @NonNull retrofit2.Response<ItemSelect> response) {

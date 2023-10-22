@@ -1,10 +1,12 @@
 package com.example.touristnotes.pojo;
 
 public class ItemSelect {
+    private String SelectItemRegion;
     private int SelectItemCountry;
     private String User_name;
 
-    public ItemSelect(int SelectItemCountry, String User_name) {
+    public ItemSelect(String SelectItemRegion ,int SelectItemCountry, String User_name) {
+        this.SelectItemRegion = SelectItemRegion;
         this.SelectItemCountry = SelectItemCountry;
         this.User_name = User_name;
     }

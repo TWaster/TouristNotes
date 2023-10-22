@@ -13,15 +13,12 @@ import com.example.touristnotes.R;
 import com.example.touristnotes.pojo.regions.Region;
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONException;
-
 import java.util.List;
 
 public class RegionsAdapter extends ArrayAdapter<Region> {
     List<Region> regionList;
     Context context;
     private LayoutInflater mInflater;
-    //int listLayout;
 
     //Конструктор
     public RegionsAdapter(Context context, List<Region> objects) {
@@ -67,18 +64,5 @@ public class RegionsAdapter extends ArrayAdapter<Region> {
         vh.textViewName.setText(item.getName());
         Picasso.get().load(item.getImage()).into(vh.imageView);
         return vh.rootView;
-                
-        //LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        //View listViewItem = inflater.inflate(listLayout, null, false);
-        //TextView sr_id = listViewItem.findViewById(R.id.li_id);
-        //TextView sr_name = listViewItem.findViewById(R.id.li_name);
-        //try {
-        //    sr_id.setText(usersList.get(position).getString("id"));
-        //    sr_name.setText(usersList.get(position).getString("name"));
-        //    Picasso.get().load(usersList.get(position).getString("image")).into((ImageView) listViewItem.findViewById(R.id.li_img));
-        //} catch (JSONException je) {
-        //    je.printStackTrace();
-        //}
-        //return listViewItem;
     }
 }

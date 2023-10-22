@@ -29,12 +29,9 @@ public class NetworkService {
     }
 
     //Обявление Интерфейсов Логин/Регистрация
-    public InterUserLogin getJSONApiLogin() {
-        return mRetrofit.create(InterUserLogin.class);
-    }
+    public InterUserLogin getJSONApiLogin() {return mRetrofit.create(InterUserLogin.class);}
     public InterUserRegistration getJSONApiRegistration() {return mRetrofit.create(InterUserRegistration.class);}
-    public InterCountry getJSONApiSelectCountry() {
-        return mRetrofit.create(InterCountry.class);
-    }
+    public InterCountry getJSONApiSelectCountry() {return mRetrofit.create(InterCountry.class);}
     public InterRegions getJSONApiRegions() {return mRetrofit.create(InterRegions.class); }
+    public InterUpRegion getJSONApiSelectRegion(){return mRetrofit.create(InterUpRegion.class); }
 }
