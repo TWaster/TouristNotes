@@ -15,21 +15,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/button_back"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:contentDescription="TODO"
-            android:foreground="@drawable/back"
-            android:onClick="onClick" />
-
         <TextView
+            style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@android:color/holo_blue_dark"
             android:gravity="center"
-            android:text="Выберите район"
-            android:textSize="30dp" />
+            android:text="@string/SelectSubRegion"
+            android:textSize="30sp"
+            android:background="@color/colorHead"/>
 
     </LinearLayout>
 

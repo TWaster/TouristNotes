@@ -16,4 +16,5 @@
     <string name="achievements">Достижения</string>
     <string name="selectCountry">Выберите Страну</string>
     <string name="SelectRegion">Выберите регион</string>
+    <string name="SelectSubRegion">Выберите район</string>
 </resources>

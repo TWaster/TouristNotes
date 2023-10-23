@@ -1,7 +1,5 @@
 package com.example.touristnotes.pojo.regions;
 
-import android.util.Log;
-
 import javax.annotation.processing.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

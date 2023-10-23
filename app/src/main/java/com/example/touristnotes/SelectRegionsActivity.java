@@ -58,7 +58,7 @@ public class SelectRegionsActivity extends AppCompatActivity {
                 String u_login = UserSP.getString(APP_PREFERENCES_NAME, "");
                 NetworkService.getInstance()
                         .getJSONApiSelectRegion()
-                        .getStringScalarItem(new ItemSelect(RegionList.get(position).getId(),0,u_login))
+                        .getStringScalarItem(new ItemSelect(RegionList.get(position).getId(),0,u_login,"0"))
                         .enqueue(new Callback<ItemSelect>() {
                             @Override
                             public void onResponse(@NonNull Call<ItemSelect> call, @NonNull retrofit2.Response<ItemSelect> response) {

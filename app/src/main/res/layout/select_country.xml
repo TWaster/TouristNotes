@@ -13,13 +13,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!--<ImageButton
-            android:id="@+id/button_back"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:onClick="onClick"
-            android:foreground="@drawable/back"/>-->
-
         <TextView
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="match_parent"
