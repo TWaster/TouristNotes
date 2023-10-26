@@ -25,7 +25,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SelectRegionsActivity extends AppCompatActivity {
-    private static final String JSON_URL = "http://travelesnotes.ru/api/readRegions.php";
     // Информация о SharedPreferences
     public static final String APP_PREFERENCES = "UserLoginSP";
     public static final String APP_PREFERENCES_NAME = "Login";

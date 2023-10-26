@@ -1,4 +1,4 @@
-package com.example.touristnotes.pojo;
+package com.example.touristnotes.pojo.users;
 
 public class RegistrationData {
     private String login;

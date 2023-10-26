@@ -1,90 +1,72 @@
 package com.example.touristnotes;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ListAdapter;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.example.touristnotes.JSONReaderURL.CollectionsRead;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.example.touristnotes.JSONReaderURL.NetworkService;
+import com.google.android.material.snackbar.Snackbar;
+import com.example.touristnotes.pojo.adapters.CollectionsAdapter;
+import com.example.touristnotes.pojo.collections.Collection;
+import com.example.touristnotes.pojo.collections.CollectionsResult;
 
 import java.util.ArrayList;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class SelectCollectionsActivity extends AppCompatActivity {
+    // Информация о SharedPreferences
+    public static final String APP_PREFERENCES = "UserLoginSP";
+    public static final String APP_PREFERENCES_NAME = "Login";
+    SharedPreferences UserSP;
 
-    private static final String JSON_URL = "http://travelesnotes.ru/api/readCollections.php";
-
-    ListView listView;
+    private ListView listView;
+    private View parentView;
+    private ArrayList<Collection> CollectionList;
+    private CollectionsAdapter adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_collections);
+
+        CollectionList = new ArrayList<>();
+        parentView = findViewById(R.id.parentLayout);
+
+        //Получаем информацию из SharedPreference
+        UserSP = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        String u_login = UserSP.getString(APP_PREFERENCES_NAME, "");
+
+        //Объявление листа для отображения выгрузки JSON
         listView = (ListView) findViewById(R.id.listView_collections); //Выбор нужного ID ListView
-        loadJSONFromURL(JSON_URL);
-    }
 
-    private void loadJSONFromURL(String url) {
-        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar_collections);
-        progressBar.setVisibility(ListView.VISIBLE);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
+        NetworkService.getInstance()
+                .getJSONApiCollections()
+                .getStringScalarCollections(new CollectionsResult(u_login))
+                .enqueue(new Callback<CollectionsResult>() {
                     @Override
-                    public void onResponse(String response) {
-                        progressBar.setVisibility(ListView.INVISIBLE);
-                        try {
-                            JSONObject object = new JSONObject(response);
-                            JSONArray jsonArray = object.getJSONArray("object_type"); //Название подгружаемого объекта JSON
-                            ArrayList<JSONObject> listItems = getArrayListFromJSONArray(jsonArray);
+                    public void onResponse(@NonNull Call<CollectionsResult> call, @NonNull Response<CollectionsResult> response) {
+                        CollectionList = (ArrayList<Collection>) response.body().getCollections();
 
-                            ListAdapter adapter = new CollectionsRead(getApplicationContext(), R.layout.list_item, R.id.li_name, listItems);
-                            listView.setAdapter(adapter);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                        adapter = new CollectionsAdapter(SelectCollectionsActivity.this, CollectionList);
+                        listView.setAdapter(adapter);
                     }
 
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-    }
+                    @Override
+                    public void onFailure(@NonNull Call<CollectionsResult> call, @NonNull Throwable t) {
+                        //Описание в случае ошибки запроса
+                        Toast.makeText(SelectCollectionsActivity.this, "Ошибка запроса", Toast.LENGTH_SHORT).show();
 
-    private ArrayList<JSONObject> getArrayListFromJSONArray(JSONArray jsonArray) {
-        ArrayList<JSONObject> aList = new ArrayList<JSONObject>();
-        try {
-            if (jsonArray != null) {
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    aList.add(jsonArray.getJSONObject(i));
-                }
-            }
-        } catch (JSONException js) {
-            js.printStackTrace();
-        }
-        return aList;
-    }
-
-    public void onClick(View view) {
-        Intent i;
-        i = new Intent(this, MainActivity.class);
-        startActivity(i);
+                    }
+                });
     }
 }

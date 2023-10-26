@@ -13,10 +13,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 //Самописные классы для процесса логирования
 import com.example.touristnotes.JSONReaderURL.NetworkService;
-import com.example.touristnotes.pojo.LoginData;
-import com.example.touristnotes.pojo.LoginResult;
-import com.example.touristnotes.pojo.RegistrationData;
-import com.example.touristnotes.pojo.RegistrationResult;
+import com.example.touristnotes.pojo.users.LoginData;
+import com.example.touristnotes.pojo.users.LoginResult;
+import com.example.touristnotes.pojo.users.RegistrationData;
+import com.example.touristnotes.pojo.users.RegistrationResult;
 
 //Библиотеки для работы с API
 import retrofit2.Call;

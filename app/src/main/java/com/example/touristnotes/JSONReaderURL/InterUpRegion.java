@@ -7,6 +7,6 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface InterUpRegion {
-    @POST("api/users/up_region.php")
+    @POST("/api/users/up_region.php")
     Call<ItemSelect> getStringScalarItem(@Body ItemSelect body);
 }

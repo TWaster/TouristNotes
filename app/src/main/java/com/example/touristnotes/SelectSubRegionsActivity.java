@@ -3,38 +3,20 @@ package com.example.touristnotes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.touristnotes.JSONReaderURL.NetworkService;
-import com.example.touristnotes.JSONReaderURL.subRegionsRead;
 import com.example.touristnotes.pojo.ItemSelect;
-import com.example.touristnotes.pojo.adapters.RegionsAdapter;
 import com.example.touristnotes.pojo.adapters.SubRegionsAdapter;
-import com.example.touristnotes.pojo.regions.Region;
 import com.example.touristnotes.pojo.subregions.SubRegion;
 import com.example.touristnotes.pojo.subregions.SubRegionsResult;
 import com.google.android.material.snackbar.Snackbar;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 

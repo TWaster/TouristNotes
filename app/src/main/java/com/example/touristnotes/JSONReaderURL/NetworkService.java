@@ -28,12 +28,13 @@ public class NetworkService {
         return mInstance;
     }
 
-    //Обявление Интерфейсов Логин/Регистрация
+    //Обявление Интерфейсов
     public InterUserLogin getJSONApiLogin() {return mRetrofit.create(InterUserLogin.class);}
     public InterUserRegistration getJSONApiRegistration() {return mRetrofit.create(InterUserRegistration.class);}
     public InterCountry getJSONApiSelectCountry() {return mRetrofit.create(InterCountry.class);}
-    public InterRegions getJSONApiRegions() {return mRetrofit.create(InterRegions.class); }
-    public InterUpRegion getJSONApiSelectRegion(){return mRetrofit.create(InterUpRegion.class); }
-    public InterSubRegions getJSONApiSubRegions() {return mRetrofit.create(InterSubRegions.class); }
+    public InterRegions getJSONApiRegions() {return mRetrofit.create(InterRegions.class);}
+    public InterUpRegion getJSONApiSelectRegion(){return mRetrofit.create(InterUpRegion.class);}
+    public InterSubRegions getJSONApiSubRegions() {return mRetrofit.create(InterSubRegions.class);}
     public InterUpSubRegion getJSONApiSelectSubRegion(){return mRetrofit.create(InterUpSubRegion.class); }
+    public InterCollections getJSONApiCollections(){return  mRetrofit.create(InterCollections.class);}
 }

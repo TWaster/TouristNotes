@@ -1,11 +1,11 @@
-package com.example.touristnotes.pojo.regions;
+package com.example.touristnotes.pojo.collections;
 
 import javax.annotation.processing.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("jsonschema2pojo")
-public class Region {
+public class Collection {
     @SerializedName("id")
     @Expose
     private String id;

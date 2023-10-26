@@ -1,4 +1,4 @@
-package com.example.touristnotes.pojo;
+package com.example.touristnotes.pojo.users;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

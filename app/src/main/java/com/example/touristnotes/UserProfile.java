@@ -14,8 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.touristnotes.JSONReaderURL.NetworkService;
-import com.example.touristnotes.pojo.LoginData;
-import com.example.touristnotes.pojo.LoginResult;
+import com.example.touristnotes.pojo.users.LoginData;
+import com.example.touristnotes.pojo.users.LoginResult;
 import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
