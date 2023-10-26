@@ -17,4 +17,5 @@
     <string name="selectCountry">Выберите Страну</string>
     <string name="SelectRegion">Выберите регион</string>
     <string name="SelectSubRegion">Выберите район</string>
+    <string name="SelectObject">Выберите объект</string>
 </resources>

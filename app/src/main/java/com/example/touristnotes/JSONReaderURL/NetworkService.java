@@ -37,4 +37,5 @@ public class NetworkService {
     public InterSubRegions getJSONApiSubRegions() {return mRetrofit.create(InterSubRegions.class);}
     public InterUpSubRegion getJSONApiSelectSubRegion(){return mRetrofit.create(InterUpSubRegion.class); }
     public InterCollections getJSONApiCollections(){return  mRetrofit.create(InterCollections.class);}
+    public InterObjects getJSONApiObjects(){return mRetrofit.create(InterObjects.class);}
 }

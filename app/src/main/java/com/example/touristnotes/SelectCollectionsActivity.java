@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.touristnotes.JSONReaderURL.NetworkService;
+import com.example.touristnotes.pojo.ItemSelect;
 import com.google.android.material.snackbar.Snackbar;
 import com.example.touristnotes.pojo.adapters.CollectionsAdapter;
 import com.example.touristnotes.pojo.collections.Collection;
@@ -38,6 +40,7 @@ public class SelectCollectionsActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_collections);
+        final Intent intent = new Intent(this, SelectObjectActivity.class);
 
         CollectionList = new ArrayList<>();
         parentView = findViewById(R.id.parentLayout);
@@ -48,6 +51,16 @@ public class SelectCollectionsActivity extends AppCompatActivity {
 
         //Объявление листа для отображения выгрузки JSON
         listView = (ListView) findViewById(R.id.listView_collections); //Выбор нужного ID ListView
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                intent.putExtra("SelectedTypeID", CollectionList.get(position).getId());
+                intent.putExtra("SelectedTypeName", CollectionList.get(position).getName());
+
+                startActivity(intent);
+                //finish();
+            }
+        });
 
         NetworkService.getInstance()
                 .getJSONApiCollections()
@@ -56,7 +69,6 @@ public class SelectCollectionsActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(@NonNull Call<CollectionsResult> call, @NonNull Response<CollectionsResult> response) {
                         CollectionList = (ArrayList<Collection>) response.body().getCollections();
-
                         adapter = new CollectionsAdapter(SelectCollectionsActivity.this, CollectionList);
                         listView.setAdapter(adapter);
                     }
