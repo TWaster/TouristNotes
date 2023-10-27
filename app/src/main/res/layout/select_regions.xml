@@ -17,9 +17,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@android:color/holo_blue_dark"
+            android:background="@color/colorHead"
             android:gravity="center"
             android:text="@string/SelectRegion"
             android:textSize="30sp" />
@@ -42,14 +43,5 @@
 
     </LinearLayout>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
