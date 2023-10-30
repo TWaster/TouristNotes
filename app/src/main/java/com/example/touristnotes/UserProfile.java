@@ -50,7 +50,7 @@ public class UserProfile extends AppCompatActivity {
                             LoginResult loginResult = response.body();
                             assert loginResult != null;
                             if (loginResult.getUnique_key() != null) {
-                                ImageView userImageView = findViewById(R.id.profile_image);
+                                ImageView userImageView = findViewById(R.id.chek_object);
                                 Picasso.get().load(loginResult.getAvatar()).into(userImageView);
                                 TextView user_name = findViewById(R.id.name_profile);
                                 user_name.setText(loginResult.getNickname());

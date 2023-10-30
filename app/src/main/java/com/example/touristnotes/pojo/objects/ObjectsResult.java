@@ -7,9 +7,9 @@ import java.util.List;
 
 @Generated("jsonshema2pojo")
 public class ObjectsResult {
-    public String uLogin;
+    public String object_type;
 
-    public ObjectsResult(String uLogin) {this.uLogin = uLogin;}
+    public ObjectsResult(String object_type) {this.object_type = object_type;}
 
     @SerializedName("objects")
     @Expose

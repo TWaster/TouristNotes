@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -36,16 +37,18 @@ public class SelectObjectActivity extends AppCompatActivity {
     private View parentView;
     private ArrayList<Object> ObjectList;
     private ObjectsAdapter adapter;
+    private String object_type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_object);
+        final Intent intent = new Intent(this, ObjectActivity.class);
         //Вывод выбранного типа объектов в заголовок
         TextView HeadObj = findViewById(R.id.ObjTypeName);
         HeadObj.setText(getIntent().getStringExtra("SelectedTypeName"));
-        Toast.makeText(SelectObjectActivity.this, getIntent().getStringExtra("SelectedTypeID"), Toast.LENGTH_LONG).show();
-
+        //Toast.makeText(SelectObjectActivity.this, getIntent().getStringExtra("SelectedTypeID"), Toast.LENGTH_LONG).show();
+        object_type = getIntent().getStringExtra("SelectedTypeID");
         ObjectList = new ArrayList<>();
         parentView = findViewById(R.id.parentLayout);
 
@@ -59,16 +62,15 @@ public class SelectObjectActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Snackbar.make(parentView, ObjectList.get(position).getName() + "=>" + ObjectList.get(position).getId(), Snackbar.LENGTH_LONG).show();
-
-                String u_login = UserSP.getString(APP_PREFERENCES_NAME, "");
-
+                intent.putExtra("SelectedObjectID", ObjectList.get(position).getId());
+                startActivity(intent);
                 //finish();
             }
         });
 
         NetworkService.getInstance()
                 .getJSONApiObjects()
-                .getStringScalarObjects(new ObjectsResult(u_login))
+                .getStringScalarObjects(new ObjectsResult(object_type))
                 .enqueue(new Callback<ObjectsResult>() {
                     @Override
                     public void onResponse(@NonNull Call<ObjectsResult> call, @NonNull Response<ObjectsResult> response) {

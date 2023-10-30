@@ -8,7 +8,7 @@
     tools:context=".SelectCollectionsActivity">
 
     <LinearLayout
-        android:id="@+id/RelativeLayout1"
+        android:id="@+id/HeadObj"
         android:background="@color/colorHead"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -41,7 +41,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RelativeLayout1">
+        app:layout_constraintTop_toBottomOf="@+id/HeadObj">
 
         <ListView
             android:id="@+id/listView_collections"
