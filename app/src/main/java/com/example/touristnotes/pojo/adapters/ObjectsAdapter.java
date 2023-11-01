@@ -43,10 +43,10 @@ public class ObjectsAdapter extends ArrayAdapter<Object> {
             this.imageView = imageView;
             this.textViewName = textViewName;
         }
-        public static ObjectsAdapter.ViewHolder create(RelativeLayout rootView){
+        public static ViewHolder create(RelativeLayout rootView){
             ImageView imageView = (ImageView) rootView.findViewById(R.id.li_img);
             TextView textViewName = (TextView) rootView.findViewById(R.id.li_name);
-            return new ObjectsAdapter.ViewHolder(rootView, imageView, textViewName);
+            return new ViewHolder(rootView, imageView, textViewName);
         }
     }
 
@@ -62,9 +62,7 @@ public class ObjectsAdapter extends ArrayAdapter<Object> {
         }
         Object item = getItem(position);
         vh.textViewName.setText(item.getName());
-        //Picasso.get().load(item.getImage()).into(vh.imageView);
+        Picasso.get().load(item.getImage()).into(vh.imageView);
         return vh.rootView;
     }
-
-
 }

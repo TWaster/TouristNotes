@@ -20,4 +20,6 @@
     <string name="SelectObject">Выберите объект</string>
     <string name="NameObj">Наименование</string>
     <string name="info">Описание</string>
+    <string name="object_preview">Object_preview</string>
+    <string name="ratingValueDefault">0.0</string>
 </resources>

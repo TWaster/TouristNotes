@@ -39,12 +39,14 @@ public class ObjectActivity extends AppCompatActivity {
                         //Описание точек вывода
                         TextView NameObject = findViewById(R.id.ObjectName);
                         TextView ObjDescription = findViewById(R.id.Obj_description);
-                        ImageView userImageView = findViewById(R.id.image_object);
+                        TextView ObjectRating = findViewById(R.id.ratingValue);
+                        ImageView ImageObject = findViewById(R.id.image_object);
 
                         //Описание воводов в точки
                         NameObject.setText(objectInfo.getName());
                         ObjDescription.setText(objectInfo.getInfo());
-                        Picasso.get().load(objectInfo.getImage());
+                        Picasso.get().load(objectInfo.getImage()).into(ImageObject);
+                        ObjectRating.setText(objectInfo.getRating());
                     }
 
                     @Override

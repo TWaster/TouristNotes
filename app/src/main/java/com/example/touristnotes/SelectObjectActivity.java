@@ -61,7 +61,7 @@ public class SelectObjectActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Snackbar.make(parentView, ObjectList.get(position).getName() + "=>" + ObjectList.get(position).getId(), Snackbar.LENGTH_LONG).show();
+                //Snackbar.make(parentView, ObjectList.get(position).getName() + "=>" + ObjectList.get(position).getId(), Snackbar.LENGTH_LONG).show();
                 intent.putExtra("SelectedObjectID", ObjectList.get(position).getId());
                 startActivity(intent);
                 //finish();
