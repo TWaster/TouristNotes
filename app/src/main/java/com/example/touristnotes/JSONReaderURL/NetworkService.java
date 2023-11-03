@@ -39,4 +39,5 @@ public class NetworkService {
     public InterCollections getJSONApiCollections(){return  mRetrofit.create(InterCollections.class);}
     public InterObjects getJSONApiObjects(){return mRetrofit.create(InterObjects.class);}
     public InterSelectedObject getJSONApiObjectInfo(){return mRetrofit.create(InterSelectedObject.class);}
+    public InterMarkedObject getJSONApiMarkedObject(){return mRetrofit.create(InterMarkedObject.class);}
 }

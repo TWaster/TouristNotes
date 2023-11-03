@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.touristnotes.JSONReaderURL.NetworkService;
+import com.example.touristnotes.pojo.objects.MarkedObject;
 import com.example.touristnotes.pojo.objects.Object;
 import com.example.touristnotes.pojo.objects.ObjectsResult;
 import com.google.android.material.snackbar.Snackbar;
@@ -56,4 +57,21 @@ public class ObjectActivity extends AppCompatActivity {
                 });
     }
 
+    public void MarkedObject(View view) {
+        NetworkService.getInstance()
+                .getJSONApiMarkedObject()
+                .getStringScalarMarkedObject(new MarkedObject("1", "1"))
+                .enqueue(new Callback<MarkedObject>() {
+                    @Override
+                    public void onResponse(@NonNull Call<MarkedObject> call, @NonNull Response<MarkedObject> response) {
+
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<MarkedObject> call, @NonNull Throwable t) {
+
+                    }
+                });
+
+    }
 }
