@@ -3,7 +3,9 @@ package com.example.touristnotes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -22,6 +24,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ObjectActivity extends AppCompatActivity {
+    public String objectID;
+    public String userID;
+    //Подключение SharedPreference к форме
+    public static final String APP_PREFERENCES = "UserLoginSP";
+    SharedPreferences UserSP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +36,7 @@ public class ObjectActivity extends AppCompatActivity {
         setContentView(R.layout.object);
         final Intent intent = new Intent(this, ObjectActivity.class);
         String SelectedObject = getIntent().getStringExtra("SelectedObjectID");
+        UserSP = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
         NetworkService.getInstance()
                 .getJSONApiObjectInfo()
@@ -48,6 +56,9 @@ public class ObjectActivity extends AppCompatActivity {
                         ObjDescription.setText(objectInfo.getInfo());
                         Picasso.get().load(objectInfo.getImage()).into(ImageObject);
                         ObjectRating.setText(objectInfo.getRating());
+
+                        //Данные для передачи
+                        objectID = objectInfo.getId();
                     }
 
                     @Override
@@ -57,10 +68,10 @@ public class ObjectActivity extends AppCompatActivity {
                 });
     }
 
-    public void MarkedObject(View view) {
+    public void MarkedObject(View view){
         NetworkService.getInstance()
                 .getJSONApiMarkedObject()
-                .getStringScalarMarkedObject(new MarkedObject("1", "1"))
+                .getStringScalarMarkedObject(new MarkedObject(objectID, UserSP.getString("UserID","")))
                 .enqueue(new Callback<MarkedObject>() {
                     @Override
                     public void onResponse(@NonNull Call<MarkedObject> call, @NonNull Response<MarkedObject> response) {

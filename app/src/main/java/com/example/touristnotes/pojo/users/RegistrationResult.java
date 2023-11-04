@@ -1,7 +1,7 @@
 package com.example.touristnotes.pojo.users;
 
 public class RegistrationResult {
-    private long id;
+    private String id;
     private String nickname;
     private String avatar;
     private Integer rank;
@@ -12,7 +12,7 @@ public class RegistrationResult {
     private String unique_key;
     private String message;
 
-    public RegistrationResult(long id, String avatar, String nickname, Integer rank, int level, int s_contry, int s_region, int s_sub_region, String unique_key, String message) {
+    public RegistrationResult(String id, String avatar, String nickname, Integer rank, int level, int s_contry, int s_region, int s_sub_region, String unique_key, String message) {
         this.id = id;
         this.avatar = avatar;
         this.nickname = nickname;
@@ -26,7 +26,7 @@ public class RegistrationResult {
     }
 
     //GET-методы для вывода в форму
-    public long getId() {
+    public String getId() {
         return id;
     }
 
@@ -67,7 +67,7 @@ public class RegistrationResult {
     }
 
     //SET-методы для внесение изменений
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -123,19 +123,5 @@ public class RegistrationResult {
         if (!avatar.equals(that.avatar)) return false;
         if (!rank.equals(that.rank)) return false;
         return unique_key.equals(that.unique_key);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + nickname.hashCode();
-        result = 31 * result + avatar.hashCode();
-        result = 31 * result + rank;
-        result = 31 * result + level;
-        result = 31 * result + s_contry;
-        result = 31 * result + s_region;
-        result = 31 * result + s_sub_region;
-        result = 31 * result + unique_key.hashCode();
-        return result;
     }
 }

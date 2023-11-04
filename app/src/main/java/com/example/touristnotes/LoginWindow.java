@@ -28,6 +28,7 @@ import retrofit2.Response;
      public static final String APP_PREFERENCES = "UserLoginSP";
      public static final String APP_PREFERENCES_NAME = "Login";
      public static final String APP_PREFERENCES_PASSWORD = "Password";
+     public static final String APP_PREFERENCES_USERID = "UserID";
      SharedPreferences UserSP;
      boolean doubleBackToExitPressedOnce = false;
 
@@ -115,6 +116,7 @@ import retrofit2.Response;
                              SharedPreferences.Editor editor = UserSP.edit();
                              editor.putString(APP_PREFERENCES_NAME, u_login.getText().toString());
                              editor.putString(APP_PREFERENCES_PASSWORD, u_pass.getText().toString());
+                             editor.putString(APP_PREFERENCES_USERID, loginResult.getId());
                              editor.apply();
 
                              //Описание передачи данных между Activity
@@ -170,6 +172,7 @@ import retrofit2.Response;
                              SharedPreferences.Editor editor = UserSP.edit();
                              editor.putString(APP_PREFERENCES_NAME, u_login.getText().toString());
                              editor.putString(APP_PREFERENCES_PASSWORD, u_pass.getText().toString());
+                             editor.putString(APP_PREFERENCES_USERID, registrationResult.getId());
 
                              editor.apply();
                              //intent.putExtra("level", "99+ lvl");
