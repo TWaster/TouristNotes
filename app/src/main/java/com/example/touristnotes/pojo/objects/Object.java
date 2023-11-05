@@ -28,9 +28,12 @@ public class Object {
     @SerializedName("image")
     @Expose
     private String image;
+    //Данные для передачи
     public String selectedObject;
 
-    public Object(String selectedObject) {this.selectedObject = selectedObject;}
+    public Object(String selectedObjec) {
+        this.selectedObject = selectedObject;
+    }
 
     public String getId() {
         return id;

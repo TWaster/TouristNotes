@@ -25,7 +25,6 @@ import retrofit2.Response;
 
 public class ObjectActivity extends AppCompatActivity {
     public String objectID;
-    public String userID;
     //Подключение SharedPreference к форме
     public static final String APP_PREFERENCES = "UserLoginSP";
     SharedPreferences UserSP;

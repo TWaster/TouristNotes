@@ -70,7 +70,7 @@ public class SelectObjectActivity extends AppCompatActivity {
 
         NetworkService.getInstance()
                 .getJSONApiObjects()
-                .getStringScalarObjects(new ObjectsResult(object_type))
+                .getStringScalarObjects(new ObjectsResult(object_type, UserSP.getString("UserID","")))
                 .enqueue(new Callback<ObjectsResult>() {
                     @Override
                     public void onResponse(@NonNull Call<ObjectsResult> call, @NonNull Response<ObjectsResult> response) {
