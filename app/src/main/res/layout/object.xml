@@ -27,7 +27,7 @@
             android:gravity="center"
             android:text="@string/NameObj"
             android:textSize="25sp" />
-        <CheckBox
+        <ImageView
             android:id="@+id/check_object"
             android:layout_width="50dp"
             android:layout_height="fill_parent"
@@ -36,7 +36,8 @@
             android:layout_gravity="end"
             android:contentDescription="@string/Profile"
             android:gravity="center"
-            android:onClick="onClick"/>
+            android:src="@drawable/marked"
+            android:visibility="invisible"/>
 
         <!--<de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
@@ -162,15 +163,15 @@
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_gravity="right"
-            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
             android:onClick="MarkedObject"
-            android:text="подробнее" />
+            android:text="Отметить" />
 
 
     </LinearLayout>
 
 
-    <LinearLayout
+    <!--<LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -180,7 +181,7 @@
 
 
 
-    </LinearLayout>
+    </LinearLayout>-->
 
 
 

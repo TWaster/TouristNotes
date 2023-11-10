@@ -28,11 +28,16 @@ public class Object {
     @SerializedName("image")
     @Expose
     private String image;
+    @SerializedName("marked")
+    @Expose
+    private String marked;
     //Данные для передачи
     public String selectedObject;
+    public String userID;
 
-    public Object(String selectedObjec) {
+    public Object(String selectedObject, String userID) {
         this.selectedObject = selectedObject;
+        this.userID = userID;
     }
 
     public String getId() {
@@ -91,4 +96,11 @@ public class Object {
         this.image = image;
     }
 
+    public String getMarked() {
+        return marked;
+    }
+
+    public void setMarked(String marked) {
+        this.marked = marked;
+    }
 }

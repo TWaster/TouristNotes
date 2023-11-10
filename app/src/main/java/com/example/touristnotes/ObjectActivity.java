@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,6 +20,8 @@ import com.example.touristnotes.pojo.objects.ObjectsResult;
 import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 
+import java.util.Objects;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,6 +30,8 @@ public class ObjectActivity extends AppCompatActivity {
     public String objectID;
     //Подключение SharedPreference к форме
     public static final String APP_PREFERENCES = "UserLoginSP";
+    public static final String OBJECT_ID = "ObjectID";
+
     SharedPreferences UserSP;
 
     @Override
@@ -36,28 +41,37 @@ public class ObjectActivity extends AppCompatActivity {
         final Intent intent = new Intent(this, ObjectActivity.class);
         String SelectedObject = getIntent().getStringExtra("SelectedObjectID");
         UserSP = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = UserSP.edit();
 
         NetworkService.getInstance()
                 .getJSONApiObjectInfo()
-                .getStringScalarObjectInfo(new Object(SelectedObject))
+                .getStringScalarObjectInfo(new Object(SelectedObject, UserSP.getString("UserID","")))//Добавить передачу в виде: (SelectedObject, UserID)
                 .enqueue(new Callback<Object>() {
                     @Override
                     public void onResponse(@NonNull Call<Object> call, @NonNull Response<Object> response) {
                         Object objectInfo = response.body();
+
                         //Описание точек вывода
                         TextView NameObject = findViewById(R.id.ObjectName);
                         TextView ObjDescription = findViewById(R.id.Obj_description);
                         TextView ObjectRating = findViewById(R.id.ratingValue);
                         ImageView ImageObject = findViewById(R.id.image_object);
+                        ImageView ObjectMarked = findViewById(R.id.check_object);
 
                         //Описание воводов в точки
                         NameObject.setText(objectInfo.getName());
                         ObjDescription.setText(objectInfo.getInfo());
                         Picasso.get().load(objectInfo.getImage()).into(ImageObject);
                         ObjectRating.setText(objectInfo.getRating());
+                        if (Objects.equals(response.body().getMarked(), "1")) {
+                            ObjectMarked.setVisibility(View.VISIBLE);
+                        } else
+                        {ObjectMarked.setVisibility(View.INVISIBLE);}
 
                         //Данные для передачи
-                        objectID = objectInfo.getId();
+                        editor.putString(OBJECT_ID, objectInfo.getId());
+                        editor.apply();
+                        Toast.makeText(ObjectActivity.this,UserSP.getString("ObjectID",""),Toast.LENGTH_LONG).show();
                     }
 
                     @Override
@@ -70,7 +84,7 @@ public class ObjectActivity extends AppCompatActivity {
     public void MarkedObject(View view){
         NetworkService.getInstance()
                 .getJSONApiMarkedObject()
-                .getStringScalarMarkedObject(new MarkedObject(objectID, UserSP.getString("UserID","")))
+                .getStringScalarMarkedObject(new MarkedObject(UserSP.getString("ObjectID", ""), UserSP.getString("UserID",""))) //Реализовать корректную передачу objectID из другого класса.
                 .enqueue(new Callback<MarkedObject>() {
                     @Override
                     public void onResponse(@NonNull Call<MarkedObject> call, @NonNull Response<MarkedObject> response) {
@@ -82,6 +96,6 @@ public class ObjectActivity extends AppCompatActivity {
 
                     }
                 });
-
+        recreate();
     }
 }

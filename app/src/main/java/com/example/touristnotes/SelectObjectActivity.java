@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -63,6 +64,7 @@ public class SelectObjectActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Snackbar.make(parentView, ObjectList.get(position).getName() + "=>" + ObjectList.get(position).getId(), Snackbar.LENGTH_LONG).show();
                 intent.putExtra("SelectedObjectID", ObjectList.get(position).getId());
+                //Log.i("LOG", ObjectList.get(position).getId());
                 startActivity(intent);
                 //finish();
             }
