@@ -22,4 +22,5 @@
     <string name="info">Описание</string>
     <string name="object_preview">Object_preview</string>
     <string name="ratingValueDefault">0.0</string>
+    <string name="difficult">Сложность:</string>
 </resources>

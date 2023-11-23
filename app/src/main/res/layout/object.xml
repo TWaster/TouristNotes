@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/parentLayout"
     tools:context=".ObjectActivity">
+
     <RelativeLayout
         android:id="@+id/HeadObj"
         android:layout_width="match_parent"
@@ -56,7 +57,7 @@
     </RelativeLayout> <!-- Шапка -->
 
     <RelativeLayout
-        android:id="@+id/relativeLayout"
+        android:id="@+id/LayoutObjImage"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="#9EF2FA"
@@ -112,41 +113,72 @@
             android:numStars="5"
             android:stepSize="0.5" />-->
 
-        <!--<androidx.cardview.widget.CardView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+        <androidx.cardview.widget.CardView
+            android:layout_width="60dp"
+            android:layout_height="40dp"
             android:layout_alignStart="@+id/image_object"
-            android:layout_alignTop="@+id/image_object"
-            android:layout_alignEnd="@+id/image_object"
             android:layout_alignBottom="@+id/image_object"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="141dp"
-            android:layout_marginEnd="311dp"
             android:layout_marginBottom="10dp"
             app:cardCornerRadius="10dp"
             app:cardElevation="8dp">
 
             <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
-                android:foreground="@drawable/goe"
                 android:background="@color/design_default_color_background"
-                android:contentDescription="TODO" />
+                android:contentDescription="TODO"
+                android:foreground="@drawable/goe" />
 
 
-        </androidx.cardview.widget.CardView>-->
+        </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
+    <RelativeLayout
+        android:id="@+id/LayoutObjectInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/LayoutObjImage">
+
+        <TextView
+            android:id="@+id/objectDifficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/difficult"
+            />
+        <ImageView
+            android:id="@+id/PB_Dificulty"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:src="@drawable/pb_3"
+
+            android:layout_marginVertical="7dp"
+            android:layout_toEndOf="@+id/objectDifficulty"
+            android:contentDescription="TODO" />
+
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginVertical="3dp"
+            android:layout_toEndOf="@+id/PB_Dificulty"
+            android:background="@color/design_default_color_background"
+            android:contentDescription="TODO"
+            android:foreground="@drawable/helper" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/LayoutObjectDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
-
+        app:layout_constraintTop_toBottomOf="@+id/LayoutObjectInfo">
 
         <TextView
             android:id="@+id/Obj_description"
@@ -156,34 +188,46 @@
             android:ellipsize="end"
             android:text="@string/info"
             android:textSize="16sp" />
+    </RelativeLayout>
 
 
-        <Button
-            style="@style/CardView"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_gravity="right"
-            android:layout_marginEnd="20dp"
-            android:onClick="MarkedObject"
-            android:text="Отметить" />
-
-
-    </LinearLayout>
-
-
-    <!--<LinearLayout
+    <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/LayoutObjectDescription">
 
+        <Button
+            style="@style/CardView"
+            android:id="@+id/markedobject"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="right"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:onClick="MarkedObject"
+            android:text="Отметить"
+            tools:ignore="RtlHardcoded" />
 
-
-    </LinearLayout>-->
-
-
+        <Button
+            style="@style/CardView"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="left"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="Комментарии"
+            android:visibility="invisible"
+            tools:ignore="RtlHardcoded" />
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
