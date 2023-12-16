@@ -3,6 +3,7 @@ package com.example.touristnotes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -33,8 +34,9 @@ public class ObjectActivity extends AppCompatActivity {
     //Подключение SharedPreference к форме
     public static final String APP_PREFERENCES = "UserLoginSP";
     public static final String OBJECT_ID = "ObjectID";
-
     SharedPreferences UserSP;
+    //Подключение Dialog окон
+    Dialog Diff_Helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,9 @@ public class ObjectActivity extends AppCompatActivity {
         String SelectedObject = getIntent().getStringExtra("SelectedObjectID");
         UserSP = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = UserSP.edit();
+        //Работа с Dialog
+        Diff_Helper = new Dialog(ObjectActivity.this);
+        Diff_Helper.setContentView(R.layout.helper_difficult);
 
         NetworkService.getInstance()
                 .getJSONApiObjectInfo()
@@ -124,5 +129,9 @@ public class ObjectActivity extends AppCompatActivity {
                     }
                 });
         recreate();
+    }
+    public void ClickDiffHelper(View v)
+    {
+        Diff_Helper.show();
     }
 }

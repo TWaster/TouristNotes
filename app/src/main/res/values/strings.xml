@@ -5,7 +5,7 @@
     <string name="Collection">Коллекции</string>
     <string name="Profile">Профиль</string>
     <string name="Achievements">Достижения</string>
-    <string name="Setings">Настройки</string>
+    <string name="Settings">Настройки</string>
     <string name="EnterLogin">Введите логин</string>
     <string name="EnterPassword">Введите пароль</string>
     <string name="Login">Войти</string>
@@ -23,4 +23,10 @@
     <string name="object_preview">Object_preview</string>
     <string name="ratingValueDefault">0.0</string>
     <string name="difficult">Сложность:</string>
+    <string name="diff_1">1 уровень сложности. Легко добраться пешком или на общественном транспорте.</string>
+    <string name="diff_2">2 уровень сложности. Можно добраться на общественном транспорте или личном автомобиле с частичной прогулкой. </string>
+    <string name="diff_3">3 уровень сложности. Возможно добраться на личном автомобиле с частичной прогулкой.</string>
+    <string name="diff_4">4 уровень сложности. Рекомендуется привлечения гида.</string>
+    <string name="diff_5">5 уровень сложности. Для посещения рекомендуется привлечение гида и специализированная подготовка.</string>
+    <string name="todo">TODO</string>
 </resources>

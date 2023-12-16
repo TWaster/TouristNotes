@@ -161,6 +161,7 @@
             android:contentDescription="TODO" />
 
         <ImageButton
+            android:id="@+id/ShowHelperDifficult"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginHorizontal="5dp"
@@ -168,7 +169,8 @@
             android:layout_toEndOf="@+id/PB_Dificulty"
             android:background="@color/design_default_color_background"
             android:contentDescription="TODO"
-            android:foreground="@drawable/helper" />
+            android:foreground="@drawable/helper"
+            android:onClick="ClickDiffHelper" />
 
     </RelativeLayout>
 
