@@ -130,11 +130,12 @@
                 android:layout_gravity="center"
                 android:background="@color/design_default_color_background"
                 android:contentDescription="TODO"
-                android:foreground="@drawable/goe" />
+                android:foreground="@drawable/goe"
+                tools:ignore="TouchTargetSizeCheck" />
 
 
         </androidx.cardview.widget.CardView>
-    </RelativeLayout>
+    </RelativeLayout> <!-- Слайдер -->
 
     <RelativeLayout
         android:id="@+id/LayoutObjectInfo"
@@ -170,69 +171,77 @@
             android:background="@color/design_default_color_background"
             android:contentDescription="TODO"
             android:foreground="@drawable/helper"
-            android:onClick="ClickDiffHelper" />
+            android:onClick="ClickDiffHelper"
+            tools:ignore="TouchTargetSizeCheck" />
 
-    </RelativeLayout>
+    </RelativeLayout> <!-- Сложность -->
 
-    <RelativeLayout
-        android:id="@+id/LayoutObjectDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LayoutObjectInfo"
-        >
+        tools:ignore="MissingConstraints">
 
-        <TextView
-            android:id="@+id/Obj_description"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:ellipsize="end"
-            android:text="@string/info"
-            android:textSize="16sp" />
-    </RelativeLayout>
+            android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LayoutObjectDescription">
+            <RelativeLayout
+                android:id="@+id/LayoutObjectDescription"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/markedobject"
-            style="@style/CardView"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="right"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:onClick="MarkedObject"
-            android:text="Отметить"
-            tools:ignore="RtlHardcoded" />
+                <TextView
+                    android:id="@+id/Obj_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:ellipsize="end"
+                    android:text="@string/info"
+                    android:textSize="16sp" />
+            </RelativeLayout>
 
-        <Button
-            style="@style/CardView"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:layout_alignParentStart="true"
-            android:layout_gravity="left"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:text="Комментарии"
-            android:visibility="invisible"
-            tools:ignore="RtlHardcoded" />
-    </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/LayoutObjectDescription"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/LayoutObjectDescription">
 
+                <Button
+                    android:id="@+id/markedobject"
+                    style="@style/CardView"
+                    android:layout_width="150dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="right"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:onClick="MarkedObject"
+                    android:text="Отметить"
+                    tools:ignore="RtlHardcoded" />
 
+                <Button
+                    style="@style/CardView"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Комментарии"
+                    android:visibility="invisible"
+                    tools:ignore="RtlHardcoded" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView> <!-- Описание -->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
