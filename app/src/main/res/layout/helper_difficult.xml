@@ -10,7 +10,7 @@
     tools:layout_editor_absoluteX="16dp"
     tools:layout_editor_absoluteY="0dp">
     <LinearLayout
-        android:id="@+id/Diff_1"
+        android:id="@+id/Stars_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
@@ -34,7 +34,7 @@
         android:id="@+id/Diff_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Diff_1">
+        android:layout_below="@+id/Stars_bar">
         <ImageView
             android:layout_width="100dp"
             android:layout_height="20dp"

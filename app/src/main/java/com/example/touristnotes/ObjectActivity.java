@@ -37,6 +37,7 @@ public class ObjectActivity extends AppCompatActivity {
     SharedPreferences UserSP;
     //Подключение Dialog окон
     Dialog Diff_Helper;
+    Dialog Grade_object;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,9 @@ public class ObjectActivity extends AppCompatActivity {
         //Работа с Dialog
         Diff_Helper = new Dialog(ObjectActivity.this);
         Diff_Helper.setContentView(R.layout.helper_difficult);
+
+        Grade_object = new Dialog(ObjectActivity.this);
+        Grade_object.setContentView(R.layout.grade_object);
 
         NetworkService.getInstance()
                 .getJSONApiObjectInfo()
@@ -134,4 +138,9 @@ public class ObjectActivity extends AppCompatActivity {
     {
         Diff_Helper.show();
     }
+
+    public void ClickGradeObject(View v){
+        Grade_object.show();
+    }
+
 }

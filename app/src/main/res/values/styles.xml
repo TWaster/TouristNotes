@@ -10,5 +10,8 @@
         <item name="android:windowFullscreen">true</item>
         
     </style>
-
+    <style name="Grade_Star" parent="Theme.AppCompat">
+        <item name="colorControlNormal">#80FFEB3B</item>
+        <item name="colorControlActivated">#FFEB3B</item>
+    </style>
 </resources>
