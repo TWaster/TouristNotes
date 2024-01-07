@@ -28,14 +28,14 @@
         android:gravity="center_horizontal">
 
         <RatingBar
-            android:theme="@style/Grade_Star"
+            android:id="@+id/GradeObjectBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:isIndicator="false"
             android:max="5"
             android:numStars="5"
             android:stepSize="1"
-            />
+            android:theme="@style/Grade_Star" />
     </LinearLayout>
 
     <LinearLayout
@@ -46,7 +46,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ОК"/>
+            android:onClick="ClickGradeObject"
+            android:text="ОК" />
     </LinearLayout>
 
     </RelativeLayout>

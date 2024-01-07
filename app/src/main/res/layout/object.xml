@@ -81,7 +81,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:onClick="ClickGradeObject"
+            android:onClick="ClickGradeObjectShow"
             android:src="@drawable/rating_stars" />
 
         <TextView
@@ -97,8 +97,9 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:gravity="center"
-            android:onClick="ClickGradeObject"
-            android:text="@string/ratingValueDefault" />
+            android:onClick="ClickGradeObjectShow"
+            android:text="@string/ratingValueDefault"
+            android:textStyle="bold" />
 
         <!--<RatingBar
             android:id="@+id/rating_object"

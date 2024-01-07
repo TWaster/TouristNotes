@@ -13,12 +13,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.touristnotes.JSONReaderURL.NetworkService;
 import com.example.touristnotes.pojo.objects.MarkedObject;
 import com.example.touristnotes.pojo.objects.Object;
+import com.example.touristnotes.pojo.objects.ObjectsGrade;
 import com.example.touristnotes.pojo.objects.ObjectsResult;
 import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
@@ -56,7 +58,7 @@ public class ObjectActivity extends AppCompatActivity {
 
         NetworkService.getInstance()
                 .getJSONApiObjectInfo()
-                .getStringScalarObjectInfo(new Object(SelectedObject, UserSP.getString("UserID","")))//Добавить передачу в виде: (SelectedObject, UserID)
+                .getStringScalarObjectInfo(new Object(SelectedObject, UserSP.getString("UserID","")))
                 .enqueue(new Callback<Object>() {
                     @Override
                     public void onResponse(@NonNull Call<Object> call, @NonNull Response<Object> response) {
@@ -95,7 +97,6 @@ public class ObjectActivity extends AppCompatActivity {
                                 break;
                         }
 
-
                         if (Objects.equals(response.body().getMarked(), "1")) {
                             ObjectMarked.setVisibility(View.VISIBLE);
                             MarkedObject.setVisibility(View.INVISIBLE);
@@ -107,11 +108,27 @@ public class ObjectActivity extends AppCompatActivity {
                         //Данные для передачи
                         editor.putString(OBJECT_ID, objectInfo.getId());
                         editor.apply();
-                        Toast.makeText(ObjectActivity.this,UserSP.getString("ObjectID",""),Toast.LENGTH_LONG).show();
+                        //Toast.makeText(ObjectActivity.this,UserSP.getString("ObjectID",""),Toast.LENGTH_LONG).show();
                     }
 
                     @Override
                     public void onFailure(@NonNull Call<Object> call, @NonNull Throwable t) {
+
+                    }
+                });
+        NetworkService.getInstance()
+                .getJSONApiGradeObject()
+                .getStringScalarGradeObject(new ObjectsGrade(UserSP.getString("ObjectID",""), UserSP.getString("UserID",""), "0"))
+                .enqueue(new Callback<ObjectsGrade>() {
+                    @Override
+                    public void onResponse(Call<ObjectsGrade> call, Response<ObjectsGrade> response) {
+                    ObjectsGrade objectGrade = response.body();
+                    TextView GradeObject = findViewById(R.id.ratingValue);
+                    GradeObject.setText(objectGrade.grade);
+                    }
+
+                    @Override
+                    public void onFailure(Call<ObjectsGrade> call, Throwable t) {
 
                     }
                 });
@@ -120,7 +137,7 @@ public class ObjectActivity extends AppCompatActivity {
     public void MarkedObject(View view){
         NetworkService.getInstance()
                 .getJSONApiMarkedObject()
-                .getStringScalarMarkedObject(new MarkedObject(UserSP.getString("ObjectID", ""), UserSP.getString("UserID",""))) //Реализовать корректную передачу objectID из другого класса.
+                .getStringScalarMarkedObject(new MarkedObject(UserSP.getString("ObjectID", ""), UserSP.getString("UserID","")))
                 .enqueue(new Callback<MarkedObject>() {
                     @Override
                     public void onResponse(@NonNull Call<MarkedObject> call, @NonNull Response<MarkedObject> response) {
@@ -138,9 +155,29 @@ public class ObjectActivity extends AppCompatActivity {
     {
         Diff_Helper.show();
     }
-
-    public void ClickGradeObject(View v){
+    public void ClickGradeObjectShow(View v){
+        //Вывод окна оценки
         Grade_object.show();
+    }
+    public void ClickGradeObject(View v){
+        final RatingBar gradeObj = Grade_object.findViewById(R.id.GradeObjectBar);
+        UserSP = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+
+        NetworkService.getInstance()
+                .getJSONApiUpGradeObject()
+                .getStringScalarGradeObject(new ObjectsGrade(UserSP.getString("ObjectID", ""), UserSP.getString("UserID",""), Float.toString(gradeObj.getRating())))
+                .enqueue(new Callback<ObjectsGrade>() {
+                    @Override
+                    public void onResponse(Call<ObjectsGrade> call, Response<ObjectsGrade> response) {
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ObjectsGrade> call, Throwable t) {
+
+                    }
+                });
+        Grade_object.dismiss();
     }
 
 }
