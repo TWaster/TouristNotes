@@ -31,6 +31,7 @@ public class Object {
     @SerializedName("marked")
     @Expose
     private String marked;
+    private String grade;
     //Данные для передачи
     public String selectedObject;
     public String userID;
@@ -103,4 +104,6 @@ public class Object {
     public void setMarked(String marked) {
         this.marked = marked;
     }
+
+    public String getGrade() {return grade;}
 }

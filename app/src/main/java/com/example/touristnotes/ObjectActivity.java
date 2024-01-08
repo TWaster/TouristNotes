@@ -72,12 +72,14 @@ public class ObjectActivity extends AppCompatActivity {
                         ImageView ObjectMarked = findViewById(R.id.check_object);
                         Button MarkedObject = findViewById(R.id.markedobject);
                         ImageView PB_Dificulty = findViewById(R.id.PB_Dificulty);
+                        TextView GradeObject = findViewById(R.id.ratingValue);
 
                         //Описание воводов в точки
                         NameObject.setText(objectInfo.getName());
                         ObjDescription.setText(objectInfo.getInfo());
                         Picasso.get().load(objectInfo.getImage()).into(ImageObject);
                         ObjectRating.setText(objectInfo.getRating());
+                        GradeObject.setText(objectInfo.getGrade());
                         //Прогресс бар вывода сложности объекта
                         switch (objectInfo.getDifficulty()){
                             case "1":
@@ -113,22 +115,6 @@ public class ObjectActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(@NonNull Call<Object> call, @NonNull Throwable t) {
-
-                    }
-                });
-        NetworkService.getInstance()
-                .getJSONApiGradeObject()
-                .getStringScalarGradeObject(new ObjectsGrade(UserSP.getString("ObjectID",""), UserSP.getString("UserID",""), "0"))
-                .enqueue(new Callback<ObjectsGrade>() {
-                    @Override
-                    public void onResponse(Call<ObjectsGrade> call, Response<ObjectsGrade> response) {
-                    ObjectsGrade objectGrade = response.body();
-                    TextView GradeObject = findViewById(R.id.ratingValue);
-                    GradeObject.setText(objectGrade.grade);
-                    }
-
-                    @Override
-                    public void onFailure(Call<ObjectsGrade> call, Throwable t) {
 
                     }
                 });
