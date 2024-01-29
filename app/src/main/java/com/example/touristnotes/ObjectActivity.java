@@ -165,5 +165,13 @@ public class ObjectActivity extends AppCompatActivity {
                 });
         Grade_object.dismiss();
     }
+    public void ClickCommentList(View v){
+        Intent comments;
+        comments = new Intent(this, ViewComments.class);
+        startActivity(comments);
+
+        //1-Передать ID и Название выбранного объекта
+
+    }
 
 }
