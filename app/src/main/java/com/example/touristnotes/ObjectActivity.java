@@ -36,6 +36,7 @@ public class ObjectActivity extends AppCompatActivity {
     //Подключение SharedPreference к форме
     public static final String APP_PREFERENCES = "UserLoginSP";
     public static final String OBJECT_ID = "ObjectID";
+    public static final String OBJECT_NAME = "ObjectName";
     SharedPreferences UserSP;
     //Подключение Dialog окон
     Dialog Diff_Helper;
@@ -109,6 +110,7 @@ public class ObjectActivity extends AppCompatActivity {
 
                         //Данные для передачи
                         editor.putString(OBJECT_ID, objectInfo.getId());
+                        editor.putString(OBJECT_NAME, objectInfo.getName());
                         editor.apply();
                         //Toast.makeText(ObjectActivity.this,UserSP.getString("ObjectID",""),Toast.LENGTH_LONG).show();
                     }
@@ -166,12 +168,12 @@ public class ObjectActivity extends AppCompatActivity {
         Grade_object.dismiss();
     }
     public void ClickCommentList(View v){
+        UserSP = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         Intent comments;
         comments = new Intent(this, ViewComments.class);
+        comments.putExtra("objectID", UserSP.getString("ObjectID", ""));
+        comments.putExtra("objectName", UserSP.getString("ObjectName", ""));
+        comments.putExtra("userID", UserSP.getString("UserID",""));
         startActivity(comments);
-
-        //1-Передать ID и Название выбранного объекта
-
     }
-
 }

@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/headObj">
 
         <ListView
-            android:id="@+id/listView_Objects"
+            android:id="@+id/listView_Comments"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clickable="false"

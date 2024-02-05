@@ -41,4 +41,5 @@ public class NetworkService {
     public InterSelectedObject getJSONApiObjectInfo(){return mRetrofit.create(InterSelectedObject.class);}
     public InterMarkedObject getJSONApiMarkedObject(){return mRetrofit.create(InterMarkedObject.class);}
     public InterUpGradeObject getJSONApiUpGradeObject(){return mRetrofit.create(InterUpGradeObject.class);}
+    public InterCommentsRead getJSONApiCommentsRead(){return mRetrofit.create(InterCommentsRead.class);}
 }
