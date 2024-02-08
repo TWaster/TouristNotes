@@ -25,7 +25,6 @@ import retrofit2.Response;
 
 
 public class ViewComments extends AppCompatActivity {
-
     //Переменные для адаптера
     private ListView listView;
     private View parentView;
@@ -37,6 +36,7 @@ public class ViewComments extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.comment_list);
         //Получаем переданные значение через Intent
+
         //Toast.makeText(ViewComments.this, getIntent().getStringExtra("userID"), Toast.LENGTH_SHORT).show();
         CommentList = new ArrayList<>();
         parentView = findViewById(R.id.parentLayout);
@@ -49,7 +49,7 @@ public class ViewComments extends AppCompatActivity {
         //Подгрузка комментариев с сервера
         NetworkService.getInstance()
                 .getJSONApiCommentsRead()
-                .getStringScalarComments(new CommentsResult("1", "1", "0"))
+                .getStringScalarComments(new CommentsResult(getIntent().getStringExtra("userID"), getIntent().getStringExtra("objectID"), "0"))
                 .enqueue(new Callback<CommentsResult>() {
                     @Override
                     public void onResponse(Call<CommentsResult> call, Response<CommentsResult> response) {

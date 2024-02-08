@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.touristnotes.R;
 import com.example.touristnotes.pojo.comments.Comment;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -67,7 +68,7 @@ public class CommentsAdapter extends ArrayAdapter<Comment> {
         vh.textViewName.setText(item.getUser());
         vh.textViewComment.setText(item.getText());
         vh.textViewDate.setText(item.getDate());
-        //Picasso.get().load(item.getUserImage()).into(vh.imageView);
+        Picasso.get().load(item.getUserImage()).into(vh.imageView);
         return vh.rootView;
     }
 }

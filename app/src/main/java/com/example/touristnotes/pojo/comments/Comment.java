@@ -16,6 +16,9 @@ public class Comment {
     @SerializedName("date")
     @Expose
     private String date;
+    @SerializedName("user_image")
+    @Expose
+    private String user_image;
 
     public String getId() {
         return id;
@@ -32,6 +35,8 @@ public class Comment {
     public void setUser(String user) {
         this.user = user;
     }
+
+    public  String getUserImage() {return user_image; }
 
     public String getText() {
         return text;
