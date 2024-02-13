@@ -166,6 +166,7 @@ public class ObjectActivity extends AppCompatActivity {
                     }
                 });
         Grade_object.dismiss();
+        recreate();
     }
     public void ClickCommentList(View v){
         UserSP = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);

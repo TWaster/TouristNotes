@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -64,10 +65,29 @@ public class ViewComments extends AppCompatActivity {
                     }
                 });
 
-
-
-        //1-Реализовать подрузку комментариев с сервера
-        //2-Готовим адаптер для вывода полученной инфомрации
-        //3-Описываем функции получения информации через API с сервера  
+    }
+    public void CommentAddClick (View view) {
+        //Описываем метод отправки на сервер!
+        EditText CommentText = (EditText)findViewById(R.id.comment_text);
+        //ДОБАВИТЬ ПРАВИЛО ПУСТОГО EDITTEXT!!!
+        NetworkService.getInstance()
+                .getJSONApiCommentAdd()
+                .getStringScalarCommentAdd(new Comment(
+                        getIntent().getStringExtra("userID"),
+                        getIntent().getStringExtra("objectID"),
+                        CommentText.getText().toString(),
+                        "0"))
+                .enqueue(new Callback<Comment>() {
+                    @Override
+                    public void onResponse(Call<Comment> call, Response<Comment> response) {
+                        Toast.makeText(ViewComments.this, "Ваш комментарий добавлен", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ViewComments.this, "Получено 50 опыта", Toast.LENGTH_SHORT).show();
+                    }
+                    @Override
+                    public void onFailure(Call<Comment> call, Throwable t) {
+                    }
+                });
+        CommentText.setText(null);
+        recreate();
     }
 }

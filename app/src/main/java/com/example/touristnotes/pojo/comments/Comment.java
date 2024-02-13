@@ -20,6 +20,19 @@ public class Comment {
     @Expose
     private String user_image;
 
+    //Данные для передачи на сервер API
+    public String userID;
+    public String objectID;
+    public String commentText;
+    public String commentID;
+
+    public Comment(String userID, String objectID, String commentText, String commentID){
+        this.userID = userID;
+        this.objectID = objectID;
+        this.commentText = commentText;
+        this.commentID = commentID;
+    }
+
     public String getId() {
         return id;
     }

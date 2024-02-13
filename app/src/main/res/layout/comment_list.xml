@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:id="@+id/parentLayout"
     tools:context=".ViewComments">
-
     <LinearLayout
         android:id="@+id/headObj"
         android:layout_width="match_parent"
@@ -16,7 +15,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
         <TextView
             style="@style/TextAppearance.AppCompat.Title"
             android:id="@+id/ObjTypeName"
@@ -33,11 +31,32 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:padding="10dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headObj">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/comment_text"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"/>
 
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_below="@+id/comment_text"
+                android:layout_alignParentEnd="true"
+                android:onClick="CommentAddClick"
+                android:text="Добавить"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+        </RelativeLayout>
         <ListView
             android:id="@+id/listView_Comments"
             android:layout_width="match_parent"
@@ -48,5 +67,4 @@
             android:padding="10dp"
             tools:ignore="NestedScrolling" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
