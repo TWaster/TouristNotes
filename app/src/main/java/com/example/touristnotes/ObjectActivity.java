@@ -7,22 +7,17 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.touristnotes.JSONReaderURL.NetworkService;
 import com.example.touristnotes.pojo.objects.MarkedObject;
 import com.example.touristnotes.pojo.objects.Object;
 import com.example.touristnotes.pojo.objects.ObjectsGrade;
-import com.example.touristnotes.pojo.objects.ObjectsResult;
-import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
@@ -70,7 +65,7 @@ public class ObjectActivity extends AppCompatActivity {
                         TextView ObjDescription = findViewById(R.id.Obj_description);
                         TextView ObjectRating = findViewById(R.id.ratingValue);
                         ImageView ImageObject = findViewById(R.id.image_object);
-                        ImageView ObjectMarked = findViewById(R.id.check_object);
+                        ImageView ObjectMarked = findViewById(R.id.user_image);
                         Button MarkedObject = findViewById(R.id.markedobject);
                         ImageView PB_Dificulty = findViewById(R.id.PB_Dificulty);
                         TextView GradeObject = findViewById(R.id.ratingValue);

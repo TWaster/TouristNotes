@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         user_level.setText(getIntent().getStringExtra("u_level") + " Ур.");
         TextView user_set_region = findViewById(R.id.CheckedRegion);
         user_set_region.setText(getIntent().getStringExtra("u_region"));
-        ImageView userImageView = findViewById(R.id.chek_object);
+        ImageView userImageView = findViewById(R.id.user_image);
         Picasso.get().load(getIntent().getStringExtra("u_avatar")).into(userImageView);
     }
 
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 
                 startActivity(intent_prof);
                 break;
-            case R.id.chek_object:
+            case R.id.user_image:
                 Intent prof_img;
                 prof_img = new Intent(this, UserProfile.class);
                 startActivity(prof_img);

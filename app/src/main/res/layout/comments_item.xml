@@ -54,6 +54,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="10dp"
         android:text="Ответы"
+        android:visibility="invisible"
         android:textSize="15sp"
         tools:ignore="SmallSp" />
 </RelativeLayout>
