@@ -44,4 +44,5 @@ public class NetworkService {
     public InterCommentsRead getJSONApiCommentsRead(){return mRetrofit.create(InterCommentsRead.class);}
     public InterCommentAdd getJSONApiCommentAdd(){return mRetrofit.create(InterCommentAdd.class);}
     public InterUpUserAvatar getJSONApiUpUserAvatar(){return mRetrofit.create(InterUpUserAvatar.class);}
+    public InterLastPlaces getJSONApiLastPlaces(){return  mRetrofit.create(InterLastPlaces.class);}
 }

@@ -1,7 +1,5 @@
 package com.example.touristnotes.pojo.users;
 
-import android.graphics.Bitmap;
-
 public class AvatarUpload {
     private String user_id;
     private String image_avatar;

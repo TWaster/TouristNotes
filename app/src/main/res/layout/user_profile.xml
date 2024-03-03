@@ -25,7 +25,7 @@
     </LinearLayout> <!-- Шапка -->
 
     <RelativeLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/user_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
@@ -41,7 +41,7 @@
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:layout_marginVertical="10sp"
-            android:src="@drawable/im1"
+            android:src="@drawable/default_avatar"
             app:civ_border_color="#FFFFFF"
             app:civ_border_width="1dp" />
 
@@ -86,10 +86,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
+        app:layout_constraintTop_toBottomOf="@+id/user_header"
+        android:orientation="vertical">
         <ListView
-            android:id="@+id/listView_profile"
+            android:id="@+id/list_LastPlaces"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clickable="false"
