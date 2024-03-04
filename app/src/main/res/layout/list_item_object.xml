@@ -31,14 +31,14 @@
         android:layout_marginBottom="10dp"
         android:layout_toEndOf="@+id/li_img"
         android:gravity="center_vertical"
-        android:textSize="18sp" />
+        android:textSize="16sp" />
     <ImageView
         android:id="@+id/item_marked"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="5dp"
-        android:layout_marginTop="8dp"
+        android:layout_gravity="end"
         android:contentDescription="@string/marked"
         android:gravity="center"
         android:src="@drawable/marked"

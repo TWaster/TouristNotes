@@ -54,7 +54,7 @@ public class LastPlacesAdapter extends ArrayAdapter<LastPlace> {
     public View getView(int position, View convertView, ViewGroup parent) {
         final ViewHolder vh;
         if (convertView == null) {
-            View view = mInflater.inflate(R.layout.list_item, parent, false);
+            View view = mInflater.inflate(R.layout.list_item_object, parent, false);
             vh = ViewHolder.create((RelativeLayout) view);
             view.setTag(vh);
         } else {

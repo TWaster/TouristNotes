@@ -29,4 +29,5 @@
     <string name="diff_4">4 уровень сложности. Рекомендуется привлечения гида.</string>
     <string name="diff_5">5 уровень сложности. Для посещения рекомендуется привлечение гида и специализированная подготовка.</string>
     <string name="todo">TODO</string>
+    <string name="marked">Маркер</string>
 </resources>
