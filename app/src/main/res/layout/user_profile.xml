@@ -63,12 +63,19 @@
             android:layout_below="@+id/user_image"
             android:gravity="center"
             android:text="NAME" />
+        <ProgressBar
+            android:id="@+id/level_progress"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="200dp"
+            android:layout_height="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/name_profile"/>
 
         <TextView
             android:id="@+id/level_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/name_profile"
+            android:layout_below="@+id/level_progress"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="5sp"
             android:gravity="center"

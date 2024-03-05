@@ -6,18 +6,22 @@ public class LoginResult {
     private String avatar;
     private Integer rank;
     private String level;
+    private Integer currentExp;
+    private Integer needExp;
     private String s_country;
     private String s_region;
     private String s_sub_region;
     private String unique_key;
     private String message;
 
-    public LoginResult(String id, String avatar, String nickname, Integer rank, String level, String s_country, String s_region, String s_sub_region, String unique_key) {
+    public LoginResult(String id, String avatar, String nickname, Integer rank, String level, Integer currentExp, Integer needExp, String s_country, String s_region, String s_sub_region, String unique_key) {
         this.id = id;
         this.avatar = avatar;
         this.nickname = nickname;
         this.rank = rank;
         this.level = level;
+        this.currentExp = currentExp;
+        this.needExp = needExp;
         this.s_country = s_country;
         this.s_region = s_region;
         this.s_sub_region = s_sub_region;
@@ -45,6 +49,8 @@ public class LoginResult {
     public String getLevel() {
         return level;
     }
+    public Integer getCurrentExp(){return currentExp;}
+    public Integer getNeedExp(){return needExp;}
 
     public String getS_country() {
         return s_country;

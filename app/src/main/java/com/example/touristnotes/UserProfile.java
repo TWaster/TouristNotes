@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,7 +50,8 @@ public class UserProfile extends AppCompatActivity {
     private ListView listView;
     private ArrayList<LastPlace> LastPlaces;
     private LastPlacesAdapter adapter;
-
+    //Для работы ProgressBar
+    private ProgressBar level_progress;
     //Для работы с галлереей
     static final int GALLERY_REQUEST = 1;
 
@@ -60,6 +62,8 @@ public class UserProfile extends AppCompatActivity {
         final Intent intent = new Intent(this, ObjectActivity.class);
         UserSP = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         LastPlaces = new ArrayList<>();
+        //Обьявление ProgressBar уровня пользователя
+        level_progress = (ProgressBar) findViewById(R.id.level_progress);
         //Объявление листа для отображения выгрузки JSON
         listView = (ListView) findViewById(R.id.list_LastPlaces);
         //Обработка клика по объектам
@@ -93,6 +97,10 @@ public class UserProfile extends AppCompatActivity {
                                 user_name.setText(loginResult.getNickname());
                                 TextView user_level = findViewById(R.id.level_profile);
                                 user_level.setText(loginResult.getLevel() + " Уровень");
+                                //Отображения прогресса уровня пользователя
+                                Integer need_exp = loginResult.getNeedExp(); //Получаем с сервера
+                                Integer current_exp = loginResult.getCurrentExp(); //Получаем с сервера
+                                level_progress.setProgress((current_exp*100)/need_exp);
                             } else {
                                 Toast.makeText(UserProfile.this, loginResult.getMessage(), Toast.LENGTH_SHORT).show();
                             }
