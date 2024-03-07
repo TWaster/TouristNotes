@@ -13,8 +13,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.touristnotes.JSONReaderURL.NetworkService;
+import com.example.touristnotes.pojo.comments.Comment;
 import com.example.touristnotes.pojo.objects.MarkedObject;
 import com.example.touristnotes.pojo.objects.Object;
 import com.example.touristnotes.pojo.objects.ObjectsGrade;
@@ -124,7 +126,11 @@ public class ObjectActivity extends AppCompatActivity {
                 .enqueue(new Callback<MarkedObject>() {
                     @Override
                     public void onResponse(@NonNull Call<MarkedObject> call, @NonNull Response<MarkedObject> response) {
-
+                        MarkedObject result = response.body();
+                        Toast.makeText(ObjectActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+                        if (result.getMessage1()!=null) {
+                            Toast.makeText(ObjectActivity.this, result.getMessage1(), Toast.LENGTH_SHORT).show();
+                        }
                     }
 
                     @Override

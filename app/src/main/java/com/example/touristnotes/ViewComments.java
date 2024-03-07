@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -17,6 +18,7 @@ import com.example.touristnotes.JSONReaderURL.NetworkService;
 import com.example.touristnotes.pojo.adapters.CommentsAdapter;
 import com.example.touristnotes.pojo.comments.Comment;
 import com.example.touristnotes.pojo.comments.CommentsResult;
+import com.example.touristnotes.pojo.users.LoginResult;
 
 import java.util.ArrayList;
 
@@ -82,9 +84,12 @@ public class ViewComments extends AppCompatActivity {
                             "0"))
                     .enqueue(new Callback<Comment>() {
                         @Override
-                        public void onResponse(Call<Comment> call, Response<Comment> response) {
-                            //Toast.makeText(ViewComments.this, "Ваш комментарий добавлен", Toast.LENGTH_SHORT).show();
-                            //Toast.makeText(ViewComments.this, "Получено 50 опыта", Toast.LENGTH_SHORT).show();
+                        public void onResponse(@NonNull Call<Comment> call, @NonNull Response<Comment> response) {
+                            Comment result = response.body();
+                            Toast.makeText(ViewComments.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+                            if (result.getMessage1()!=null) {
+                                Toast.makeText(ViewComments.this, result.getMessage1(), Toast.LENGTH_SHORT).show();
+                            }
                         }
                         @Override
                         public void onFailure(Call<Comment> call, Throwable t) {

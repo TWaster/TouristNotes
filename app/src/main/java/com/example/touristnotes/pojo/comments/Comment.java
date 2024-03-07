@@ -19,6 +19,8 @@ public class Comment {
     @SerializedName("user_image")
     @Expose
     private String user_image;
+    private String message;
+    private String message1;
 
     //Данные для передачи на сервер API
     public String userID;
@@ -66,5 +68,7 @@ public class Comment {
     public void setDate(String date) {
         this.date = date;
     }
+    public String getMessage(){return message;}
+    public String getMessage1(){return message1;}
 
 }
