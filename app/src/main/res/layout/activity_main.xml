@@ -16,7 +16,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
         <TextView
             style="@style/TextAppearance.AppCompat.Title"
             android:id="@+id/CheckedRegion"
@@ -29,7 +28,6 @@
             android:gravity="center"
             android:text="Выбранный район"
             android:textSize="18sp" />
-
         <TextView
             style="@style/TextAppearance.AppCompat.Title"
             android:id="@+id/profile_level"
@@ -41,7 +39,6 @@
             android:gravity="center"
             android:text="lvl"
             android:textSize="18sp" />
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/user_image"
             android:layout_width="50dp"
@@ -56,9 +53,7 @@
             android:src="@drawable/im1"
             app:civ_border_color="#FFFFFF"
             app:civ_border_width="1dp" />
-
     </RelativeLayout> <!-- Шапка -->
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -67,7 +62,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/HeadObj">
-
         <com.denzcoskun.imageslider.ImageSlider
             android:id="@+id/image_slider"
             android:layout_width="match_parent"
@@ -77,9 +71,7 @@
             app:iss_auto_cycle="true"
             app:iss_error_image="@drawable/im1"
             android:layout_margin="3dp"/>
-
     </LinearLayout>
-
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="400dp"
@@ -94,7 +86,6 @@
         android:layout_marginTop="50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp">
-
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -109,33 +100,25 @@
             app:cardBackgroundColor="#90ffffff"
             android:clickable="true"
             android:id="@+id/collections"
-            android:onClick="onClick" >
-
+            android:onClick="onClick">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center">
-
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:background="@android:color/transparent"
-                    android:foreground="@drawable/collections" />
-
+                    android:foreground="@drawable/collections"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/Collection"
                     style="@style/TextAppearance.AppCompat.Title"/>
-
-
             </LinearLayout>
-
-
         </androidx.cardview.widget.CardView>
-
         <androidx.cardview.widget.CardView
             android:id="@+id/profile"
             android:layout_width="wrap_content"
@@ -151,78 +134,59 @@
             app:cardBackgroundColor="#90ffffff"
             android:clickable="true"
             android:onClick="onClick">
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center"
                 android:orientation="vertical">
-
                 <ImageView
-
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:background="@android:color/transparent"
                     android:foreground="@drawable/profile"
-                    android:contentDescription="TODO" />
-
+                    android:contentDescription="TODO"/>
                 <TextView
                     style="@style/TextAppearance.AppCompat.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Profile" />
-
-
+                    android:text="@string/Profile"/>
             </LinearLayout>
-
-
         </androidx.cardview.widget.CardView>
-
         <androidx.cardview.widget.CardView
-            android:id="@+id/achievments"
+            android:id="@+id/users_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="1"
-            android:layout_column="0"
             android:layout_rowWeight="1"
+            android:layout_column="0"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="2dp"
-            app:cardCornerRadius="2dp"
-            app:cardElevation="1dp"
-            app:cardBackgroundColor="#90ffffff"
+            android:clickable="true"
             android:onClick="onClick"
-            android:clickable="true">
-
+            app:cardBackgroundColor="#90ffffff"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="1dp">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_gravity="center_vertical|center_horizontal"
-                android:gravity="center">
-
+                android:gravity="center"
+                android:orientation="vertical">
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/Achievements"
-                    android:foreground="@drawable/promote"
-                    android:onClick="onClick" />
-
+                    android:foreground="@drawable/rating"/>
                 <TextView
+                    style="@style/TextAppearance.AppCompat.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Achievements"
-                    android:textSize="16dp"
-                    style="@style/TextAppearance.AppCompat.Title"/>
-
-
+                    android:text="@string/rating"/>
             </LinearLayout>
-
-
         </androidx.cardview.widget.CardView>
-
         <androidx.cardview.widget.CardView
             android:id="@+id/button_settings"
             android:layout_width="wrap_content"
@@ -238,34 +202,24 @@
             app:cardBackgroundColor="#90ffffff"
             android:onClick="onClick"
             android:clickable="true">
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center">
-
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:foreground="@drawable/settings"
                     android:background="@android:color/transparent"/>
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/Settings"
-                    style="@style/TextAppearance.AppCompat.Title"
-                    />
-
-
+                    style="@style/TextAppearance.AppCompat.Title"/>
             </LinearLayout>
-
-
         </androidx.cardview.widget.CardView>
-
     </GridLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 

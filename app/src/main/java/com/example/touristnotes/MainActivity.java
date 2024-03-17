@@ -71,10 +71,10 @@ public class MainActivity extends AppCompatActivity {
                 prof_img = new Intent(this, UserProfile.class);
                 startActivity(prof_img);
                 break;
-            case R.id.achievments:
-                Intent achievments;
-                achievments = new Intent(this, Achievements.class);
-                startActivity(achievments);
+            case R.id.users_rating:
+                Intent users_rating;
+                users_rating = new Intent(this, UsersRating.class);
+                startActivity(users_rating);
                 break;
         }
     }

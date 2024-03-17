@@ -20,6 +20,9 @@
             android:name=".Achievements"
             android:exported="true" />
         <activity
+            android:name=".UsersRating"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
