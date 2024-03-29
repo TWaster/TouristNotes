@@ -1,5 +1,6 @@
 package com.example.touristnotes;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -80,6 +81,7 @@ public class UserProfile extends AppCompatActivity {
         if (UserSP.contains(APP_PREFERENCES_NAME) & UserSP.contains(APP_PREFERENCES_PASSWORD)) {
             String u_login = UserSP.getString(APP_PREFERENCES_NAME, "");
             String u_password = UserSP.getString(APP_PREFERENCES_PASSWORD, "");
+
             //Загрузка информации профиля
             NetworkService.getInstance()
                     .getJSONApiLogin()
@@ -133,11 +135,7 @@ public class UserProfile extends AppCompatActivity {
         }
     }
 
-    public void onClick(View view) {
-        Intent back_profile;
-        back_profile = new Intent(this, MainActivity.class);
-        startActivity(back_profile);
-    }
+
     public void ImageUpload (View view){
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");

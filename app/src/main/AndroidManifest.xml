@@ -20,9 +20,6 @@
             android:name=".Achievements"
             android:exported="true" />
         <activity
-            android:name=".UsersRating"
-            android:exported="true" />
-        <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
@@ -30,6 +27,12 @@
             android:exported="true" />
         <activity
             android:name=".UserProfile"
+            android:exported="true" />
+        <activity
+            android:name=".UserProfileView"
+            android:exported="true" />
+        <activity
+            android:name=".UsersRating"
             android:exported="true" />
         <activity
             android:name=".SelectObjectActivity"
