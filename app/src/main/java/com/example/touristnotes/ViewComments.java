@@ -2,30 +2,20 @@ package com.example.touristnotes;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.example.touristnotes.JSONReaderURL.NetworkService;
-
 import com.example.touristnotes.pojo.adapters.CommentsAdapter;
 import com.example.touristnotes.pojo.comments.Comment;
 import com.example.touristnotes.pojo.comments.CommentsResult;
-import com.example.touristnotes.pojo.users.LoginResult;
-
 import java.util.ArrayList;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 
 public class ViewComments extends AppCompatActivity {
     //Переменные для адаптера
@@ -40,7 +30,6 @@ public class ViewComments extends AppCompatActivity {
         setContentView(R.layout.comment_list);
         //Получаем переданные значение через Intent
 
-        //Toast.makeText(ViewComments.this, getIntent().getStringExtra("userID"), Toast.LENGTH_SHORT).show();
         CommentList = new ArrayList<>();
         parentView = findViewById(R.id.parentLayout);
 
@@ -98,5 +87,24 @@ public class ViewComments extends AppCompatActivity {
             CommentText.setText(null);
             recreate();
         }
+    }
+
+    public void CommentDeleteClick (View view) {
+        //Toast.makeText(ViewComments.this, "Удаление комментария", Toast.LENGTH_SHORT).show();
+
+        NetworkService.getInstance()
+                .getJSONApiCommentDelete()
+                .getStringScalarCommentDelete(new Comment(getIntent().getStringExtra("userID"),"0","0", "0"))
+                .enqueue(new Callback<Comment>() {
+                    @Override
+                    public void onResponse(Call<Comment> call, Response<Comment> response) {
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Comment> call, Throwable t) {
+
+                    }
+                });
     }
 }

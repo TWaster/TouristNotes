@@ -43,6 +43,7 @@ public class NetworkService {
     public InterUpGradeObject getJSONApiUpGradeObject(){return mRetrofit.create(InterUpGradeObject.class);}
     public InterCommentsRead getJSONApiCommentsRead(){return mRetrofit.create(InterCommentsRead.class);}
     public InterCommentAdd getJSONApiCommentAdd(){return mRetrofit.create(InterCommentAdd.class);}
+    public InterCommentDelete getJSONApiCommentDelete(){return mRetrofit.create(InterCommentDelete.class);}
     public InterUpUserAvatar getJSONApiUpUserAvatar(){return mRetrofit.create(InterUpUserAvatar.class);}
     public InterLastPlaces getJSONApiLastPlaces(){return  mRetrofit.create(InterLastPlaces.class);}
     public InterRatingUsers getJSONApiRatingUsers(){return mRetrofit.create(InterRatingUsers.class);}

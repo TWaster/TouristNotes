@@ -21,6 +21,7 @@ public class Comment {
     private String user_image;
     private String message;
     private String message1;
+    private String u_owner;
 
     //Данные для передачи на сервер API
     public String userID;
@@ -71,4 +72,5 @@ public class Comment {
     public String getMessage(){return message;}
     public String getMessage1(){return message1;}
 
+    public String getU_owner() {return u_owner; }
 }

@@ -1,6 +1,7 @@
 package com.example.touristnotes.pojo.adapters;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.example.touristnotes.pojo.comments.Comment;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+import java.util.Objects;
 
 public class CommentsAdapter extends ArrayAdapter<Comment> {
     List<Comment> commentList;
@@ -34,13 +36,15 @@ public class CommentsAdapter extends ArrayAdapter<Comment> {
     private static class ViewHolder {
         public final RelativeLayout rootView;
         public final ImageView imageView;
+        public final ImageView imageDelete;
         public final TextView textViewName;
         public final TextView textViewDate;
         public final TextView textViewComment;
 
-        private ViewHolder(RelativeLayout rootView, ImageView imageView, TextView textViewName, TextView textViewDate, TextView textViewComment){
+        private ViewHolder(RelativeLayout rootView, ImageView imageView, ImageView imageDelete, TextView textViewName, TextView textViewDate, TextView textViewComment){
             this.rootView = rootView;
             this.imageView = imageView;
+            this.imageDelete = imageDelete;
             this.textViewName = textViewName;
             this.textViewDate = textViewDate;
             this.textViewComment = textViewComment;
@@ -48,10 +52,11 @@ public class CommentsAdapter extends ArrayAdapter<Comment> {
         public static ViewHolder create(RelativeLayout rootView){
             //Определить нужные поля для вывода информации
             ImageView imageView = (ImageView) rootView.findViewById(R.id.user_avatar);
+            ImageView imageDelete = (ImageView) rootView.findViewById(R.id.comm_delete);
             TextView textViewComment = (TextView) rootView.findViewById(R.id.comment_text);
             TextView textViewDate = (TextView) rootView.findViewById(R.id.comment_date);
             TextView textViewName = (TextView) rootView.findViewById(R.id.comment_user_name);
-            return new ViewHolder(rootView, imageView, textViewName, textViewDate, textViewComment);
+            return new ViewHolder(rootView, imageView, imageDelete, textViewName, textViewDate, textViewComment);
         }
     }
     @Override
@@ -65,6 +70,9 @@ public class CommentsAdapter extends ArrayAdapter<Comment> {
             vh = (CommentsAdapter.ViewHolder) convertView.getTag();
         }
         Comment item = getItem(position);
+        if (Objects.equals(item.getU_owner(), "1")) {
+            vh.imageDelete.setVisibility(View.VISIBLE);
+        }
         vh.textViewName.setText(item.getUser());
         vh.textViewComment.setText(item.getText());
         vh.textViewDate.setText(item.getDate());

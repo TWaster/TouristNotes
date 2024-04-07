@@ -14,6 +14,7 @@ import com.example.touristnotes.pojo.users.LastPlace;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+import java.util.Objects;
 
 public class LastPlacesAdapter extends ArrayAdapter<LastPlace> {
     List<LastPlace> lastPlaceList;
@@ -61,7 +62,11 @@ public class LastPlacesAdapter extends ArrayAdapter<LastPlace> {
             vh = (ViewHolder) convertView.getTag();
         }
         LastPlace item = getItem(position);
-        vh.textViewName.setText(item.getName());
+        if (Objects.equals(item.getName(), "null")){
+            vh.textViewName.setText("Нет отмеченных объектов");
+        } else {
+            vh.textViewName.setText(item.getName());
+        }
         Picasso.get().load(item.getImage()).into(vh.imageView);
         return vh.rootView;
     }

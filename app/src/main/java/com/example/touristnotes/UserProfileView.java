@@ -94,9 +94,15 @@ public class UserProfileView extends AppCompatActivity {
                     public void onResponse(@NonNull Call<LastPlaces> call, @NonNull Response<LastPlaces> response) {
                         //assert response.body() != null;
                         LastPlaces = (ArrayList<LastPlace>) response.body().getLastPlaces();
+
                         if (LastPlaces!=null){
-                        adapter = new LastPlacesAdapter(UserProfileView.this, LastPlaces);
-                        listView.setAdapter(adapter);}
+                            adapter = new LastPlacesAdapter(UserProfileView.this, LastPlaces);
+                            listView.setAdapter(adapter);}
+                        else {
+                            adapter = new LastPlacesAdapter(UserProfileView.this, LastPlaces);
+                            listView.setAdapter(adapter);
+                            //Задать текст отсутсвия объектов
+                        }
                     }
 
                     @Override
