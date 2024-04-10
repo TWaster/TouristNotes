@@ -88,10 +88,10 @@ public class ViewComments extends AppCompatActivity {
             recreate();
         }
     }
-
-    public void CommentDeleteClick (View view) {
+    /*
+    public void CommentDeleteClick  (View view) {
         //Toast.makeText(ViewComments.this, "Удаление комментария", Toast.LENGTH_SHORT).show();
-
+        adapter.getPosition();
         NetworkService.getInstance()
                 .getJSONApiCommentDelete()
                 .getStringScalarCommentDelete(new Comment(getIntent().getStringExtra("userID"),"0","0", "0"))
@@ -106,5 +106,5 @@ public class ViewComments extends AppCompatActivity {
 
                     }
                 });
-    }
+    }*/
 }

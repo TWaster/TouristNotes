@@ -33,6 +33,7 @@ public class CommentsAdapter extends ArrayAdapter<Comment> {
     @Override
     public Comment getItem(int position){return commentList.get(position);}
 
+
     private static class ViewHolder {
         public final RelativeLayout rootView;
         public final ImageView imageView;
@@ -70,9 +71,9 @@ public class CommentsAdapter extends ArrayAdapter<Comment> {
             vh = (CommentsAdapter.ViewHolder) convertView.getTag();
         }
         Comment item = getItem(position);
-        if (Objects.equals(item.getU_owner(), "1")) {
-            vh.imageDelete.setVisibility(View.VISIBLE);
-        }
+        //if (Objects.equals(item.getU_owner(), "1")) {
+        //    vh.imageDelete.setVisibility(View.VISIBLE);
+        //}
         vh.textViewName.setText(item.getUser());
         vh.textViewComment.setText(item.getText());
         vh.textViewDate.setText(item.getDate());
